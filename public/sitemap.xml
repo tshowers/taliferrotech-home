@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://taliferro.tech/</loc><changefreq>monthly</changefreq><priority>1.0</priority></url>
   <url><loc>https://taliferro.tech/products</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://taliferro.tech/about</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
-  <url><loc>https://taliferro.tech/contact</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/ask-todd</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/maya</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/network</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/moves</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/outreach</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/pulse</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/lead-vault</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/social</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/sayit</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/docs</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/email-creator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/email-signature</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/image-creator</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/products/music</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://taliferro.tech/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://taliferro.tech/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
 </urlset>

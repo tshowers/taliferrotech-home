@@ -13,6 +13,8 @@ from html import escape
 from pathlib import Path
 from urllib.parse import quote
 
+from product_pages import PAGES
+
 SITE = "https://taliferro.tech"
 OUT = Path(__file__).resolve().parent.parent / "public"
 YEAR = 2026
@@ -45,8 +47,8 @@ CONSULT_MAILTO = f"mailto:{EMAIL}?subject=Consultation&body={quote(CONSULT_BODY)
 # (name, tint, glyph file, url or None, one line). Order = universal menu order.
 # url None = no confirmed address yet; the card renders without a link.
 PRODUCTS = [
-    ("Ask TODD", "green", "ask-todd.png", "https://ask.taliferro.tech", "Ask a business question and get the answer with the next move."),
-    ("Maya", "green", "maya.png", "https://maya.taliferro.tech", "Your AI project lead for status reports, plans and what comes next."),
+    ("Ask TODD", "green", "ask-todd.png", "https://todd.taliferro.tech/ask-todd", "Ask a business question and get the answer with the next move."),
+    ("Maya", "green", "maya.png", "https://maya.taliferro.tech", "Your on-call AI Marketing Director for message, campaigns and audience."),
     ("Network", "violet", "network.png", "https://network.taliferro.tech/app", "See which relationships deserve your attention this week."),
     ("Moves", "blue", "moves.png", "https://moves.taliferro.tech/app", "The next best actions across your business, in priority order."),
     ("Outreach", "blue", "outreach.png", "https://outreach.taliferro.tech/app", "Personal outreach emails, drafted and ready for your approval."),
@@ -55,9 +57,9 @@ PRODUCTS = [
     ("Social", "cyan", "social.png", "https://social.taliferro.tech", "Social posts drafted for your channels."),
     ("SayIt", "pink", "sayit.png", "https://sayit.taliferro.tech", "A new type of social media."),
     ("Docs", "blue", "docs.png", "https://docs.taliferro.tech/docs", "Business documents drafted from what TODD already knows."),
-    ("Email Creator", "yellow", "email-creator.svg", None, "Describe an email and get finished HTML."),
+    ("Email Creator", "yellow", "email-creator.svg", "https://emails.taliferro.tech", "Describe an email and get finished HTML."),
     ("Email Signature", "violet", "email-signature.png", "https://signature.taliferro.tech", "A professional signature that pastes into any mail app."),
-    ("Image Creator", "cyan", "image-creator.svg", None, "Describe an image and download it as a PNG."),
+    ("Image Creator", "cyan", "image-creator.svg", "https://images.taliferro.tech", "Describe an image and download it as a PNG."),
     ("Music", "pink", "music.png", "https://music.taliferro.com", "Taliferro Music: jazz, R&B and downtempo, streaming live."),
 ]
 P = {p[0]: p for p in PRODUCTS}
@@ -100,6 +102,14 @@ def chip(name, size):
     tint, glyph = P[name][1], P[name][2]
     return (f'<span class="chip t-{tint}" style="--sz:{size}px" aria-hidden="true">'
             f'<span class="glyph" style="--g:url(/img/products/{glyph})"></span></span>')
+
+
+def page_url(name):
+    return f"/products/{PAGES[name]['slug']}"
+
+
+def detail_link(name, cls, inner):
+    return f'<a class="{cls}" href="{page_url(name)}">{inner}</a>'
 
 
 def product_link(name, cls, inner):
@@ -276,7 +286,7 @@ def home():
         r = 158 if k % 2 else 200
         x, y = 260 + r * math.cos(a) - 30, 260 + r * math.sin(a) - 30
         orbit += f'<span class="orbit__tile" style="left:{x:.1f}px;top:{y:.1f}px">{chip(n, 60)}</span>'
-    tiles = "".join(product_link(n, "ptile", f'{chip(n, 56)}<span>{n}</span>') for n, *_ in PRODUCTS)
+    tiles = "".join(detail_link(n, "ptile", f'{chip(n, 56)}<span>{n}</span>') for n, *_ in PRODUCTS)
     pillars = [("It does the work", "Our products don't stop at an answer. They draft the email, stage the follow-up and check the data, then wait for your go-ahead.", "check"),
                ("One intelligence layer", "TODD sits under every product, so what one app learns, the others can use.", "layers"),
                ("Built in Seattle", "Designed, engineered and supported by Taliferro Tech, LLC on Capitol Hill.", "pin")]
@@ -318,10 +328,10 @@ def home():
 def products():
     sections = ""
     for title, desc, names in GROUPS:
-        cards = "".join(product_link(n, "pcard",
-                                     f'{chip(n, 56)}<span class="pcard__body"><b>{n}</b><span>{P[n][4]}</span>'
-                                     f'<span class="pcard__open">{"Open" + icon("ext", 14) if P[n][3] else "Coming soon"}</span></span>'
-                                     f'{icon("chev", 16, "i pcard__chev")}') for n in names)
+        cards = "".join(detail_link(n, "pcard",
+                                    f'{chip(n, 56)}<span class="pcard__body"><b>{n}</b><span>{P[n][4]}</span>'
+                                    f'<span class="pcard__open">Learn more{icon("arrow", 14)}</span></span>'
+                                    f'{icon("chev", 16, "i pcard__chev")}') for n in names)
         sections += f'<section class="pgroup"><h2><span>{title}</span><small>{desc}</small></h2><div class="pcards">{cards}</div></section>'
     body = f'''<section class="pagehead">
   <div><h1 class="display display--md">Products</h1><p class="lede">Fourteen products, one intelligence layer. Sign in once with your TODD account and use any of them.</p></div>
@@ -409,17 +419,85 @@ def not_found():
     return page("/404", "Page not found | Taliferro Tech", "This page moved or never existed.", "", body, robots="noindex")
 
 
+def product_page(name):
+    _, tint, _, url, line = P[name]
+    d = PAGES[name]
+    group = next(g for g in GROUPS if name in g[2])
+    features = "".join(f'<div class="feat"><h3>{t}</h3><p>{x}</p></div>' for t, x in d["features"])
+    steps = ""
+    if d.get("steps"):
+        items = "".join(f'<li><span class="num">{i + 1}</span><span><b>{t}</b><span>{x}</span></span></li>'
+                        for i, (t, x) in enumerate(d["steps"]))
+        steps = f'<section class="section section--narrow"><span class="kicker">How it works</span><ol class="howto">{items}</ol></section>'
+    open_btn = (f'<a class="btn btn--primary" href="{url}">Open {name}{icon("ext", 14)}</a>' if url else "")
+    app_btn = (f'<a class="btn btn--surface" href="{d["app_store"]}" target="_blank" rel="noopener">Get the iPhone app{icon("ext", 14)}</a>'
+               if d.get("app_store") else "")
+    platforms = "Web and iPhone" if d.get("ios") else "Web"
+    fits = d.get("fits") or []
+    fit_html = ""
+    if fits:
+        fit_cards = "".join(detail_link(n, "pcard pcard--sm", f'{chip(n, 48)}<span class="pcard__body"><b>{n}</b><span>{P[n][4]}</span></span>'
+                                        f'{icon("chev", 16, "i pcard__chev pcard__chev--on")}') for n in fits)
+        fit_html = f'<section class="section section--narrow"><h2 class="h2 h2--sm">Works well with</h2><div class="pcards">{fit_cards}</div></section>'
+    faq = "".join(f'<details class="qa"><summary>{q}{icon("chev", 16, "i qa__chev")}</summary><p>{a}</p></details>' for q, a in d["faq"])
+    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="/products">Products</a>{icon("chev", 14)}<span aria-current="page">{name}</span></nav>
+<section class="phero">
+  <div class="phero__copy">
+    <span class="phero__name">{chip(name, 72)}<span><span class="kicker">{group[0]} · {platforms}</span><b>{name}</b></span></span>
+    <h1 class="display display--md">{d["tagline"]}</h1>
+    <p class="lede">{d["lede"]}</p>
+    <div class="actions">{open_btn}{app_btn}{cta_consult("Book a consultation", "btn btn--surface")}</div>
+  </div>
+</section>
+<section class="section section--narrow">
+  <span class="kicker">What it does</span>
+  <div class="feats">{features}</div>
+</section>
+{steps}
+<section class="band t-green band--page">
+  {chip("Ask TODD", 52)}
+  <div class="band__copy"><h2>{"This is TODD." if name == "Ask TODD" else f"{name} runs on TODD."}</h2><p>TODD, the Taliferro Tech intelligence layer, sits under every product, so what {name} learns, the others can use. One TODD account signs you in to all of them.</p></div>
+  <a class="btn btn--bg btn--sm" href="{TODD_URL}">todd.taliferro.tech{icon("ext", 14)}</a>
+</section>
+{fit_html}
+<section class="section section--narrow">
+  <h2 class="h2 h2--sm">Questions</h2>
+  <div class="faq">{faq}</div>
+</section>
+<section class="panel panel--row">
+  <div class="panel__copy"><h2 class="h2 h2--sm">Not sure {name} is the right fit?</h2><p>Tell us what slows your team down and we'll tell you which products fit.</p></div>
+  {cta_consult()}
+</section>'''
+    path = page_url(name)
+    app = {"@type": "SoftwareApplication", "@id": f"{SITE}{path}#app", "name": name, "description": d["lede"],
+           "applicationCategory": "BusinessApplication", "operatingSystem": "Web, iOS" if d.get("ios") else "Web",
+           "publisher": {"@id": f"{SITE}/#organization"}, "image": f"{SITE}/img/products/{P[name][2]}"}
+    if url:
+        app["url"] = url
+    crumbs = {"@type": "BreadcrumbList", "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Products", "item": f"{SITE}/products"},
+        {"@type": "ListItem", "position": 2, "name": name, "item": f"{SITE}{path}"}]}
+    faq_ld = {"@type": "FAQPage", "mainEntity": [
+        {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in d["faq"]]}
+    return page(path, f"{d['title']} | Taliferro Tech", d["lede"][:300], "Products", body, [app, crumbs, faq_ld])
+
+
 def sitemap(paths):
     urls = "".join(f"  <url><loc>{SITE}{p}</loc><changefreq>monthly</changefreq><priority>{pr}</priority></url>\n" for p, pr in paths)
     return f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>\n'
 
 
 def main():
-    pages = {"index.html": home(), "products.html": products(), "about.html": about(), "contact.html": contact(), "404.html": not_found()}
+    pages = {"index.html": home(), "products/index.html": products(), "about.html": about(), "contact.html": contact(), "404.html": not_found()}
+    for n, *_ in PRODUCTS:
+        pages[f"products/{PAGES[n]['slug']}.html"] = product_page(n)
+    (OUT / "products").mkdir(exist_ok=True)
+    (OUT / "products.html").unlink(missing_ok=True)
     for name, html in pages.items():
         (OUT / name).write_text(html, encoding="utf-8")
-    (OUT / "sitemap.xml").write_text(sitemap([("/", "1.0"), ("/products", "0.9"), ("/about", "0.7"), ("/contact", "0.8")]), encoding="utf-8")
-    print("built", ", ".join(pages), "sitemap.xml")
+    urls = [("/", "1.0"), ("/products", "0.9")] + [(page_url(n), "0.8") for n, *_ in PRODUCTS] + [("/about", "0.6"), ("/contact", "0.7")]
+    (OUT / "sitemap.xml").write_text(sitemap(urls), encoding="utf-8")
+    print("built", len(pages), "pages + sitemap.xml")
 
 
 if __name__ == "__main__":

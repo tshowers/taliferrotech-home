@@ -18,8 +18,8 @@ OUT = Path(__file__).resolve().parent.parent / "public"
 YEAR = 2026
 
 EMAIL = "info@taliferro.tech"
-PHONE_DISPLAY = "+1 425.600.7066"
-PHONE_TEL = "+14256007066"
+PHONE_DISPLAY = "+1 401.646.2662"
+PHONE_TEL = "+14016462662"
 ADDRESS = "1424 11th Ave Ste 400, Seattle, WA 98122"
 GROUP_URL = "https://taliferro.com"
 TODD_URL = "https://todd.taliferro.tech"
@@ -392,7 +392,7 @@ def contact():
   </div>
 </section>'''
     return page("/contact", "Book a consultation | Taliferro Tech",
-                "Book a consultation with Taliferro Tech. Email info@taliferro.tech or call +1 425.600.7066. Office at 1424 11th Ave, Seattle, WA.",
+                "Book a consultation with Taliferro Tech. Email info@taliferro.tech or call +1 401.646.2662. Office at 1424 11th Ave, Seattle, WA.",
                 "Contact", body, [{"@type": "ContactPage", "url": f"{SITE}/contact", "mainEntity": {"@id": f"{SITE}/#organization"}}])
 
 

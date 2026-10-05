@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /index-work.html
+
+Sitemap: https://taliferro.tech/sitemap.xml

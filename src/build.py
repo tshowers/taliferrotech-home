@@ -7,6 +7,7 @@ written into every page as plain HTML, so the site stays fully static
 
     python3 src/build.py
 """
+import hashlib
 import json
 import math
 from html import escape
@@ -18,6 +19,13 @@ from product_pages import PAGES
 SITE = "https://taliferro.tech"
 OUT = Path(__file__).resolve().parent.parent / "public"
 YEAR = 2026
+
+
+def asset_version(rel):
+    """Content hash for cache-busting: a changed file gets a new URL, so the
+    7-day browser cache (firebase.json) never serves a stale stylesheet."""
+    return hashlib.sha256((OUT / rel).read_bytes()).hexdigest()[:10]
+
 
 EMAIL = "info@taliferro.tech"
 PHONE_DISPLAY = "+1 401.646.2662"
@@ -244,7 +252,7 @@ def page(path, title, description, current, body, extra_ld=None, robots="index,f
 <link rel="apple-touch-icon" href="/img/general/apple-touch-icon.png">
 <link rel="manifest" href="/img/general/manifest.json">
 <script>try{{var t=localStorage.getItem("theme");if(t==="light"||t==="dark")document.documentElement.dataset.theme=t}}catch(e){{}}</script>
-<link rel="stylesheet" href="/css/site.css?v={YEAR}10">
+<link rel="stylesheet" href="/css/site.css?v={asset_version("css/site.css")}">
 <script type="application/ld+json">
 {ld}
 </script>
@@ -257,7 +265,7 @@ def page(path, title, description, current, body, extra_ld=None, robots="index,f
 </main>
 {footer()}
 {menu(current or "Home")}
-<script src="/js/site.js?v={YEAR}10" defer></script>
+<script src="/js/site.js?v={asset_version("js/site.js")}" defer></script>
 </body>
 </html>
 '''

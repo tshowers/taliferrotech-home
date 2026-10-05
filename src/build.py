@@ -47,7 +47,7 @@ CONSULT_MAILTO = f"mailto:{EMAIL}?subject=Consultation&body={quote(CONSULT_BODY)
 # (name, tint, glyph file, url or None, one line). Order = universal menu order.
 # url None = no confirmed address yet; the card renders without a link.
 PRODUCTS = [
-    ("Ask TODD", "green", "ask-todd.png", "https://todd.taliferro.tech/ask-todd", "Ask a business question and get the answer with the next move."),
+    ("Ask TODD", "green", "ask-todd.png", "https://ask.taliferro.tech", "Ask a business question and get the answer with the next move."),
     ("Maya", "green", "maya.png", "https://maya.taliferro.tech", "Your on-call AI Marketing Director for message, campaigns and audience."),
     ("Network", "violet", "network.png", "https://network.taliferro.tech", "See which relationships deserve your attention this week."),
     ("Moves", "blue", "moves.png", "https://moves.taliferro.tech", "The next best actions across your business, in priority order."),
@@ -56,7 +56,7 @@ PRODUCTS = [
     ("Lead Vault", "yellow", "lead-vault.png", "https://lead-vault.taliferro.tech", "Validated business leads you can preview, unlock and contact."),
     ("Social", "cyan", "social.png", "https://social.taliferro.tech", "Social posts drafted for your channels."),
     ("SayIt", "pink", "sayit.png", "https://sayit.taliferro.tech", "A new type of social media."),
-    ("Docs", "blue", "docs.png", "https://docs.taliferro.tech/docs", "Business documents drafted from what TODD already knows."),
+    ("Docs", "blue", "docs.png", "https://docs.taliferro.tech", "Business documents drafted from what TODD already knows."),
     ("Email Creator", "yellow", "email-creator.svg", "https://emails.taliferro.tech", "Describe an email and get finished HTML."),
     ("Email Signature", "violet", "email-signature.png", "https://signature.taliferro.tech", "A professional signature that pastes into any mail app."),
     ("Image Creator", "cyan", "image-creator.svg", "https://images.taliferro.tech", "Describe an image and download it as a PNG."),

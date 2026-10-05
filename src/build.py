@@ -27,6 +27,7 @@ def asset_version(rel):
     return hashlib.sha256((OUT / rel).read_bytes()).hexdigest()[:10]
 
 
+GA_ID = "G-QMVLRLV5XN"  # GA4 stream "Taliferro Tech Home" in the taliferrotech property
 EMAIL = "info@taliferro.tech"
 PHONE_DISPLAY = "+1 401.646.2662"
 PHONE_TEL = "+14016462662"
@@ -228,6 +229,8 @@ def page(path, title, description, current, body, extra_ld=None, robots="index,f
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments)}}gtag("js",new Date());gtag("config","{GA_ID}");</script>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{escape(title)}</title>
 <meta name="description" content="{escape(description)}">

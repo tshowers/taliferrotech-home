@@ -57,6 +57,7 @@ CONSULT_MAILTO = f"mailto:{EMAIL}?subject=Consultation&body={quote(CONSULT_BODY)
 # url None = no confirmed address yet; the card renders without a link.
 PRODUCTS = [
     ("Ask TODD", "green", "ask-todd.png", "https://ask.taliferro.tech", "Ask a business question and get the answer with the next move."),
+    ("Find", "blue", "find.svg", "https://find.taliferro.tech", "Search that starts with what you remember and ends with an answer."),
     ("Maya", "green", "maya.png", "https://maya.taliferro.tech", "Your on-call AI Marketing Director for message, campaigns and audience."),
     ("Network", "violet", "network.png", "https://network.taliferro.tech", "See which relationships deserve your attention this week."),
     ("Moves", "blue", "moves.png", "https://moves.taliferro.tech", "The next best actions across your business, in priority order."),
@@ -74,7 +75,7 @@ PRODUCTS = [
 P = {p[0]: p for p in PRODUCTS}
 
 GROUPS = [
-    ("Intelligence", "Ask, plan and decide", ["Ask TODD", "Maya", "Moves", "Pulse"]),
+    ("Intelligence", "Ask, plan and decide", ["Ask TODD", "Find", "Maya", "Moves", "Pulse"]),
     ("Grow", "Relationships, leads and outreach", ["Network", "Lead Vault", "Outreach", "Social", "SayIt"]),
     ("Create", "Documents, email and images", ["Docs", "Email Creator", "Email Signature", "Image Creator"]),
     ("Listen", "From Taliferro Music", ["Music"]),
@@ -321,7 +322,7 @@ def home():
   <a class="btn btn--bg btn--sm" href="{TODD_URL}">todd.taliferro.tech{icon("ext", 14)}</a>
 </section>
 <section class="section">
-  <div class="section__head"><div><span class="kicker">Products</span><h2 class="h2">Fourteen products, one account.</h2></div><a class="btn btn--surface btn--sm" href="/products">All products{icon("arrow", 16)}</a></div>
+  <div class="section__head"><div><span class="kicker">Products</span><h2 class="h2">Fifteen products, one account.</h2></div><a class="btn btn--surface btn--sm" href="/products">All products{icon("arrow", 16)}</a></div>
   <div class="pgrid">{tiles}</div>
 </section>
 <section class="section pillars">{pill}</section>
@@ -332,7 +333,7 @@ def home():
     website = {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "Taliferro Tech",
                "publisher": {"@id": f"{SITE}/#organization"}}
     return page("/", "Taliferro Tech | AI software that does the work",
-                "Taliferro Tech builds AI software products that draft, nudge, validate and route the work for you. Fourteen products, one TODD account. Based in Seattle, WA.",
+                "Taliferro Tech builds AI software products that draft, nudge, validate and route the work for you. Fifteen products, one TODD account. Based in Seattle, WA.",
                 "", body, [website])
 
 
@@ -345,7 +346,7 @@ def products():
                                     f'{icon("chev", 16, "i pcard__chev")}') for n in names)
         sections += f'<section class="pgroup"><h2><span>{title}</span><small>{desc}</small></h2><div class="pcards">{cards}</div></section>'
     body = f'''<section class="pagehead">
-  <div><h1 class="display display--md">Products</h1><p class="lede">Fourteen products, one intelligence layer. Sign in once with your TODD account and use any of them.</p></div>
+  <div><h1 class="display display--md">Products</h1><p class="lede">Fifteen products, one intelligence layer. Sign in once with your TODD account and use any of them.</p></div>
   {cta_consult("Not sure where to start? Book a consultation", "btn btn--primary btn--sm pagehead__cta")}
 </section>
 <div class="pgroups">{sections}</div>'''

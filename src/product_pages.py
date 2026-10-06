@@ -36,6 +36,25 @@ PAGES = {
             ("How is Ask TODD different from a chatbot?", "A chatbot answers the question. Ask TODD answers with the next move and points you to the product that can do the work."),
         ],
     },
+    "Find": {
+        "slug": "find",
+        "title": "Find: search that ends with an answer",
+        "tagline": "Start with what you remember. End with the answer.",
+        "lede": "Find is TODD's visual search. It puts the best-weighted answer first instead of ten blue links, drawing on authoritative answers, curated Taliferro knowledge and the web. Free, with no account required, on the web and on iPhone.",
+        "features": [
+            ("The answer first", "Find leads with the best-weighted answer, not a page of links to sort through."),
+            ("Start from what you remember", "Describe the person, film, story or place you half remember and Find helps you get to what you mean."),
+            ("Sources you can trust", "Answers draw on authoritative sources, curated Taliferro knowledge and the web."),
+            ("Web and iPhone", "Search in your browser or with the Taliferro Find app."),
+        ],
+        "fits": ["Ask TODD"],
+        "ios": True,
+        "app_store": "https://apps.apple.com/us/app/taliferro-find/id6806954591",
+        "faq": [
+            ("Do I need an account?", "No. Find is free and works without an account."),
+            ("Is there an iPhone app?", "Yes. Taliferro Find is on the App Store."),
+        ],
+    },
     "Maya": {
         "slug": "maya",
         "title": "Maya: your on-call AI Marketing Director",
@@ -66,10 +85,8 @@ PAGES = {
             ("Context behind the work", "Keep the people and firms behind each project connected to the work itself."),
         ],
         "fits": ["Outreach", "Lead Vault", "Moves"],
-        "ios": True,
         "faq": [
             ("Is Network a CRM?", "Network holds the contacts, companies and interactions a CRM would, but it is built around TODD reading them for you and telling you who needs attention."),
-            ("Is there an iPhone app?", "Yes. Network is available on the web and on iPhone."),
         ],
     },
     "Moves": {
@@ -107,10 +124,8 @@ PAGES = {
             ("Follow-up that keeps moving", "Keep follow-up going so attention turns into a meeting, not a dead thread."),
         ],
         "fits": ["Network", "Lead Vault", "Email Creator"],
-        "ios": True,
         "faq": [
             ("Does Outreach send mass email blasts?", "Outreach is built for thoughtful, personal outreach and follow-up, with TODD reading engagement to pick the next move for each conversation."),
-            ("Is there an iPhone app?", "Yes. Outreach is available on the web and on iPhone."),
         ],
     },
     "Pulse": {
@@ -130,10 +145,8 @@ PAGES = {
             ("Read", "TODD tallies answers from the first response on."),
         ],
         "fits": ["Network", "Outreach", "Moves"],
-        "ios": True,
         "faq": [
             ("What is a pulse?", "A short survey you send to customers or your team to get a quick, honest read on how things are going."),
-            ("Is there an iPhone app?", "Yes. Pulse is available on the web and on iPhone."),
         ],
     },
     "Lead Vault": {
@@ -209,10 +222,8 @@ PAGES = {
             ("RFPs and proposals", "Upload RFPs and review the proposals generated from them."),
         ],
         "fits": ["Moves", "Outreach", "Ask TODD"],
-        "ios": True,
         "faq": [
             ("What file types can I add?", "PDFs, Word documents, images, video, audio and other reference files."),
-            ("Is there an iPhone app?", "Yes. Docs is available on the web and on iPhone."),
         ],
     },
     "Email Creator": {

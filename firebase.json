@@ -7,7 +7,8 @@
     "ignore": [
       "firebase.json",
       "**/.*",
-      "**/node_modules/**"
+      "**/node_modules/**",
+      "health/health.json"
     ],
     "redirects": [
       {
@@ -64,6 +65,19 @@
           {
             "key": "Referrer-Policy",
             "value": "strict-origin-when-cross-origin"
+          }
+        ]
+      },
+      {
+        "source": "/health{,/**}",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          },
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, nofollow"
           }
         ]
       }

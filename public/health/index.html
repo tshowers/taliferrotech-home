@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Health | Taliferro Tech</title>
+<link rel="icon" href="/img/general/favicon.ico" sizes="any">
+<style>
+:root { --bg:#f6f7f9; --card:#fff; --ink:#12151b; --muted:#5d6574; --line:#e3e6eb;
+  --green:#1a8a4a; --yellow:#b07d00; --red:#c53030; --grey:#8a93a3; --accent:#2b59c3; }
+@media (prefers-color-scheme: dark) { :root { --bg:#0c0e13; --card:#151922; --ink:#eef1f6; --muted:#9aa3b2;
+  --line:#262c38; --green:#3ccf7a; --yellow:#e8b730; --red:#ff6b6b; --grey:#6b7484; --accent:#7aa2ff; } }
+* { box-sizing:border-box; }
+body { margin:0; background:var(--bg); color:var(--ink); font:15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Inter, sans-serif; }
+main { max-width:1100px; margin:0 auto; padding:32px 16px 64px; }
+h1 { font-size:28px; margin:0 0 4px; letter-spacing:-.01em; }
+.muted { color:var(--muted); }
+.card { background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px; }
+#gate { max-width:380px; margin:12vh auto 0; }
+#gate input { width:100%; font:inherit; padding:10px 12px; border:1px solid var(--line); border-radius:10px; background:var(--bg); color:var(--ink); margin:12px 0; }
+#gate button { width:100%; font:inherit; font-weight:600; padding:10px; border:0; border-radius:10px; background:var(--ink); color:var(--bg); cursor:pointer; }
+#gate .err { color:var(--muted); min-height:1.5em; margin:8px 0 0; }
+#gate .err.is-error { color:var(--red); }
+.kpis { display:grid; grid-template-columns:repeat(auto-fit, minmax(160px, 1fr)); gap:12px; margin:20px 0; }
+.kpi b { display:block; font-size:28px; }
+table { width:100%; border-collapse:collapse; }
+th, td { text-align:left; padding:9px 8px; border-bottom:1px solid var(--line); vertical-align:top; }
+th { font-size:12px; text-transform:uppercase; letter-spacing:.04em; color:var(--muted); font-weight:600; }
+td.n, th.n { text-align:right; font-variant-numeric:tabular-nums; }
+tr.grp td { padding-top:20px; font-weight:700; border-bottom:0; }
+.dot { display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px; background:var(--grey); }
+.dot.green { background:var(--green); } .dot.yellow { background:var(--yellow); } .dot.red { background:var(--red); }
+.dot.new { background:var(--accent); }
+.up { color:var(--green); } .down { color:var(--red); }
+.scroll { overflow-x:auto; }
+.legend { display:flex; flex-wrap:wrap; gap:16px; font-size:13px; margin:12px 0 0; }
+a { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <form id="gate" class="card" autocomplete="on">
+    <h1>Taliferro Health</h1>
+    <p class="muted">Weekly cockpit for the team and investors.</p>
+    <input id="pw" type="password" autocomplete="current-password" placeholder="Password" aria-label="Password" required>
+    <button type="submit">Open</button>
+    <p class="err" id="err" role="alert"></p>
+  </form>
+  <div id="app" hidden></div>
+</main>
+<script>
+/* data.enc is `openssl enc -aes-256-cbc -pbkdf2 -iter 210000 -md sha256 -salt`
+   output ("Salted__" + 8-byte salt + ciphertext), written by src/health_pull.py.
+   PBKDF2-SHA256(password, salt) gives 48 bytes: AES key (32) then IV (16). */
+var ITER = 210000;
+
+async function unlock ( password ) {
+  var res = await fetch( 'data.enc', { cache: 'no-store' } );
+  if ( !res.ok ) throw new Error( 'No data published yet.' );
+  var buf = new Uint8Array( await res.arrayBuffer() );
+  if ( new TextDecoder().decode( buf.slice( 0, 8 ) ) !== 'Salted__' ) throw new Error( 'Data file is damaged.' );
+  var base = await crypto.subtle.importKey( 'raw', new TextEncoder().encode( password ), 'PBKDF2', false, [ 'deriveBits' ] );
+  var bits = new Uint8Array( await crypto.subtle.deriveBits(
+    { name: 'PBKDF2', hash: 'SHA-256', salt: buf.slice( 8, 16 ), iterations: ITER }, base, 384 ) );
+  var key = await crypto.subtle.importKey( 'raw', bits.slice( 0, 32 ), 'AES-CBC', false, [ 'decrypt' ] );
+  var plain;
+  try {
+    plain = await crypto.subtle.decrypt( { name: 'AES-CBC', iv: bits.slice( 32, 48 ) }, key, buf.slice( 16 ) );
+    return JSON.parse( new TextDecoder().decode( plain ) );
+  } catch ( e ) {
+    throw new Error( 'Wrong password.' );
+  }
+}
+
+function esc ( s ) { return String( s == null ? '' : s ).replace( /[&<>"]/g, function ( c ) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ c ]; } ); }
+function pct ( c ) { if ( c == null ) return '<span class="muted">–</span>'; var v = Math.round( c * 100 ); return '<span class="' + ( v > 0 ? 'up' : v < 0 ? 'down' : '' ) + '">' + ( v > 0 ? '+' : '' ) + v + '%</span>'; }
+function day ( iso ) { return new Date( iso + 'T12:00:00' ).toLocaleDateString( undefined, { month: 'short', day: 'numeric' } ); }
+
+function render ( d ) {
+  var t = d.totals, s = t.by_status, rows = '', group = null;
+  d.properties.forEach( function ( p ) {
+    if ( p.group !== group ) { group = p.group; rows += '<tr class="grp"><td colspan="6">' + esc( group ) + '</td></tr>'; }
+    var ev = Object.keys( p.events ).map( function ( k ) { return esc( k ) + ' ' + p.events[ k ].this + ' <span class="muted">(' + p.events[ k ].prev + ')</span>'; } );
+    var st = p.app_store;
+    if ( st && st.downloads ) [ 'downloads', 'redownloads', 'updates' ].forEach( function ( k ) {
+      ev.push( 'App Store ' + k + ' ' + st.downloads.this[ k ] + ' <span class="muted">(' + st.downloads.prev[ k ] + ')</span>' );
+    } );
+    if ( st && st.rating_count ) ev.push( '★ ' + st.rating.toFixed( 1 ) + ' (' + st.rating_count + ')' );
+    rows += '<tr><td><span class="dot ' + esc( p.status ) + '"></span><a href="' + esc( p.url ) + '">' + esc( p.name ) + '</a>' +
+      ( p.notes.length ? '<div class="muted">' + esc( p.notes.join( ' ' ) ) + '</div>' : '' ) + '</td>' +
+      '<td class="n">' + p.engaged_sessions.this + '</td><td class="n muted">' + p.engaged_sessions.prev + '</td>' +
+      '<td class="n">' + pct( p.engaged_sessions.change ) + '</td>' +
+      '<td class="n muted">' + p.web.users_incl_bots.this + '</td><td>' + ( ev.join( '<br>' ) || '<span class="muted">–</span>' ) + '</td></tr>';
+  } );
+  document.getElementById( 'app' ).innerHTML =
+    '<h1>Taliferro Health</h1><p class="muted">Week of ' + day( d.week.start ) + ' – ' + day( d.week.end ) +
+    ' compared with ' + day( d.prev_week.start ) + ' – ' + day( d.prev_week.end ) + '</p>' +
+    '<div class="kpis">' +
+    '<div class="card kpi"><span class="muted">Engaged sessions</span><b>' + t.engaged_sessions.this + '</b>' + pct( t.engaged_sessions.change ) + ' <span class="muted">vs ' + t.engaged_sessions.prev + '</span></div>' +
+    '<div class="card kpi"><span class="muted">Growing</span><b>' + s.green + '</b></div>' +
+    '<div class="card kpi"><span class="muted">Slipping / down</span><b>' + ( s.yellow + s.red ) + '</b></div>' +
+    '<div class="card kpi"><span class="muted">Newly tracked</span><b>' + s.new + '</b></div></div>' +
+    '<div class="card scroll"><table><thead><tr><th>Property</th><th class="n">Engaged</th><th class="n">Prev</th><th class="n">Change</th>' +
+    '<th class="n">Raw users*</th><th>Success events (prev)</th></tr></thead><tbody>' + rows + '</tbody></table>' +
+    '<div class="legend muted"><span><span class="dot green"></span>steady or up</span><span><span class="dot yellow"></span>down 5–20%</span>' +
+    '<span><span class="dot red"></span>down 20%+</span><span><span class="dot"></span>under ' + d.thresholds.min_engaged_sessions + ' engaged sessions</span>' +
+    '<span><span class="dot new"></span>tracking just started</span></div>' +
+    '<p class="muted">* Raw users include bots and crawlers. Engaged session = a visit of 10+ seconds, 2+ pages or a key event. ' +
+    'Generated ' + new Date( d.generated_at ).toLocaleString() + '.</p></div>';
+}
+
+async function open ( password, quiet ) {
+  var err = document.getElementById( 'err' );
+  err.classList.remove( 'is-error' );
+  err.textContent = quiet ? '' : 'Opening…';
+  try {
+    var data = await unlock( password );
+    try { sessionStorage.setItem( 'health-pw', password ); } catch ( e ) { /* optional */ }
+    document.getElementById( 'gate' ).hidden = true;
+    document.getElementById( 'app' ).hidden = false;
+    render( data );
+  } catch ( e ) {
+    try { sessionStorage.removeItem( 'health-pw' ); } catch ( x ) { /* optional */ }
+    err.classList.add( 'is-error' );
+    err.textContent = quiet ? '' : e.message;
+  }
+}
+
+document.getElementById( 'gate' ).addEventListener( 'submit', function ( e ) {
+  e.preventDefault();
+  open( document.getElementById( 'pw' ).value, false );
+} );
+try { var saved = sessionStorage.getItem( 'health-pw' ); if ( saved ) open( saved, true ); } catch ( e ) { /* optional */ }
+</script>
+</body>
+</html>

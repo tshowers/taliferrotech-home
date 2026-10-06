@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /index-work.html
+Disallow: /health
 
 Sitemap: https://taliferro.tech/sitemap.xml

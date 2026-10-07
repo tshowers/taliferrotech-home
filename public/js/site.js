@@ -116,3 +116,22 @@
     }
   } );
 } )();
+
+/* Affiliate pages: the Layout a/b toggle, remembered per page. */
+( function () {
+  var page = document.querySelector( '[data-layout-key]' );
+  if ( !page ) return;
+  var key = 'layout_' + page.dataset.layoutKey;
+  function set ( layout, save ) {
+    page.dataset.layout = layout;
+    page.querySelectorAll( '[data-set-layout]' ).forEach( function ( b ) {
+      b.setAttribute( 'aria-pressed', String( b.dataset.setLayout === layout ) );
+    } );
+    if ( save ) { try { localStorage.setItem( key, layout ); } catch ( err ) { /* storage optional */ } }
+  }
+  try { var stored = localStorage.getItem( key ); if ( stored === 'a' || stored === 'b' ) set( stored, false ); } catch ( err ) { /* storage optional */ }
+  page.addEventListener( 'click', function ( e ) {
+    var b = e.target.closest( '[data-set-layout]' );
+    if ( b ) set( b.dataset.setLayout, true );
+  } );
+} )();

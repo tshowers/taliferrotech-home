@@ -14,6 +14,7 @@ from html import escape
 from pathlib import Path
 from urllib.parse import quote
 
+from affiliate_pages import pages as affiliate_pages
 from product_pages import PAGES
 
 SITE = "https://taliferro.tech"
@@ -100,6 +101,11 @@ ICONS = {
     "home": '<path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M9 22V12h6v10"/>',
     "grid": '<rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/>',
     "info": '<circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/>',
+    "eye": '<path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/>',
+    "gift": '<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"/>',
+    "dollar": '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',
+    "clock": '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
+    "undo": '<path d="M9 14 4 9l5-5M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
 }
 
 
@@ -150,7 +156,7 @@ def header(current):
 
 
 def footer():
-    links = [("Privacy", PRIVACY_URL), ("Terms", TERMS_URL)] + SOCIAL
+    links = [("Affiliates", "/affiliates"), ("Privacy", PRIVACY_URL), ("Terms", TERMS_URL)] + SOCIAL
     items = "".join(f'<a href="{u}"{NEWTAB if u.startswith("http") else ""}>{l}</a>' for l, u in links)
     return f'''<footer class="ftr">
   <b>Taliferro Tech, LLC</b><span>{ADDRESS}</span><span class="ftr__sp"></span>
@@ -503,11 +509,15 @@ def main():
     pages = {"index.html": home(), "products/index.html": products(), "about.html": about(), "contact.html": contact(), "404.html": not_found()}
     for n, *_ in PRODUCTS:
         pages[f"products/{PAGES[n]['slug']}.html"] = product_page(n)
+    aff = affiliate_pages(icon, TODD_URL, PHONE_DISPLAY, PHONE_TEL)
+    for path, out, title, desc, body in aff:
+        pages[out] = page(path, title, desc, "", body)
     (OUT / "products").mkdir(exist_ok=True)
+    (OUT / "affiliates").mkdir(exist_ok=True)
     (OUT / "products.html").unlink(missing_ok=True)
     for name, html in pages.items():
         (OUT / name).write_text(html, encoding="utf-8")
-    urls = [("/", "1.0"), ("/products", "0.9")] + [(page_url(n), "0.8") for n, *_ in PRODUCTS] + [("/about", "0.6"), ("/contact", "0.7")]
+    urls = [("/", "1.0"), ("/products", "0.9")] + [(page_url(n), "0.8") for n, *_ in PRODUCTS] + [("/about", "0.6"), ("/contact", "0.7")] + [(a[0], "0.5") for a in aff]
     (OUT / "sitemap.xml").write_text(sitemap(urls), encoding="utf-8")
     print("built", len(pages), "pages + sitemap.xml")
 

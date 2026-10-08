@@ -389,7 +389,7 @@ def about():
   <p class="note">Both are trade names of Taliferro Tech, LLC.</p>
 </section>
 <section class="section section--narrow founder">
-  <span class="founder__avatar" aria-hidden="true">TS</span>
+  <img class="person__photo" src="/img/team/tyrone-showers-192.webp" alt="Sketch of Tyrone Showers" width="72" height="72">
   <div class="founder__name"><span class="kicker">Co-founder and Chairman</span><b>Tyrone Showers</b></div>
   <div class="founder__links"><a class="btn btn--surface btn--sm" href="{FOUNDER_PROFILE}" target="_blank" rel="noopener">Profile{icon("ext", 14)}</a><a class="btn btn--surface btn--sm" href="{FOUNDER_LINKEDIN}" target="_blank" rel="noopener">LinkedIn{icon("ext", 14)}</a></div>
 </section>

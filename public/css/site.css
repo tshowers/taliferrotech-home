@@ -286,11 +286,6 @@ a.crow:hover .crow__v { text-decoration: underline; text-underline-offset: 3px; 
 .note { font-size: 14px; color: var(--muted); }
 
 .founder { flex-direction: row; align-items: center; gap: 20px; padding-top: 56px; }
-.founder__avatar {
-  width: 72px; height: 72px; border-radius: 50%; flex: none;
-  display: flex; align-items: center; justify-content: center;
-  background: var(--t-blue); color: var(--t-blue-fg); font-size: 24px; font-weight: 700;
-}
 .founder__name { flex: 1; display: flex; flex-direction: column; gap: 2px; }
 .founder__name b { font-size: 24px; }
 .founder__links { display: flex; gap: 12px; }
@@ -403,6 +398,8 @@ a.mtile:hover { background: var(--surface); }
 .feat--person { flex-direction: row; align-items: center; gap: 16px; }
 .feat--person > span { display: flex; flex-direction: column; gap: 4px; }
 .person__photo { width: 72px; height: 72px; flex: none; border-radius: 22px; background: #fff; object-fit: cover; }
+/* On a white page the white tile needs an edge; on cards and dark backgrounds it has one already. */
+.founder .person__photo { box-shadow: 0 0 0 2px var(--surface2); }
 .howto { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
 .howto li { display: flex; gap: 14px; }
 .howto li > span:last-child { display: flex; flex-direction: column; gap: 4px; }

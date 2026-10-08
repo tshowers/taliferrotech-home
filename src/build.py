@@ -15,6 +15,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 from affiliate_pages import pages as affiliate_pages
+from company_pages import careers, investors
 from product_pages import PAGES
 
 SITE = "https://taliferro.tech"
@@ -156,7 +157,7 @@ def header(current):
 
 
 def footer():
-    links = [("Affiliates", "/affiliates"), ("Privacy", PRIVACY_URL), ("Terms", TERMS_URL)] + SOCIAL
+    links = [("Careers", "/careers"), ("Investors", "/investors"), ("Affiliates", "/affiliates"), ("Privacy", PRIVACY_URL), ("Terms", TERMS_URL)] + SOCIAL
     items = "".join(f'<a href="{u}"{NEWTAB if u.startswith("http") else ""}>{l}</a>' for l, u in links)
     return f'''<footer class="ftr">
   <b>Taliferro Tech, LLC</b><span>{ADDRESS}</span><span class="ftr__sp"></span>
@@ -215,7 +216,8 @@ ORG = {
     "logo": f"{SITE}/img/general/apple-touch-icon.png",
     "description": "Taliferro Tech builds AI software products that draft, nudge, validate and route the work for you. Every product runs on TODD, the Taliferro intelligence layer.",
     "foundingDate": "2022",
-    "founder": {"@type": "Person", "name": "Tyrone Showers", "url": FOUNDER_PROFILE, "sameAs": [FOUNDER_LINKEDIN]},
+    "founder": [{"@type": "Person", "name": "Vikki Owens"},
+                {"@type": "Person", "name": "Tyrone Showers", "url": FOUNDER_PROFILE, "sameAs": [FOUNDER_LINKEDIN]}],
     "email": EMAIL,
     "telephone": PHONE_TEL,
     "address": {"@type": "PostalAddress", "streetAddress": "1424 11th Ave Ste 400", "addressLocality": "Seattle",
@@ -366,7 +368,7 @@ def products():
 
 
 def about():
-    facts = [("Legal name", "Taliferro Tech, LLC"), ("Founded", "2022"), ("Headquarters", ADDRESS), ("Founder", "Tyrone Showers"),
+    facts = [("Legal name", "Taliferro Tech, LLC"), ("Founded", "2022"), ("Headquarters", ADDRESS), ("Co-founders", "Vikki Owens · Tyrone Showers"),
              ("Brands", "Taliferro Tech (products) · Taliferro Group (consulting)")]
     fl = "".join(f'<div class="fact"><span class="kicker">{k}</span><span>{v}</span></div>' for k, v in facts)
     body = f'''<section class="about">
@@ -388,7 +390,7 @@ def about():
 </section>
 <section class="section section--narrow founder">
   <span class="founder__avatar" aria-hidden="true">TS</span>
-  <div class="founder__name"><span class="kicker">Founder</span><b>Tyrone Showers</b></div>
+  <div class="founder__name"><span class="kicker">Co-founder and Chairman</span><b>Tyrone Showers</b></div>
   <div class="founder__links"><a class="btn btn--surface btn--sm" href="{FOUNDER_PROFILE}" target="_blank" rel="noopener">Profile{icon("ext", 14)}</a><a class="btn btn--surface btn--sm" href="{FOUNDER_LINKEDIN}" target="_blank" rel="noopener">LinkedIn{icon("ext", 14)}</a></div>
 </section>
 <section class="panel panel--row">
@@ -396,7 +398,7 @@ def about():
   {cta_consult()}
 </section>'''
     return page("/about", "About | Taliferro Tech",
-                "Taliferro Tech, LLC was founded in Seattle in 2022 by Tyrone Showers to build software that does the work instead of pushing it onto the user.",
+                "Taliferro Tech, LLC was founded in Seattle in 2022 by Vikki Owens and Tyrone Showers to build software that does the work instead of pushing it onto the user.",
                 "About", body, [{"@type": "AboutPage", "url": f"{SITE}/about", "mainEntity": {"@id": f"{SITE}/#organization"}}])
 
 
@@ -512,12 +514,16 @@ def main():
     aff = affiliate_pages(icon, TODD_URL, PHONE_DISPLAY, PHONE_TEL)
     for path, out, title, desc, body in aff:
         pages[out] = page(path, title, desc, "", body)
+    c_path, c_out, c_title, c_desc, c_body, c_ld = careers(icon, EMAIL, SITE)
+    pages[c_out] = page(c_path, c_title, c_desc, "", c_body, c_ld)
+    i_path, i_out, i_title, i_desc, i_body, i_ld = investors(icon, EMAIL, SITE)
+    pages[i_out] = page(i_path, i_title, i_desc, "", i_body, i_ld)
     (OUT / "products").mkdir(exist_ok=True)
     (OUT / "affiliates").mkdir(exist_ok=True)
     (OUT / "products.html").unlink(missing_ok=True)
     for name, html in pages.items():
         (OUT / name).write_text(html, encoding="utf-8")
-    urls = [("/", "1.0"), ("/products", "0.9")] + [(page_url(n), "0.8") for n, *_ in PRODUCTS] + [("/about", "0.6"), ("/contact", "0.7")] + [(a[0], "0.5") for a in aff]
+    urls = [("/", "1.0"), ("/products", "0.9")] + [(page_url(n), "0.8") for n, *_ in PRODUCTS] + [("/about", "0.6"), ("/contact", "0.7"), (c_path, "0.5"), (i_path, "0.4")] + [(a[0], "0.5") for a in aff]
     (OUT / "sitemap.xml").write_text(sitemap(urls), encoding="utf-8")
     print("built", len(pages), "pages + sitemap.xml")
 

@@ -19,6 +19,8 @@
   <url><loc>https://taliferro.tech/products/music</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://taliferro.tech/about</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
   <url><loc>https://taliferro.tech/contact</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://taliferro.tech/careers</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
+  <url><loc>https://taliferro.tech/investors</loc><changefreq>monthly</changefreq><priority>0.4</priority></url>
   <url><loc>https://taliferro.tech/affiliates</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://taliferro.tech/affiliates/how-earnings-work</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
   <url><loc>https://taliferro.tech/affiliates/terms</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>

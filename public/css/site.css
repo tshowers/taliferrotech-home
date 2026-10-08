@@ -399,6 +399,10 @@ a.mtile:hover { background: var(--surface); }
 .feat { display: flex; flex-direction: column; gap: 8px; padding: 24px; border-radius: 24px; background: var(--surface); }
 .feat h3 { font-size: 19px; letter-spacing: -0.01em; }
 .feat p { font-size: 15px; line-height: 1.5; color: var(--muted); }
+/* Leadership cards on /investors: line-art sketch on a white tile so it reads in dark mode too. */
+.feat--person { flex-direction: row; align-items: center; gap: 16px; }
+.feat--person > span { display: flex; flex-direction: column; gap: 4px; }
+.person__photo { width: 72px; height: 72px; flex: none; border-radius: 22px; background: #fff; object-fit: cover; }
 .howto { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; }
 .howto li { display: flex; gap: 14px; }
 .howto li > span:last-child { display: flex; flex-direction: column; gap: 4px; }
@@ -710,3 +714,9 @@ a.mtile:hover { background: var(--surface); }
 }
 .aff-a .panel--row h2 { font-size: 22px; }
 .aff-qualifier { margin-top: -10px; font-size: 15px; font-weight: 700; color: var(--t-cyan-fg); max-width: 620px; }
+
+/* Careers (src/company_pages.py) */
+.video { position: relative; aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: var(--surface); }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.role ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.5; color: var(--muted); }
+.role .btn { align-self: flex-start; margin-top: auto; }

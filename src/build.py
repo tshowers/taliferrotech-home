@@ -314,7 +314,7 @@ def home():
     body = f'''<section class="hero">
   <div class="hero__copy">
     <span class="tag t-cyan">Software products · Seattle, WA</span>
-    <h1 class="display">Software that does the work.</h1>
+    <h1 class="display">Software that does the work</h1>
     <p class="lede">Taliferro Tech builds AI products that draft, nudge, validate and route the work for you, so your business keeps moving. Every product runs on TODD, our intelligence layer.</p>
     <div class="actions">{cta_consult()}<a class="btn btn--surface" href="/products">Explore products{icon("arrow", 16)}</a></div>
     <p class="hero__contact"><a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
@@ -374,7 +374,7 @@ def about():
     body = f'''<section class="about">
   <div class="about__copy">
     <span class="tag t-cyan">About Taliferro Tech</span>
-    <h1 class="display display--md">AI answered the questions. Nobody was doing the work.</h1>
+    <h1 class="display display--md">AI answered the questions. Nobody was doing the work</h1>
     <p class="lede">Taliferro Tech was founded in 2022 after we noticed a significant shortcoming in the AI space. AI was answering a lot of questions, but nothing was actually doing the work automatically. So Taliferro Tech set out to make software that does the work, instead of always pushing work onto the user.</p>
     <p class="quote t-cyan">That is our main goal: to lighten the load of every user by actually doing the work.</p>
   </div>
@@ -430,7 +430,7 @@ def not_found():
     body = f'''<section class="nf">
   <div class="nf__copy">
     <span class="kicker">Error 404</span>
-    <h1 class="display display--md">This page moved or never existed.</h1>
+    <h1 class="display display--md">This page moved or never existed</h1>
     <p class="lede">Try the products page or head home.</p>
     <div class="actions"><a class="btn btn--primary" href="/">Go home</a><a class="btn btn--surface" href="/products">See products{icon("arrow", 16)}</a></div>
   </div>

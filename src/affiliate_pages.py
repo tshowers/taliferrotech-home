@@ -98,7 +98,7 @@ def pages(icon, todd_url, phone_display, phone_tel):
 <div class="aff-a">
   <section class="aff-hero">
     <span class="tag t-cyan">TODD Affiliate Program</span>
-    <h1 class="display">Earn up to $5,000 a month sharing TODD.</h1>
+    <h1 class="display">Earn up to $5,000 a month sharing TODD</h1>
     <p class="aff-qualifier">It takes about 7 active Enterprise clients. Each one pays you $750 a month: 15% of their $5,000 monthly payment.</p>
     <p class="lede">Send people to TODD with your own link. You earn for every visitor, unlock a bonus when you reach a goal, and earn a commission when someone you referred buys.</p>
     <div class="actions"><a class="btn btn--primary" href="{join}">Join the program{icon("arrow", 16)}</a><a class="btn btn--surface" href="/affiliates/how-earnings-work">How earnings work</a></div>
@@ -118,7 +118,7 @@ def pages(icon, todd_url, phone_display, phone_tel):
   <section class="aff-split">
     <div class="aff-split__copy">
       <span class="kicker">TODD Affiliate Program</span>
-      <h1 class="display display--md">Share a link. Earn up to $5,000 a month.</h1>
+      <h1 class="display display--md">Share a link. Earn up to $5,000 a month</h1>
       <p class="aff-qualifier">It takes about 7 active Enterprise clients. Each one pays you $750 a month: 15% of their $5,000 monthly payment.</p>
       <p class="lede">Every visitor earns you a cent. Reach a goal and a $100 bonus unlocks. If someone you sent buys Enterprise, you earn 15% of every monthly payment they make.</p>
       <div class="actions"><a class="btn btn--primary" href="{join}">Join the program{icon("arrow", 16)}</a><a class="btn" href="{sign_in}">Sign in</a></div>

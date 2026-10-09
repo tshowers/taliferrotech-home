@@ -91,7 +91,7 @@ def careers(icon, email, site):
     body = f'''<section class="phero">
   <div class="phero__copy">
     <span class="tag t-violet">Careers · Built for the Remarkable</span>
-    <h1 class="display display--md">Build with Taliferro Tech.</h1>
+    <h1 class="display display--md">Build with Taliferro Tech</h1>
     <p class="lede">If you move with intent, you belong here. Part-time roles, flexible hours, real impact. Help build TODD, the Business Momentum System for teams that want progress, not paperwork.</p>
     <p class="lede">Not there yet? We train you. If you want to be remarkable, you can belong here.</p>
     <div class="actions"><a class="btn btn--primary" href="#open-roles">See open roles</a><a class="btn btn--surface" href="#apply">How to apply</a></div>
@@ -192,7 +192,7 @@ def investors(icon, email, site):
     body = f'''<section class="phero">
   <div class="phero__copy">
     <span class="tag t-blue">Investors</span>
-    <h1 class="display display--md">Software that does the work, not just stores it.</h1>
+    <h1 class="display display--md">Software that does the work, not just stores it</h1>
     <p class="lede">Taliferro Tech builds TODD, a Business Momentum System. It keeps outreach, proposals, follow-ups and tasks moving in the background, and stops for approval before anything irreversible happens. We're talking with investors and partners who want in early.</p>
     <div class="actions"><a class="btn btn--primary" href="{talk}">{icon("mail")}Start a conversation</a><a class="btn btn--surface" href="/products">See the products{icon("arrow", 16)}</a></div>
   </div>

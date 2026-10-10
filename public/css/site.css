@@ -74,6 +74,10 @@ body {
 
 body.menu-is-open { overflow: hidden; }
 
+/* Footer sits at the bottom of the window on short pages, and after the content on long ones. */
+body { display: flex; flex-direction: column; min-height: 100vh; min-height: 100dvh; }
+main { flex: 1 0 auto; }
+
 a { color: inherit; text-decoration: none; }
 h1, h2, h3, p, ol { margin: 0; }
 h1, h2, h3 { font-weight: 700; }
@@ -717,3 +721,35 @@ a.mtile:hover { background: var(--surface); }
 .video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
 .role ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; font-size: 15px; line-height: 1.5; color: var(--muted); }
 .role .btn { align-self: flex-start; margin-top: auto; }
+
+/* Legal pages (src/legal_pages.py): contents rail + 720px reading column */
+.legal { display: grid; grid-template-columns: 260px minmax(0, 720px); gap: 64px; padding: 24px 76px 0; }
+.legal--single { grid-template-columns: minmax(0, 720px); justify-content: center; }
+.legal__rail { position: sticky; top: 24px; align-self: start; max-height: calc(100vh - 48px); overflow-y: auto; display: flex; flex-direction: column; gap: 2px; }
+.legal__rail .kicker { margin-bottom: 10px; }
+.legal__rail a { padding: 7px 0; font-size: 15px; font-weight: 700; line-height: 1.25; }
+.legal__rail a:hover { color: var(--t-cyan-fg); }
+.legal__col { display: flex; flex-direction: column; gap: 16px; font-size: 16px; line-height: 1.65; }
+.legal__col ul { margin: 0; padding-left: 22px; display: flex; flex-direction: column; gap: 6px; }
+.legal__col address { font-style: normal; }
+.legal__col a { color: var(--t-cyan-fg); font-weight: 700; }
+.legal__meta { font-size: 14px; color: var(--muted); }
+.legal-sec { display: flex; flex-direction: column; gap: 12px; margin-top: 24px; scroll-margin-top: 24px; }
+.legal-sec h2 { font-size: 24px; letter-spacing: -0.02em; line-height: 1.2; }
+.rights { display: flex; flex-direction: column; gap: 18px; margin-top: 8px; }
+.rights__field { display: flex; flex-direction: column; gap: 8px; font-weight: 700; }
+.rights__field small { font-weight: 400; color: var(--muted); }
+.rights__field input, .rights__field select, .rights__field textarea {
+  width: 100%; padding: 12px 14px; border: 0; border-radius: 14px; background: var(--surface);
+  color: var(--text); font: inherit; font-weight: 400;
+}
+.rights__field input, .rights__field select { height: 52px; }
+.rights__field :focus-visible { outline: 2px solid var(--t-cyan-fg); outline-offset: 2px; }
+.rights__hint { margin-top: -8px; font-size: 14px; color: var(--muted); }
+.rights .btn { align-self: flex-start; }
+.rights__done { padding: 16px 20px; border-radius: 16px; background: var(--surface); }
+@media (max-width: 960px) {
+  .legal { grid-template-columns: 1fr; gap: 24px; padding: 24px 16px 0; }
+  .legal__rail { display: none; }
+  .legal .display--md { font-size: 40px; }
+}

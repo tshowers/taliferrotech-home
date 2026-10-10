@@ -25,6 +25,16 @@
         "source": "/products.html",
         "destination": "/products",
         "type": 301
+      },
+      {
+        "source": "/privacy-policy",
+        "destination": "/privacy",
+        "type": 301
+      },
+      {
+        "source": "/terms-and-conditions",
+        "destination": "/terms",
+        "type": 301
       }
     ],
     "headers": [

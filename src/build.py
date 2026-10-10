@@ -16,6 +16,7 @@ from urllib.parse import quote
 
 from affiliate_pages import pages as affiliate_pages
 from company_pages import careers, investors
+from legal_pages import pages as legal_pages
 from product_pages import PAGES
 
 SITE = "https://taliferro.tech"
@@ -37,8 +38,8 @@ ADDRESS = "1424 11th Ave Ste 400, Seattle, WA 98122"
 GROUP_URL = "https://taliferro.com"
 TODD_URL = "https://todd.taliferro.tech"
 SIGN_IN_URL = "https://todd.taliferro.tech/login"
-PRIVACY_URL = "https://todd.taliferro.tech/privacy-policy"
-TERMS_URL = "https://todd.taliferro.tech/terms-and-conditions"
+PRIVACY_URL = "/privacy"
+TERMS_URL = "/terms"
 FOUNDER_PROFILE = "https://taliferro.com/team/tyrone-showers/"
 FOUNDER_LINKEDIN = "https://www.linkedin.com/in/tyroneshowers"
 SOCIAL = [
@@ -518,12 +519,15 @@ def main():
     pages[c_out] = page(c_path, c_title, c_desc, "", c_body, c_ld)
     i_path, i_out, i_title, i_desc, i_body, i_ld = investors(icon, EMAIL, SITE)
     pages[i_out] = page(i_path, i_title, i_desc, "", i_body, i_ld)
+    legal = legal_pages(ADDRESS, PHONE_DISPLAY, PHONE_TEL)
+    for path, out, title, desc, body in legal:
+        pages[out] = page(path, title, desc, "", body)
     (OUT / "products").mkdir(exist_ok=True)
     (OUT / "affiliates").mkdir(exist_ok=True)
     (OUT / "products.html").unlink(missing_ok=True)
     for name, html in pages.items():
         (OUT / name).write_text(html, encoding="utf-8")
-    urls = [("/", "1.0"), ("/products", "0.9")] + [(page_url(n), "0.8") for n, *_ in PRODUCTS] + [("/about", "0.6"), ("/contact", "0.7"), (c_path, "0.5"), (i_path, "0.4")] + [(a[0], "0.5") for a in aff]
+    urls = [("/", "1.0"), ("/products", "0.9")] + [(page_url(n), "0.8") for n, *_ in PRODUCTS] + [("/about", "0.6"), ("/contact", "0.7"), (c_path, "0.5"), (i_path, "0.4")] + [(a[0], "0.5") for a in aff] + [(l[0], "0.3") for l in legal]
     (OUT / "sitemap.xml").write_text(sitemap(urls), encoding="utf-8")
     print("built", len(pages), "pages + sitemap.xml")
 

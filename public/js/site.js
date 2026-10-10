@@ -135,3 +135,27 @@
     if ( b ) set( b.dataset.setLayout, true );
   } );
 } )();
+
+/* /privacy-rights: builds the request email, as TODD's old form did. */
+( function () {
+  var form = document.querySelector( 'form.rights' );
+  if ( !form ) return;
+  var type = form.elements.type;
+  function hints () {
+    form.querySelectorAll( '.rights__hint' ).forEach( function ( h ) { h.hidden = h.dataset.for !== type.value; } );
+  }
+  type.addEventListener( 'change', hints );
+  hints();
+  form.addEventListener( 'submit', function ( e ) {
+    e.preventDefault();
+    var email = form.elements.email.value.trim();
+    if ( !email ) return;
+    var label = type.options[type.selectedIndex].dataset.label;
+    var subject = 'CCPA/GDPR ' + label + ' Request — ' + email;
+    var body = 'Request type: ' + label + '\nEmail: ' + email + '\n\nDetails:\n' + ( form.elements.details.value.trim() || 'N/A' ) +
+      '\n\nSubmitted via taliferro.tech on ' + new Date().toISOString() + '.';
+    window.location.href = 'mailto:' + form.dataset.rightsEmail + '?subject=' + encodeURIComponent( subject ) + '&body=' + encodeURIComponent( body );
+    form.hidden = true;
+    document.querySelector( '.rights__done' ).hidden = false;
+  } );
+} )();

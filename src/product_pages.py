@@ -210,6 +210,29 @@ PAGES = {
             ("How is SayIt different from other social networks?", "SayIt is built for organizations: you post what you need, see who is interested, and start the right conversations."),
         ],
     },
+    "Market": {
+        "slug": "market",
+        "title": "TODD Market: independent stores that send each other customers",
+        "tagline": "Independent stores that send each other customers.",
+        "lede": "Bring your catalog and TODD Market builds your store. Shoppers say what they need in plain words. When you don't carry it, Market sends them to a store in the network that does, and you earn part of that sale.",
+        "features": [
+            ("Shoppers describe it", "Shoppers say what they need in plain words. The store narrows it down, puts outfits and bundles together, and explains the trade-offs."),
+            ("Every search goes somewhere", "If you don't carry it, a trusted store in the network does. The handoff reads like a recommendation, not an ad."),
+            ("Import, approve, open", "The AI builds the store from your catalog. The one step that takes real time is payment verification, which the law requires."),
+            ("Ready for AI shoppers", "Every product, price, stock level and policy is clean, structured data that AI shopping agents can read and buy from."),
+        ],
+        "steps": [
+            ("Import your catalog", "Bring it from Shopify, Salesforce Commerce, a CSV file, or photos and price sheets."),
+            ("Approve your store", "Add your logo and colors, check what the AI built, and change anything you like."),
+            ("Get paid and join the network", "Connect Stripe to take orders. Nearby stores can start sending you shoppers."),
+        ],
+        "fits": ["Find", "Social", "Image Creator"],
+        "faq": [
+            ("How do referrals work?", "When a shopper asks for something you don't carry, you can send them to another store in the network. If they buy, you earn that store's commission. Every referral is labeled, and you choose which stores you send shoppers to and the minimum commission you accept."),
+            ("Where can I import my catalog from?", "Shopify, Salesforce Commerce, a CSV file, or your own photos and price sheets. You approve the store before it goes live."),
+            ("Do I need an account?", "Shoppers can browse without one. Merchants sign in with their TODD account, using Apple, Google or an email link."),
+        ],
+    },
     "Docs": {
         "slug": "docs",
         "title": "Docs: business documents, proposals and RFPs with TODD",

@@ -69,6 +69,7 @@ PRODUCTS = [
     ("Lead Vault", "yellow", "lead-vault.png", "https://lead-vault.taliferro.tech", "Validated business leads you can preview, unlock and contact."),
     ("Social", "cyan", "social.png", "https://social.taliferro.tech", "Social posts drafted for your channels."),
     ("SayIt", "pink", "sayit.png", "https://sayit.taliferro.tech", "A new type of social media."),
+    ("Market", "green", "market.svg", "https://market.taliferro.tech", "Independent stores that send each other customers."),
     ("Docs", "blue", "docs.png", "https://docs.taliferro.tech", "Business documents drafted from what TODD already knows."),
     ("Email Creator", "yellow", "email-creator.svg", "https://emails.taliferro.tech", "Describe an email and get finished HTML."),
     ("Email Signature", "violet", "email-signature.png", "https://signature.taliferro.tech", "A professional signature that pastes into any mail app."),
@@ -79,7 +80,7 @@ P = {p[0]: p for p in PRODUCTS}
 
 GROUPS = [
     ("Intelligence", "Ask, plan and decide", ["Ask TODD", "Find", "Maya", "Moves", "Pulse"]),
-    ("Grow", "Relationships, leads and outreach", ["Network", "Lead Vault", "Outreach", "Social", "SayIt"]),
+    ("Grow", "Relationships, leads and outreach", ["Network", "Lead Vault", "Outreach", "Social", "SayIt", "Market"]),
     ("Create", "Documents, email and images", ["Docs", "Email Creator", "Email Signature", "Image Creator"]),
     ("Listen", "From Taliferro Music", ["Music"]),
 ]
@@ -320,7 +321,7 @@ def home():
     <div class="actions">{cta_consult()}<a class="btn btn--surface" href="/products">Explore products{icon("arrow", 16)}</a></div>
     <p class="hero__contact"><a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
   </div>
-  <div class="orbit" aria-label="TODD at the centre of fourteen Taliferro Tech products" role="img">
+  <div class="orbit" aria-label="TODD at the centre of fifteen Taliferro Tech products" role="img">
     <span class="orbit__disc"></span>{orbit}
     <div class="orbit__core">{chip("Ask TODD", 112)}<b>TODD</b><span>Intelligence layer</span></div>
   </div>
@@ -331,7 +332,7 @@ def home():
   <a class="btn btn--bg btn--sm" href="{TODD_URL}">todd.taliferro.tech{icon("ext", 14)}</a>
 </section>
 <section class="section">
-  <div class="section__head"><div><span class="kicker">Products</span><h2 class="h2">Fifteen products, one account.</h2></div><a class="btn btn--surface btn--sm" href="/products">All products{icon("arrow", 16)}</a></div>
+  <div class="section__head"><div><span class="kicker">Products</span><h2 class="h2">Sixteen products, one account.</h2></div><a class="btn btn--surface btn--sm" href="/products">All products{icon("arrow", 16)}</a></div>
   <div class="pgrid">{tiles}</div>
 </section>
 <section class="section pillars">{pill}</section>
@@ -342,7 +343,7 @@ def home():
     website = {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "Taliferro Tech",
                "publisher": {"@id": f"{SITE}/#organization"}}
     return page("/", "Taliferro Tech | AI software that does the work",
-                "Taliferro Tech builds AI software products that draft, nudge, validate and route the work for you. Fifteen products, one TODD account. Based in Seattle, WA.",
+                "Taliferro Tech builds AI software products that draft, nudge, validate and route the work for you. Sixteen products, one TODD account. Based in Seattle, WA.",
                 "", body, [website])
 
 
@@ -355,7 +356,7 @@ def products():
                                     f'{icon("chev", 16, "i pcard__chev")}') for n in names)
         sections += f'<section class="pgroup"><h2><span>{title}</span><small>{desc}</small></h2><div class="pcards">{cards}</div></section>'
     body = f'''<section class="pagehead">
-  <div><h1 class="display display--md">Products</h1><p class="lede">Fifteen products, one intelligence layer. Sign in once with your TODD account and use any of them.</p></div>
+  <div><h1 class="display display--md">Products</h1><p class="lede">Sixteen products, one intelligence layer. Sign in once with your TODD account and use any of them.</p></div>
   {cta_consult("Not sure where to start? Book a consultation", "btn btn--primary btn--sm pagehead__cta")}
 </section>
 <div class="pgroups">{sections}</div>'''
@@ -364,7 +365,7 @@ def products():
                        "operatingSystem": "Web", **({"url": u} if u else {}), "publisher": {"@id": f"{SITE}/#organization"}}}
              for i, (n, _, _, u, d) in enumerate(PRODUCTS)]
     return page("/products", "Products | Taliferro Tech",
-                "All fourteen Taliferro Tech products: Ask TODD, Maya, Network, Moves, Outreach, Pulse, Lead Vault, Social, SayIt, Docs, Email Creator, Email Signature, Image Creator and Music.",
+                "All sixteen Taliferro Tech products: Ask TODD, Find, Maya, Network, Moves, Outreach, Pulse, Lead Vault, Social, SayIt, Market, Docs, Email Creator, Email Signature, Image Creator and Music.",
                 "Products", body, [{"@type": "ItemList", "name": "Taliferro Tech products", "itemListElement": items}])
 
 

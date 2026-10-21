@@ -43,7 +43,10 @@ import urllib.request
 from pathlib import Path
 
 OUT = Path(__file__).resolve().parent.parent / "public" / "health" / "health.json"
-GA_KEY = os.environ.get("HEALTH_GA_KEY") or next(iter(sorted(glob.glob(os.path.expanduser("~/keys/taliferrotech-*.json")))), "")
+# Other taliferrotech service-account keys live in ~/keys too, so match on the account, not the file name.
+GA_KEY = os.environ.get("HEALTH_GA_KEY") or next(
+    (p for p in sorted(glob.glob(os.path.expanduser("~/keys/taliferrotech-*.json")))
+     if json.load(open(p)).get("client_email", "").startswith("ga-health-reader@")), "")
 PASSWORD_FILE = Path(os.environ.get("HEALTH_PASSWORD_FILE", "~/keys/health-password.txt")).expanduser()
 ASC_KEY_ID, ASC_ISSUER = "C4PA96WUD3", "d19396a2-82f5-4aa8-97b7-9ccf24196d32"
 ASC_KEY = next((Path(p).expanduser() for p in [os.environ.get("ASC_KEY", ""), "~/keys/AuthKey_C4PA96WUD3.p8",
@@ -76,6 +79,7 @@ PROPERTIES = [
     ("Outreach", "Grow", TECH, "15742946776", "outreach.taliferro.tech", "https://outreach.taliferro.tech", [], None),
     ("Social", "Grow", TECH, "15743464052", "social.taliferro.tech", "https://social.taliferro.tech", [], None),
     ("SayIt", "Grow", TECH, "15742971797", "sayit.taliferro.tech", "https://sayit.taliferro.tech", [], None),
+    ("Market", "Grow", TECH, "16177478136", "market.taliferro.tech", "https://market.taliferro.tech", [], None),
     ("Docs", "Create", TECH, "15743468020", "docs.taliferro.tech", "https://docs.taliferro.tech", [], None),
     ("Email Creator", "Create", TECH, "16044468969", "emails.taliferro.tech", "https://emails.taliferro.tech",
      ["email_created", "email_downloaded"], None),

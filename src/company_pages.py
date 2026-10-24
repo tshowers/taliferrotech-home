@@ -225,3 +225,30 @@ def investors(icon, email, site):
     return ("/investors", "investors.html", "Investors | Taliferro Tech",
             "Taliferro Tech builds TODD, a Business Momentum System: software that does the work, with an approval gate on every send. We're talking with investors and partners.",
             body, [])
+
+
+# ---------------------------------------------------------------- /investor-room
+# Password-gated videos for investors we've already talked to. The page holds no
+# video URLs: js/investor-room.js posts the password to /api/investor-room (the
+# investorRoom function in functions/), which returns two-hour signed links to
+# the private gs://taliferro-investor-room bucket. Noindex and out of the sitemap.
+
+def investor_room(icon, email):
+    ask = f"mailto:{email}?subject={quote('Investor room access')}"
+    body = f'''<section class="phero">
+  <div class="phero__copy">
+    <span class="tag t-blue">Investors</span>
+    <h1 class="display display--md">Investor room</h1>
+    <p class="lede">Private videos for investors we're in conversation with. Enter the password from your invitation.</p>
+    <form class="room__gate" id="room-gate" autocomplete="off">
+      <label class="room__field">{icon("lock")}<input type="password" name="password" placeholder="Password" aria-label="Password" required autocomplete="current-password"></label>
+      <button class="btn btn--primary" type="submit">Open</button>
+    </form>
+    <p class="note" id="room-status" role="status"></p>
+    <p class="note">No password? <a href="{ask}">Ask us for access</a>.</p>
+  </div>
+</section>
+<section class="section section--narrow room__videos" id="room-videos" hidden></section>
+<script src="/js/investor-room.js" defer></script>'''
+    return ("/investor-room", "investor-room.html", "Investor room | Taliferro Tech",
+            "Private investor videos from Taliferro Tech.", body)

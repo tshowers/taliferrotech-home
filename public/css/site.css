@@ -391,6 +391,7 @@ a.mtile:hover { background: var(--surface); }
 .phero { padding: 20px 64px 0; }
 .phero__copy { display: flex; flex-direction: column; gap: 22px; max-width: 860px; }
 .phero__name { display: flex; align-items: center; gap: 16px; }
+.brandmark { flex: none; object-fit: contain; }
 .phero__name > span:last-child { display: flex; flex-direction: column; gap: 2px; }
 .phero__name b { font-size: 24px; letter-spacing: -0.02em; }
 .phero .lede { max-width: 720px; }
@@ -528,6 +529,7 @@ a.mtile:hover { background: var(--surface); }
   .phero { padding: 12px 20px 0; }
   .phero__copy { gap: 16px; }
   .phero__name .chip { --sz: 56px !important; }
+  .phero__name .brandmark { width: 56px; height: 56px; }
   .phero__name b { font-size: 20px; }
   .feats { grid-template-columns: 1fr; gap: 8px; }
   .feat { padding: 18px; border-radius: 20px; }
@@ -752,4 +754,24 @@ a.mtile:hover { background: var(--surface); }
   .legal { grid-template-columns: 1fr; gap: 24px; padding: 24px 16px 0; }
   .legal__rail { display: none; }
   .legal .display--md { font-size: 40px; }
+}
+
+/* Investor room (/investor-room) */
+.room__gate { display: flex; flex-wrap: wrap; gap: 12px; max-width: 520px; }
+.room__field {
+  flex: 1; min-width: 220px; height: 52px; padding: 0 18px;
+  display: flex; align-items: center; gap: 10px; border-radius: 999px; background: var(--surface); color: var(--muted);
+}
+.room__field input { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: none; font: inherit; font-size: 16px; color: var(--text); }
+.room__field input::placeholder { color: var(--muted); }
+.room__field:focus-within { outline: 2px solid var(--text); outline-offset: 2px; }
+.room__gate[hidden] { display: none; }
+.room__gate .btn:disabled { opacity: .6; cursor: default; }
+.room__videos { gap: 48px; }
+.room__videos[hidden] { display: none; }
+.room__video { display: flex; flex-direction: column; gap: 16px; }
+.room__video video { width: 100%; aspect-ratio: 16 / 9; border-radius: 24px; background: #000; }
+@media (max-width: 760px) {
+  .room__gate .btn { width: 100%; }
+  .room__video video { border-radius: 18px; }
 }

@@ -3,3 +3,6 @@
 firebase-debug*.log
 node_modules/
 .env
+
+# Private investor videos (not committed, not deployed)
+public/video/

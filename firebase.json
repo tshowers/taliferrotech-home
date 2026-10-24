@@ -8,7 +8,8 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**",
-      "health/health.json"
+      "health/health.json",
+      "video/**"
     ],
     "redirects": [
       {
@@ -90,7 +91,40 @@
             "value": "noindex, nofollow"
           }
         ]
+      },
+      {
+        "source": "/investor-room{,.html}",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "no-store"
+          },
+          {
+            "key": "X-Robots-Tag",
+            "value": "noindex, nofollow"
+          }
+        ]
+      }
+    ],
+    "rewrites": [
+      {
+        "source": "/api/investor-room",
+        "function": {
+          "functionId": "investorRoom",
+          "region": "us-central1"
+        }
       }
     ]
-  }
+  },
+  "functions": [
+    {
+      "source": "functions",
+      "codebase": "investor-room",
+      "ignore": [
+        "node_modules",
+        ".git",
+        "*.log"
+      ]
+    }
+  ]
 }

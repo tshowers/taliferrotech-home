@@ -15,7 +15,7 @@ from pathlib import Path
 from urllib.parse import quote
 
 from affiliate_pages import pages as affiliate_pages
-from company_pages import careers, investors
+from company_pages import careers, investor_room, investors
 from legal_pages import pages as legal_pages
 from product_pages import PAGES
 
@@ -109,6 +109,7 @@ ICONS = {
     "dollar": '<path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>',
     "clock": '<circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/>',
     "undo": '<path d="M9 14 4 9l5-5M4 9h10.5a5.5 5.5 0 0 1 0 11H11"/>',
+    "lock": '<rect width="18" height="11" x="3" y="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/>',
 }
 
 
@@ -120,7 +121,28 @@ def icon(name, size=18, cls="i"):
 def chip(name, size):
     tint, glyph = P[name][1], P[name][2]
     return (f'<span class="chip t-{tint}" style="--sz:{size}px" aria-hidden="true">'
-            f'<span class="glyph" style="--g:url(/img/products/{glyph})"></span></span>')
+            f'<span class="glyph" style="--g:url(/img/products/{glyph}?v={asset_version(f"img/products/{glyph}")})"></span></span>')
+
+
+def todd_chip(size):
+    """TODD itself (the intelligence layer): the circuit mark, not Ask TODD's chat bubble."""
+    return (f'<span class="chip t-green" style="--sz:{size}px" aria-hidden="true">'
+            f'<span class="glyph" style="--g:url(/img/products/todd.png?v={asset_version("img/products/todd.png")})"></span></span>')
+
+
+def color_logo(name):
+    """The product's full-color logo (img/products/color/), or None until it has one."""
+    file = f"color/{Path(P[name][2]).stem}.png"
+    return file if (OUT / "img/products" / file).exists() else None
+
+
+def brand_mark(name, size):
+    """Color logo where the product is the subject (its own page); the tinted chip otherwise."""
+    file = color_logo(name)
+    if not file:
+        return chip(name, size)
+    return (f'<img class="brandmark" src="/img/products/{file}?v={asset_version(f"img/products/{file}")}" '
+            f'alt="" width="{size}" height="{size}">')
 
 
 def page_url(name):
@@ -323,11 +345,11 @@ def home():
   </div>
   <div class="orbit" aria-label="TODD at the centre of fifteen Taliferro Tech products" role="img">
     <span class="orbit__disc"></span>{orbit}
-    <div class="orbit__core">{chip("Ask TODD", 112)}<b>TODD</b><span>Intelligence layer</span></div>
+    <div class="orbit__core">{todd_chip(112)}<b>TODD</b><span>Intelligence layer</span></div>
   </div>
 </section>
 <section class="band t-green">
-  {chip("Ask TODD", 52)}
+  {todd_chip(52)}
   <div class="band__copy"><h2>Every product runs on TODD.</h2><p>TODD turns scattered information into clear next moves, then works across the apps to get them done.</p></div>
   <a class="btn btn--bg btn--sm" href="{TODD_URL}">todd.taliferro.tech{icon("ext", 14)}</a>
 </section>
@@ -465,7 +487,7 @@ def product_page(name):
     body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="/products">Products</a>{icon("chev", 14)}<span aria-current="page">{name}</span></nav>
 <section class="phero">
   <div class="phero__copy">
-    <span class="phero__name">{chip(name, 72)}<span><span class="kicker">{group[0]} · {platforms}</span><b>{name}</b></span></span>
+    <span class="phero__name">{brand_mark(name, 72)}<span><span class="kicker">{group[0]} · {platforms}</span><b>{name}</b></span></span>
     <h1 class="display display--md">{d["tagline"]}</h1>
     <p class="lede">{d["lede"]}</p>
     <div class="actions">{open_btn}{app_btn}{cta_consult("Book a consultation", "btn btn--surface")}</div>
@@ -477,7 +499,7 @@ def product_page(name):
 </section>
 {steps}
 <section class="band t-green band--page">
-  {chip("Ask TODD", 52)}
+  {todd_chip(52)}
   <div class="band__copy"><h2>{"This is TODD." if name == "Ask TODD" else f"{name} runs on TODD."}</h2><p>TODD, the Taliferro Tech intelligence layer, sits under every product, so what {name} learns, the others can use. One TODD account signs you in to all of them.</p></div>
   <a class="btn btn--bg btn--sm" href="{TODD_URL}">todd.taliferro.tech{icon("ext", 14)}</a>
 </section>
@@ -493,7 +515,7 @@ def product_page(name):
     path = page_url(name)
     app = {"@type": "SoftwareApplication", "@id": f"{SITE}{path}#app", "name": name, "description": d["lede"],
            "applicationCategory": "BusinessApplication", "operatingSystem": "Web, iOS" if d.get("ios") else "Web",
-           "publisher": {"@id": f"{SITE}/#organization"}, "image": f"{SITE}/img/products/{P[name][2]}"}
+           "publisher": {"@id": f"{SITE}/#organization"}, "image": f"{SITE}/img/products/{color_logo(name) or P[name][2]}"}
     if url:
         app["url"] = url
     crumbs = {"@type": "BreadcrumbList", "itemListElement": [
@@ -520,6 +542,8 @@ def main():
     pages[c_out] = page(c_path, c_title, c_desc, "", c_body, c_ld)
     i_path, i_out, i_title, i_desc, i_body, i_ld = investors(icon, EMAIL, SITE)
     pages[i_out] = page(i_path, i_title, i_desc, "", i_body, i_ld)
+    r_path, r_out, r_title, r_desc, r_body = investor_room(icon, EMAIL)
+    pages[r_out] = page(r_path, r_title, r_desc, "", r_body, robots="noindex,nofollow")
     legal = legal_pages(ADDRESS, PHONE_DISPLAY, PHONE_TEL)
     for path, out, title, desc, body in legal:
         pages[out] = page(path, title, desc, "", body)

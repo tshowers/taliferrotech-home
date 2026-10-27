@@ -16,7 +16,7 @@ ios      -> True when the product has a live iPhone app
 PAGES = {
     "Ask TODD": {
         "slug": "ask-todd",
-        "title": "Ask TODD: ask a business question, get the next move",
+        "title": "Ask TODD: AI business advisor that answers with the next move",
         "tagline": "Ask a business question. Get the next move.",
         "lede": "Ask TODD is where you talk to TODD, the intelligence layer behind every Taliferro Tech product. Tell it what is stuck in your business and it comes back with a clear next move, the right place to start, or the fastest way forward.",
         "features": [
@@ -38,7 +38,7 @@ PAGES = {
     },
     "Find": {
         "slug": "find",
-        "title": "Find: search that ends with an answer",
+        "title": "Find: AI search engine that puts the answer first",
         "tagline": "Start with what you remember. End with the answer.",
         "lede": "Find is TODD's visual search. It puts the best-weighted answer first instead of ten blue links, drawing on authoritative answers, curated Taliferro knowledge and the web. Free, with no account required, on the web and on iPhone.",
         "features": [
@@ -57,7 +57,7 @@ PAGES = {
     },
     "Maya": {
         "slug": "maya",
-        "title": "Maya: your on-call AI Marketing Director",
+        "title": "Maya: AI marketing assistant and on-call Marketing Director",
         "tagline": "Your on-call Marketing Director.",
         "lede": "Maya is your on-call AI Marketing Director. Get candid advice on message clarity, campaigns and audience focus, learn what to fix first, then let Maya carry out the plan.",
         "features": [
@@ -75,7 +75,7 @@ PAGES = {
     },
     "Network": {
         "slug": "network",
-        "title": "Network: see which relationships need your attention",
+        "title": "Network: relationship CRM that shows who needs your attention",
         "tagline": "Know which relationships need you this week.",
         "lede": "Network is TODD's relationship graph. Every contact, company, deal and interaction is read continuously by TODD to surface who needs attention, which relationships are gaining momentum and which are at risk of going cold.",
         "features": [
@@ -91,7 +91,7 @@ PAGES = {
     },
     "Moves": {
         "slug": "moves",
-        "title": "Moves: a task workspace for work that can't stall",
+        "title": "Moves: task and follow-up tracker for work that can't stall",
         "tagline": "See what needs attention next.",
         "lede": "Moves is a momentum-focused task and project workspace for work that cannot afford to stall. Most task trackers tell you what exists. Moves shows what needs attention next: every move carries a clear next action, an owner, context, timing and a momentum signal.",
         "features": [
@@ -114,7 +114,7 @@ PAGES = {
     },
     "Outreach": {
         "slug": "outreach",
-        "title": "Outreach: email campaigns and follow-up with TODD",
+        "title": "Outreach: AI email campaigns and automated follow-up",
         "tagline": "Turn attention into a real next step.",
         "lede": "Outreach is TODD's email campaign and follow-up workspace. Plan thoughtful outreach, see how people engage, and choose the right next move for each conversation instead of letting threads go dead.",
         "features": [
@@ -130,7 +130,7 @@ PAGES = {
     },
     "Pulse": {
         "slug": "pulse",
-        "title": "Pulse: customer surveys TODD reads for you",
+        "title": "Pulse: AI survey maker for customer feedback",
         "tagline": "Every response is a signal.",
         "lede": "Pulse is a survey and feedback tool. Create a short survey with TODD, publish it to collect real responses, and watch a results dashboard tally the answers as they arrive, instead of a spreadsheet nobody opens.",
         "features": [
@@ -151,7 +151,7 @@ PAGES = {
     },
     "Lead Vault": {
         "slug": "lead-vault",
-        "title": "Lead Vault: find and validate business leads",
+        "title": "Lead Vault: B2B lead finder with validated contacts",
         "tagline": "Find the right company. Reach the right person.",
         "lede": "Lead Vault is for finding business leads and the contacts behind them. Search companies, sectors, capabilities or buyer needs, check whether an email address is valid, and unlock the full record when a lead is worth a conversation.",
         "features": [
@@ -174,7 +174,7 @@ PAGES = {
     },
     "Social": {
         "slug": "social",
-        "title": "Social: social posts drafted by TODD for LinkedIn and Threads",
+        "title": "Social: AI social media post generator for LinkedIn and Threads",
         "tagline": "Keep your visibility active.",
         "lede": "Social keeps your social presence moving. Capture the signal, let TODD draft the post, review and approve it, and keep the queue going, tied to the rest of your business instead of a separate content silo.",
         "features": [
@@ -235,7 +235,7 @@ PAGES = {
     },
     "Docs": {
         "slug": "docs",
-        "title": "Docs: business documents, proposals and RFPs with TODD",
+        "title": "Docs: AI proposal and RFP response software",
         "tagline": "Your business knowledge, ready to reuse.",
         "lede": "Docs stores the knowledge, supporting material and working context of your business where the next move can use it. Upload your documents, draft new ones, and turn RFPs into proposals.",
         "features": [
@@ -251,7 +251,7 @@ PAGES = {
     },
     "Email Creator": {
         "slug": "email-creator",
-        "title": "Email Creator: describe an email, get designed HTML",
+        "title": "Email Creator: AI email generator that outputs designed HTML",
         "tagline": "Describe an email. Get finished HTML.",
         "lede": "Email Creator is a workspace where you chat with TODD about an email, whether it is a marketing campaign, a newsletter, an invite or a plain business email, attach images like your logo or product photos, and get a designed, email-safe HTML email to preview and download.",
         "features": [
@@ -273,7 +273,7 @@ PAGES = {
     },
     "Email Signature": {
         "slug": "email-signature",
-        "title": "Email Signature Builder: a professional email signature in minutes",
+        "title": "Email Signature Generator: a professional HTML signature in minutes",
         "tagline": "A professional signature for any mail app.",
         "lede": "Build a branded email signature in a couple of minutes. Pick a layout, add your details and logo, then copy the HTML or download it, with step-by-step guides for installing it in your mail app.",
         "features": [
@@ -295,7 +295,7 @@ PAGES = {
     },
     "Image Creator": {
         "slug": "image-creator",
-        "title": "Image Creator: describe an image, download a PNG",
+        "title": "Image Creator: AI image and logo generator, download a PNG",
         "tagline": "Describe an image. Download a PNG.",
         "lede": "Image Creator is a browser-based image workspace. Chat with TODD to create logos, icons, illustrations and other images, add your logo or example images as references, and download the result as a PNG.",
         "features": [

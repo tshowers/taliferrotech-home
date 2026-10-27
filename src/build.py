@@ -45,7 +45,6 @@ FOUNDER_LINKEDIN = "https://www.linkedin.com/in/tyroneshowers"
 SOCIAL = [
     ("LinkedIn", "https://www.linkedin.com/company/taliferro-tech"),
     ("YouTube", "https://www.youtube.com/@TaliferroTechLLC"),
-    ("Instagram", "https://www.instagram.com/taliferrotech/"),
 ]
 
 CONSULT_BODY = (

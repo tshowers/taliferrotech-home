@@ -22,7 +22,7 @@ ROLES = [
     ], "Design and deploy models for enrichment, NLP, and automation. Measure impact and ship ML features."),
     ("marketing-specialist", "Marketing & Social Media Specialist", "Marketing & Social", [
         "Turn stories into outcomes: pipeline, demos, trials, and retention.",
-        "Ship content across YouTube, Instagram, TikTok, and email with a tight feedback loop.",
+        "Ship content across LinkedIn, YouTube, and email with a tight feedback loop.",
         "Run experiments, read the numbers, and get coached into remarkable execution.",
     ], "Plan and run content tied to outcomes. Grow audience across channels; analyze performance."),
     ("customer-success-agent", "Customer Success Agent", "Customer Success", [

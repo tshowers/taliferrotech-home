@@ -91,7 +91,8 @@ PROPERTIES = [
 ]
 # Tag added (or fixed) on this date; earlier weeks have no data by design.
 TRACKING_SINCE = {"Taliferro Tech": "2026-10-05", "Music": "2026-10-05", "Email Creator": "2026-10-05",
-                  "Image Creator": "2026-10-05", "Ask TODD": "2026-10-05", "Docs": "2026-10-05"}
+                  "Image Creator": "2026-10-05", "Ask TODD": "2026-10-05", "Docs": "2026-10-05",
+                  "Market": "2026-10-26"}
 
 # Below this many engaged sessions in both weeks a % change is noise, so the
 # row is reported as "low" instead of green/yellow/red.

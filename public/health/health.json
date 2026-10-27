@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-10-21T21:37:28+00:00",
+ "generated_at": "2026-10-26T19:58:29+00:00",
  "week": {
-  "start": "2026-10-12",
-  "end": "2026-10-18"
+  "start": "2026-10-19",
+  "end": "2026-10-25"
  },
  "prev_week": {
-  "start": "2026-10-05",
-  "end": "2026-10-11"
+  "start": "2026-10-12",
+  "end": "2026-10-18"
  },
  "thresholds": {
   "min_engaged_sessions": 10,
@@ -15,17 +15,17 @@
  },
  "totals": {
   "engaged_sessions": {
-   "this": 178,
-   "prev": 222,
-   "change": -0.198
+   "this": 149,
+   "prev": 178,
+   "change": -0.163
   },
   "by_status": {
    "green": 4,
-   "yellow": 1,
-   "red": 3,
-   "low": 10,
-   "new": 0,
-   "none": 1
+   "yellow": 0,
+   "red": 7,
+   "low": 7,
+   "new": 1,
+   "none": 0
   }
  },
  "app_store_status": "ok",
@@ -37,43 +37,43 @@
    "host": "taliferro.tech",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 10,
-    "prev": 33,
-    "change": -0.697
+    "this": 12,
+    "prev": 10,
+    "change": 0.2
    },
-   "status": "red",
+   "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 10,
-     "prev": 33,
-     "change": -0.697
+     "this": 12,
+     "prev": 10,
+     "change": 0.2
     },
     "users_incl_bots": {
-     "this": 14,
-     "prev": 23,
-     "change": -0.391
+     "this": 15,
+     "prev": 14,
+     "change": 0.071
     },
     "sessions": {
-     "this": 20,
-     "prev": 50,
-     "change": -0.6
+     "this": 24,
+     "prev": 20,
+     "change": 0.2
     },
     "views": {
-     "this": 29,
-     "prev": 116,
-     "change": -0.75
+     "this": 46,
+     "prev": 29,
+     "change": 0.586
     },
     "engagement_rate": 0.5,
-    "engaged_sec_per_session": 41
+    "engaged_sec_per_session": 50
    },
    "events": {
     "get_started": {
-     "this": 5,
-     "prev": 12
+     "this": 3,
+     "prev": 5
     },
     "contact": {
-     "this": 1,
-     "prev": 5
+     "this": 24,
+     "prev": 1
     },
     "app_store_click": {
      "this": 0,
@@ -90,34 +90,34 @@
    "host": "taliferro.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 37,
-    "prev": 34,
-    "change": 0.088
+    "this": 44,
+    "prev": 37,
+    "change": 0.189
    },
    "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 37,
-     "prev": 34,
-     "change": 0.088
+     "this": 44,
+     "prev": 37,
+     "change": 0.189
     },
     "users_incl_bots": {
-     "this": 181,
-     "prev": 184,
-     "change": -0.016
+     "this": 269,
+     "prev": 181,
+     "change": 0.486
     },
     "sessions": {
-     "this": 183,
-     "prev": 197,
-     "change": -0.071
+     "this": 281,
+     "prev": 183,
+     "change": 0.536
     },
     "views": {
-     "this": 198,
-     "prev": 216,
-     "change": -0.083
+     "this": 345,
+     "prev": 198,
+     "change": 0.742
     },
-    "engagement_rate": 0.202,
-    "engaged_sec_per_session": 66
+    "engagement_rate": 0.157,
+    "engaged_sec_per_session": 93
    },
    "events": {},
    "app_store": null,
@@ -130,34 +130,34 @@
    "host": "find.taliferro.tech",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 37,
-    "prev": 38,
-    "change": -0.026
+    "this": 36,
+    "prev": 37,
+    "change": -0.027
    },
    "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 37,
-     "prev": 38,
-     "change": -0.026
+     "this": 36,
+     "prev": 37,
+     "change": -0.027
     },
     "users_incl_bots": {
-     "this": 12,
-     "prev": 11,
-     "change": 0.091
+     "this": 35,
+     "prev": 12,
+     "change": 1.917
     },
     "sessions": {
-     "this": 55,
-     "prev": 75,
-     "change": -0.267
+     "this": 77,
+     "prev": 55,
+     "change": 0.4
     },
     "views": {
-     "this": 142,
-     "prev": 183,
-     "change": -0.224
+     "this": 136,
+     "prev": 142,
+     "change": -0.042
     },
-    "engagement_rate": 0.673,
-    "engaged_sec_per_session": 102
+    "engagement_rate": 0.468,
+    "engaged_sec_per_session": 53
    },
    "events": {},
    "app_store": {
@@ -169,12 +169,12 @@
     "reviews": [],
     "downloads": {
      "this": {
-      "downloads": 1,
+      "downloads": 6,
       "redownloads": 0,
-      "updates": 0
+      "updates": 1
      },
      "prev": {
-      "downloads": 0,
+      "downloads": 1,
       "redownloads": 0,
       "updates": 0
      }
@@ -189,34 +189,34 @@
    "host": "todd.taliferro.tech",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 24,
-    "prev": 28,
-    "change": -0.143
+    "this": 16,
+    "prev": 24,
+    "change": -0.333
    },
-   "status": "yellow",
+   "status": "red",
    "web": {
     "engaged_sessions": {
-     "this": 24,
-     "prev": 28,
-     "change": -0.143
+     "this": 16,
+     "prev": 24,
+     "change": -0.333
     },
     "users_incl_bots": {
-     "this": 114,
-     "prev": 109,
-     "change": 0.046
+     "this": 63,
+     "prev": 114,
+     "change": -0.447
     },
     "sessions": {
-     "this": 129,
-     "prev": 127,
-     "change": 0.016
+     "this": 79,
+     "prev": 129,
+     "change": -0.388
     },
     "views": {
-     "this": 112,
-     "prev": 111,
-     "change": 0.009
+     "this": 63,
+     "prev": 112,
+     "change": -0.438
     },
-    "engagement_rate": 0.186,
-    "engaged_sec_per_session": 39
+    "engagement_rate": 0.203,
+    "engaged_sec_per_session": 45
    },
    "events": {},
    "app_store": null,
@@ -229,34 +229,34 @@
    "host": "ask.taliferro.tech",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 2,
-    "prev": 9,
-    "change": -0.778
+    "this": 3,
+    "prev": 2,
+    "change": 0.5
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 2,
-     "prev": 9,
-     "change": -0.778
+     "this": 3,
+     "prev": 2,
+     "change": 0.5
     },
     "users_incl_bots": {
-     "this": 6,
-     "prev": 9,
-     "change": -0.333
+     "this": 2,
+     "prev": 6,
+     "change": -0.667
     },
     "sessions": {
-     "this": 8,
-     "prev": 15,
-     "change": -0.467
+     "this": 5,
+     "prev": 8,
+     "change": -0.375
     },
     "views": {
-     "this": 8,
-     "prev": 20,
-     "change": -0.6
+     "this": 12,
+     "prev": 8,
+     "change": 0.5
     },
-    "engagement_rate": 0.25,
-    "engaged_sec_per_session": 40
+    "engagement_rate": 0.6,
+    "engaged_sec_per_session": 22
    },
    "events": {},
    "app_store": null,
@@ -269,34 +269,34 @@
    "host": "maya.taliferro.tech",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 3,
-    "prev": 9,
+    "this": 1,
+    "prev": 3,
     "change": -0.667
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 3,
-     "prev": 9,
+     "this": 1,
+     "prev": 3,
      "change": -0.667
     },
     "users_incl_bots": {
-     "this": 3,
-     "prev": 8,
-     "change": -0.625
+     "this": 2,
+     "prev": 3,
+     "change": -0.333
     },
     "sessions": {
-     "this": 5,
-     "prev": 17,
-     "change": -0.706
+     "this": 2,
+     "prev": 5,
+     "change": -0.6
     },
     "views": {
-     "this": 10,
-     "prev": 34,
-     "change": -0.706
+     "this": 7,
+     "prev": 10,
+     "change": -0.3
     },
-    "engagement_rate": 0.6,
-    "engaged_sec_per_session": 50
+    "engagement_rate": 0.5,
+    "engaged_sec_per_session": 663
    },
    "events": {},
    "app_store": null,
@@ -309,34 +309,34 @@
    "host": "moves.taliferro.tech",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 7,
-    "prev": 2,
-    "change": 2.5
+    "this": 0,
+    "prev": 7,
+    "change": -1.0
    },
-   "status": "low",
+   "status": "red",
    "web": {
     "engaged_sessions": {
-     "this": 7,
-     "prev": 2,
-     "change": 2.5
+     "this": 0,
+     "prev": 7,
+     "change": -1.0
     },
     "users_incl_bots": {
-     "this": 33,
-     "prev": 3,
-     "change": 10.0
+     "this": 3,
+     "prev": 33,
+     "change": -0.909
     },
     "sessions": {
-     "this": 38,
-     "prev": 3,
-     "change": 11.667
+     "this": 3,
+     "prev": 38,
+     "change": -0.921
     },
     "views": {
-     "this": 69,
-     "prev": 6,
-     "change": 10.5
+     "this": 3,
+     "prev": 69,
+     "change": -0.957
     },
-    "engagement_rate": 0.184,
-    "engaged_sec_per_session": 96
+    "engagement_rate": 0.0,
+    "engaged_sec_per_session": 0
    },
    "events": {},
    "app_store": null,
@@ -349,34 +349,34 @@
    "host": "pulse.taliferro.tech",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 13,
-    "prev": 6,
-    "change": 1.167
+    "this": 2,
+    "prev": 13,
+    "change": -0.846
    },
-   "status": "green",
+   "status": "red",
    "web": {
     "engaged_sessions": {
-     "this": 13,
-     "prev": 6,
-     "change": 1.167
+     "this": 2,
+     "prev": 13,
+     "change": -0.846
     },
     "users_incl_bots": {
-     "this": 19,
-     "prev": 3,
-     "change": 5.333
+     "this": 3,
+     "prev": 19,
+     "change": -0.842
     },
     "sessions": {
-     "this": 33,
-     "prev": 7,
-     "change": 3.714
+     "this": 4,
+     "prev": 33,
+     "change": -0.879
     },
     "views": {
-     "this": 50,
-     "prev": 19,
-     "change": 1.632
+     "this": 9,
+     "prev": 50,
+     "change": -0.82
     },
-    "engagement_rate": 0.394,
-    "engaged_sec_per_session": 90
+    "engagement_rate": 0.5,
+    "engaged_sec_per_session": 110
    },
    "events": {},
    "app_store": null,
@@ -389,34 +389,34 @@
    "host": "network.taliferro.tech",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 8,
-    "prev": 13,
-    "change": -0.385
+    "this": 5,
+    "prev": 8,
+    "change": -0.375
    },
-   "status": "red",
+   "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 8,
-     "prev": 13,
-     "change": -0.385
+     "this": 5,
+     "prev": 8,
+     "change": -0.375
     },
     "users_incl_bots": {
-     "this": 8,
-     "prev": 7,
-     "change": 0.143
-    },
-    "sessions": {
-     "this": 12,
-     "prev": 16,
+     "this": 6,
+     "prev": 8,
      "change": -0.25
     },
-    "views": {
-     "this": 34,
-     "prev": 59,
-     "change": -0.424
+    "sessions": {
+     "this": 10,
+     "prev": 12,
+     "change": -0.167
     },
-    "engagement_rate": 0.667,
-    "engaged_sec_per_session": 70
+    "views": {
+     "this": 28,
+     "prev": 34,
+     "change": -0.176
+    },
+    "engagement_rate": 0.5,
+    "engaged_sec_per_session": 104
    },
    "events": {},
    "app_store": null,
@@ -429,34 +429,34 @@
    "host": "lead-vault.taliferro.tech",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 2,
-    "prev": 3,
-    "change": -0.333
+    "this": 0,
+    "prev": 2,
+    "change": -1.0
    },
-   "status": "low",
+   "status": "red",
    "web": {
     "engaged_sessions": {
-     "this": 2,
-     "prev": 3,
-     "change": -0.333
+     "this": 0,
+     "prev": 2,
+     "change": -1.0
     },
     "users_incl_bots": {
-     "this": 3,
+     "this": 1,
      "prev": 3,
-     "change": 0.0
+     "change": -0.667
     },
     "sessions": {
-     "this": 3,
-     "prev": 4,
-     "change": -0.25
+     "this": 1,
+     "prev": 3,
+     "change": -0.667
     },
     "views": {
-     "this": 3,
-     "prev": 12,
-     "change": -0.75
+     "this": 1,
+     "prev": 3,
+     "change": -0.667
     },
-    "engagement_rate": 0.667,
-    "engaged_sec_per_session": 27
+    "engagement_rate": 0.0,
+    "engaged_sec_per_session": 0
    },
    "events": {},
    "app_store": null,
@@ -469,34 +469,34 @@
    "host": "outreach.taliferro.tech",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 4,
-    "prev": 12,
-    "change": -0.667
+    "this": 12,
+    "prev": 4,
+    "change": 2.0
    },
-   "status": "red",
+   "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 4,
-     "prev": 12,
-     "change": -0.667
+     "this": 12,
+     "prev": 4,
+     "change": 2.0
     },
     "users_incl_bots": {
-     "this": 11,
-     "prev": 5,
-     "change": 1.2
+     "this": 4,
+     "prev": 11,
+     "change": -0.636
     },
     "sessions": {
-     "this": 14,
-     "prev": 15,
-     "change": -0.067
+     "this": 22,
+     "prev": 14,
+     "change": 0.571
     },
     "views": {
-     "this": 26,
-     "prev": 42,
-     "change": -0.381
+     "this": 97,
+     "prev": 26,
+     "change": 2.731
     },
-    "engagement_rate": 0.286,
-    "engaged_sec_per_session": 103
+    "engagement_rate": 0.545,
+    "engaged_sec_per_session": 177
    },
    "events": {},
    "app_store": null,
@@ -509,34 +509,34 @@
    "host": "social.taliferro.tech",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 5,
+    "this": 1,
     "prev": 5,
-    "change": 0.0
+    "change": -0.8
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 5,
+     "this": 1,
      "prev": 5,
-     "change": 0.0
+     "change": -0.8
     },
     "users_incl_bots": {
-     "this": 8,
-     "prev": 6,
-     "change": 0.333
+     "this": 4,
+     "prev": 8,
+     "change": -0.5
     },
     "sessions": {
-     "this": 16,
-     "prev": 11,
-     "change": 0.455
+     "this": 7,
+     "prev": 16,
+     "change": -0.562
     },
     "views": {
-     "this": 30,
-     "prev": 33,
-     "change": -0.091
+     "this": 6,
+     "prev": 30,
+     "change": -0.8
     },
-    "engagement_rate": 0.312,
-    "engaged_sec_per_session": 53
+    "engagement_rate": 0.143,
+    "engaged_sec_per_session": 0
    },
    "events": {},
    "app_store": null,
@@ -549,34 +549,34 @@
    "host": "sayit.taliferro.tech",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 4,
-    "prev": 6,
-    "change": -0.333
+    "this": 3,
+    "prev": 4,
+    "change": -0.25
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 4,
-     "prev": 6,
-     "change": -0.333
+     "this": 3,
+     "prev": 4,
+     "change": -0.25
     },
     "users_incl_bots": {
-     "this": 7,
-     "prev": 5,
-     "change": 0.4
+     "this": 4,
+     "prev": 7,
+     "change": -0.429
     },
     "sessions": {
      "this": 8,
-     "prev": 11,
-     "change": -0.273
+     "prev": 8,
+     "change": 0.0
     },
     "views": {
-     "this": 11,
-     "prev": 25,
-     "change": -0.56
+     "this": 16,
+     "prev": 11,
+     "change": 0.455
     },
-    "engagement_rate": 0.5,
-    "engaged_sec_per_session": 28
+    "engagement_rate": 0.375,
+    "engaged_sec_per_session": 31
    },
    "events": {},
    "app_store": null,
@@ -587,13 +587,13 @@
    "group": "Grow",
    "url": "https://market.taliferro.tech",
    "host": "market.taliferro.tech",
-   "tracking_since": null,
+   "tracking_since": "2026-10-26",
    "engaged_sessions": {
     "this": 0,
     "prev": 0,
     "change": null
    },
-   "status": "none",
+   "status": "new",
    "web": {
     "engaged_sessions": {
      "this": 0,
@@ -621,7 +621,7 @@
    "events": {},
    "app_store": null,
    "notes": [
-    "No GA data this week; check the tag and the site."
+    "Tracking started 2026-10-26; no full week to compare yet."
    ]
   },
   {
@@ -631,34 +631,34 @@
    "host": "docs.taliferro.tech",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 15,
-    "prev": 6,
-    "change": 1.5
+    "this": 9,
+    "prev": 15,
+    "change": -0.4
    },
-   "status": "green",
+   "status": "red",
    "web": {
     "engaged_sessions": {
-     "this": 15,
-     "prev": 6,
-     "change": 1.5
+     "this": 9,
+     "prev": 15,
+     "change": -0.4
     },
     "users_incl_bots": {
-     "this": 21,
-     "prev": 6,
-     "change": 2.5
+     "this": 8,
+     "prev": 21,
+     "change": -0.619
     },
     "sessions": {
-     "this": 39,
-     "prev": 11,
-     "change": 2.545
+     "this": 14,
+     "prev": 39,
+     "change": -0.641
     },
     "views": {
-     "this": 146,
-     "prev": 36,
-     "change": 3.056
+     "this": 53,
+     "prev": 146,
+     "change": -0.637
     },
-    "engagement_rate": 0.385,
-    "engaged_sec_per_session": 190
+    "engagement_rate": 0.643,
+    "engaged_sec_per_session": 567
    },
    "events": {},
    "app_store": null,
@@ -671,38 +671,38 @@
    "host": "emails.taliferro.tech",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 1,
-    "prev": 5,
-    "change": -0.8
+    "this": 2,
+    "prev": 1,
+    "change": 1.0
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 1,
-     "prev": 5,
-     "change": -0.8
+     "this": 2,
+     "prev": 1,
+     "change": 1.0
     },
     "users_incl_bots": {
-     "this": 2,
-     "prev": 6,
-     "change": -0.667
+     "this": 4,
+     "prev": 2,
+     "change": 1.0
     },
     "sessions": {
-     "this": 2,
-     "prev": 9,
-     "change": -0.778
+     "this": 6,
+     "prev": 2,
+     "change": 2.0
     },
     "views": {
-     "this": 2,
-     "prev": 10,
-     "change": -0.8
+     "this": 7,
+     "prev": 2,
+     "change": 2.5
     },
-    "engagement_rate": 0.5,
-    "engaged_sec_per_session": 10
+    "engagement_rate": 0.333,
+    "engaged_sec_per_session": 353
    },
    "events": {
     "email_created": {
-     "this": 0,
+     "this": 4,
      "prev": 0
     },
     "email_downloaded": {
@@ -720,34 +720,34 @@
    "host": "signature.taliferro.tech",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 1,
-    "prev": 3,
-    "change": -0.667
+    "this": 0,
+    "prev": 1,
+    "change": -1.0
    },
-   "status": "low",
+   "status": "red",
    "web": {
     "engaged_sessions": {
-     "this": 1,
-     "prev": 3,
-     "change": -0.667
+     "this": 0,
+     "prev": 1,
+     "change": -1.0
     },
     "users_incl_bots": {
      "this": 1,
+     "prev": 1,
+     "change": 0.0
+    },
+    "sessions": {
+     "this": 1,
      "prev": 3,
      "change": -0.667
     },
-    "sessions": {
-     "this": 3,
-     "prev": 3,
-     "change": 0.0
-    },
     "views": {
-     "this": 2,
-     "prev": 4,
+     "this": 1,
+     "prev": 2,
      "change": -0.5
     },
-    "engagement_rate": 0.333,
-    "engaged_sec_per_session": 17
+    "engagement_rate": 0.0,
+    "engaged_sec_per_session": 0
    },
    "events": {},
    "app_store": null,
@@ -760,43 +760,43 @@
    "host": "images.taliferro.tech",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 4,
-    "prev": 5,
-    "change": -0.2
+    "this": 0,
+    "prev": 4,
+    "change": -1.0
    },
-   "status": "low",
+   "status": "red",
    "web": {
     "engaged_sessions": {
-     "this": 4,
-     "prev": 5,
-     "change": -0.2
+     "this": 0,
+     "prev": 4,
+     "change": -1.0
     },
     "users_incl_bots": {
-     "this": 5,
+     "this": 1,
      "prev": 5,
-     "change": 0.0
+     "change": -0.8
     },
     "sessions": {
-     "this": 5,
-     "prev": 6,
-     "change": -0.167
+     "this": 1,
+     "prev": 5,
+     "change": -0.8
     },
     "views": {
-     "this": 9,
-     "prev": 10,
-     "change": -0.1
+     "this": 1,
+     "prev": 9,
+     "change": -0.889
     },
-    "engagement_rate": 0.8,
-    "engaged_sec_per_session": 40
+    "engagement_rate": 0.0,
+    "engaged_sec_per_session": 0
    },
    "events": {
     "image_created": {
-     "this": 1,
-     "prev": 6
+     "this": 0,
+     "prev": 1
     },
     "image_downloaded": {
-     "this": 1,
-     "prev": 3
+     "this": 0,
+     "prev": 1
     }
    },
    "app_store": null,
@@ -809,43 +809,43 @@
    "host": "music.taliferro.com",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 1,
-    "prev": 5,
-    "change": -0.8
+    "this": 3,
+    "prev": 1,
+    "change": 2.0
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 1,
-     "prev": 5,
-     "change": -0.8
+     "this": 3,
+     "prev": 1,
+     "change": 2.0
     },
     "users_incl_bots": {
-     "this": 6,
-     "prev": 26,
-     "change": -0.769
+     "this": 9,
+     "prev": 6,
+     "change": 0.5
     },
     "sessions": {
-     "this": 6,
-     "prev": 27,
-     "change": -0.778
+     "this": 9,
+     "prev": 6,
+     "change": 0.5
     },
     "views": {
-     "this": 6,
-     "prev": 31,
-     "change": -0.806
+     "this": 11,
+     "prev": 6,
+     "change": 0.833
     },
-    "engagement_rate": 0.167,
-    "engaged_sec_per_session": 31
+    "engagement_rate": 0.333,
+    "engaged_sec_per_session": 6
    },
    "events": {
     "radio_play": {
-     "this": 0,
-     "prev": 3
+     "this": 3,
+     "prev": 0
     },
     "app_store_click": {
      "this": 0,
-     "prev": 1
+     "prev": 0
     }
    },
    "app_store": {
@@ -857,12 +857,12 @@
     "reviews": [],
     "downloads": {
      "this": {
-      "downloads": 1,
+      "downloads": 0,
       "redownloads": 0,
       "updates": 0
      },
      "prev": {
-      "downloads": 0,
+      "downloads": 1,
       "redownloads": 0,
       "updates": 0
      }

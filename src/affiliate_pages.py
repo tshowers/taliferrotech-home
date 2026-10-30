@@ -1,9 +1,9 @@
-"""TODD affiliate program pages: /affiliates, /affiliates/how-earnings-work and
+"""16Ahead affiliate program pages: /affiliates, /affiliates/how-earnings-work and
 /affiliates/terms (Claude Design handoff "Affiliate and Pricing", screens
 21-23). Each page ships both designed layouts, a and b; the Layout toggle in
 js/site.js switches them and remembers the choice.
 
-Program numbers are fixed in the TODD backend (affiliateTrackingService.js,
+Program numbers are fixed in the 16Ahead backend (affiliateTrackingService.js,
 affiliateCommission.service.js). Keep this copy in step with them, never
 promise a payout schedule or payment method. The headline's earnings claim
 ($5,000 a month = about 7 clients at 15% of the $5,000/month Enterprise price)
@@ -18,7 +18,7 @@ TERMS_HTML = (Path(__file__).resolve().parent / "affiliate_terms.html").read_tex
 
 RULES = [
     ("visitors", "Visitors", "1¢ each · up to 500 a day", "eye", "blue",
-     "You earn 1¢ for every unique visitor your link sends to TODD, for up to 500 visitors a day. The same person "
+     "You earn 1¢ for every unique visitor your link sends to 16Ahead, for up to 500 visitors a day. The same person "
      "visiting again within 30 days doesn't count twice, and search engines, link previews and other automated "
      "traffic don't count. Visitors over the daily cap still count toward your bonus goal."),
     ("bonus", "The $100 bonus", "Unlocks at a goal", "gift", "yellow",
@@ -27,15 +27,15 @@ RULES = [
      "commission from before the bonus started count, and once it unlocks it stays unlocked. If you already "
      "received our earlier 100-visitor $100 bonus, that was your bonus."),
     ("enterprise", "Enterprise commission", "15% of every monthly payment", "dollar", "green",
-     "When someone you referred subscribes to TODD Enterprise, you earn 15% of every monthly payment, for as long "
+     "When someone you referred subscribes to 16Ahead Enterprise, you earn 15% of every monthly payment, for as long "
      "as they keep paying. Setup and customization hours are billed separately and don't earn commission."),
-    ("products", "Other TODD products", "15% of the first payment", "brief", "cyan",
+    ("products", "Other 16Ahead products", "15% of the first payment", "brief", "cyan",
      "For Network, Pulse, Moves, Outreach, Docs and Social, you earn 15% of each new subscriber's first payment, "
      "whether they buy on the web or in the App Store. For App Store purchases, 15% is of the full price, before "
      "Apple's fee. Renewals don't earn more."),
     ("credit", "Who gets credit", "30 days · first click wins", "clock", "violet",
-     "A visitor counts as yours for 30 days after they click your link, on every TODD site. If they clicked more "
-     "than one affiliate link, the first click wins. They need to create a new TODD account and buy (or start a "
+     "A visitor counts as yours for 30 days after they click your link, on every 16Ahead site. If they clicked more "
+     "than one affiliate link, the first click wins. They need to create a new 16Ahead account and buy (or start a "
      "free trial) within those 30 days. If they start a free trial in time, you're paid when their first real "
      "payment goes through."),
     ("refunds", "Refunds", "Commission is reversed", "undo", "pink",
@@ -44,9 +44,9 @@ RULES = [
 ]
 
 GOOD_TO_KNOW = [
-    "Only new accounts can be credited to you. Someone who already had a TODD account before clicking your link isn't counted as your referral.",
+    "Only new accounts can be credited to you. Someone who already had a 16Ahead account before clicking your link isn't counted as your referral.",
     "You can't earn from referring yourself.",
-    "If someone taps your link but then signs up only inside a TODD iPhone app, we can't connect them to you yet. Ask them to create their account on the website first.",
+    "If someone taps your link but then signs up only inside a 16Ahead iPhone app, we can't connect them to you yet. Ask them to create their account on the website first.",
     "App Store purchases in currencies other than US dollars are reviewed and credited by hand, so they may take longer to appear.",
     "Taliferro may occasionally add to or correct a balance; those show as adjustments on your dashboard.",
 ]
@@ -59,7 +59,7 @@ PROGRAM_RULES = [
 ]
 
 STEPS = [
-    ("Join", "Sign up with your email address on todd.taliferro.tech."),
+    ("Join", "Sign up with your email address on app.16ahead.com."),
     ("Copy your link", "Program Materials builds your link and ready-to-send emails."),
     ("Share and track", "Your dashboard shows visitors, your bonus progress and your balance."),
 ]
@@ -97,10 +97,10 @@ def pages(icon, todd_url, phone_display, phone_tel):
     overview = f'''<div class="aff" data-layout-key="affiliates" data-layout="a">
 <div class="aff-a">
   <section class="aff-hero">
-    <span class="tag t-cyan">TODD Affiliate Program</span>
-    <h1 class="display">Earn up to $5,000 a month sharing TODD</h1>
+    <span class="tag t-cyan">16Ahead Affiliate Program</span>
+    <h1 class="display">Earn up to $5,000 a month sharing 16Ahead</h1>
     <p class="aff-qualifier">It takes about 7 active Enterprise clients. Each one pays you $750 a month: 15% of their $5,000 monthly payment.</p>
-    <p class="lede">Send people to TODD with your own link. You earn for every visitor, unlock a bonus when you reach a goal, and earn a commission when someone you referred buys.</p>
+    <p class="lede">Send people to 16Ahead with your own link. You earn for every visitor, unlock a bonus when you reach a goal, and earn a commission when someone you referred buys.</p>
     <div class="actions"><a class="btn btn--primary" href="{join}">Join the program{icon("arrow", 16)}</a><a class="btn btn--surface" href="/affiliates/how-earnings-work">How earnings work</a></div>
   </section>
   <section class="aff-tiles" aria-label="What you earn">
@@ -117,7 +117,7 @@ def pages(icon, todd_url, phone_display, phone_tel):
 <div class="aff-b">
   <section class="aff-split">
     <div class="aff-split__copy">
-      <span class="kicker">TODD Affiliate Program</span>
+      <span class="kicker">16Ahead Affiliate Program</span>
       <h1 class="display display--md">Share a link. Earn up to $5,000 a month</h1>
       <p class="aff-qualifier">It takes about 7 active Enterprise clients. Each one pays you $750 a month: 15% of their $5,000 monthly payment.</p>
       <p class="lede">Every visitor earns you a cent. Reach a goal and a $100 bonus unlocks. If someone you sent buys Enterprise, you earn 15% of every monthly payment they make.</p>
@@ -193,12 +193,12 @@ def pages(icon, todd_url, phone_display, phone_tel):
 </div>'''
 
     return [
-        ("/affiliates", "affiliates/index.html", "TODD Affiliate Program | Taliferro Tech",
-         "Share TODD with your own link. Earn 1¢ per visitor, unlock a $100 bonus, and earn 15% of every Enterprise monthly payment.",
+        ("/affiliates", "affiliates/index.html", "16Ahead Affiliate Program | Taliferro Tech",
+         "Share 16Ahead with your own link. Earn 1¢ per visitor, unlock a $100 bonus, and earn 15% of every Enterprise monthly payment.",
          overview),
         ("/affiliates/how-earnings-work", "affiliates/how-earnings-work.html", "How affiliate earnings work | Taliferro Tech",
-         "How TODD affiliates earn: visitor pay, the $100 bonus, Enterprise and product commission, who gets credit, and refunds.",
+         "How 16Ahead affiliates earn: visitor pay, the $100 bonus, Enterprise and product commission, who gets credit, and refunds.",
          how),
         ("/affiliates/terms", "affiliates/terms.html", "Affiliate Terms and Conditions | Taliferro Tech",
-         "The Terms and Conditions for the TODD affiliate program.", terms),
+         "The Terms and Conditions for the 16Ahead affiliate program.", terms),
     ]

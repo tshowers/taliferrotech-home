@@ -37,7 +37,8 @@ PHONE_TEL = "+14016462662"
 ADDRESS = "1424 11th Ave Ste 400, Seattle, WA 98122"
 GROUP_URL = "https://taliferro.com"
 SIXTEEN_URL = "https://16ahead.com"  # the product (formerly TODD)
-SIGN_IN_URL = "https://app.16ahead.com/login"
+APP_URL = "https://app.16ahead.com"  # the signed-in app: sign-in, affiliate pages
+SIGN_IN_URL = f"{APP_URL}/login"
 PRIVACY_URL = "/privacy"
 TERMS_URL = "/terms"
 FOUNDER_PROFILE = "https://taliferro.com/team/tyrone-showers/"
@@ -555,7 +556,7 @@ def main():
     pages = {"index.html": home(), "products/index.html": products(), "about.html": about(), "contact.html": contact(), "404.html": not_found()}
     for n, *_ in PRODUCTS:
         pages[f"products/{PAGES[n]['slug']}.html"] = product_page(n)
-    aff = affiliate_pages(icon, SIXTEEN_URL, PHONE_DISPLAY, PHONE_TEL)
+    aff = affiliate_pages(icon, APP_URL, PHONE_DISPLAY, PHONE_TEL)
     for path, out, title, desc, body in aff:
         pages[out] = page(path, title, desc, "", body)
     c_path, c_out, c_title, c_desc, c_body, c_ld = careers(icon, EMAIL, SITE)

@@ -28,11 +28,11 @@ ROLES = [
     ("customer-success-agent", "Customer Success Agent", "Customer Success", [
         "Guide users to wins fast: less confusion, more motion.",
         "Turn real feedback into shipped improvements and clearer workflows.",
-        "Create help articles and short videos. We'll train you on the TODD playbook.",
-    ], "Onboard and train customers, capture feedback, and guide wins with TODD."),
+        "Create help articles and short videos. We'll train you on the 16Ahead playbook.",
+    ], "Onboard and train customers, capture feedback, and guide wins with 16Ahead."),
     ("corporate-sales-executive", "Corporate Sales Executive", "Corporate Sales", [
         "Commission-only, no cap: 10% of every sale you close, with bonuses for fast closes and multi-seat deals.",
-        "Run focused discovery with decision-makers, connect outcomes to TODD without feature dumping, and close cleanly.",
+        "Run focused discovery with decision-makers, connect outcomes to 16Ahead without feature dumping, and close cleanly.",
         "Forecast accurately and share learnings. We coach messaging and process; you bring intent and hustle.",
     ], "Develop and close B2B opportunities; forecast and report. Commission-only, 10% per sale."),
     ("executive-assistant", "Executive Assistant", "Executive Assistant", [
@@ -47,7 +47,7 @@ ROLES = [
     ], "Create learning paths; run live and recorded sessions; measure comprehension."),
     ("vp-marketing", "VP of Marketing", "VP of Marketing", [
         "Own narrative and growth with a remarkable standard and clear metrics.",
-        "Launch TODD's Business Momentum System positioning and drive pipeline without fluff.",
+        "Launch 16Ahead's Business Momentum System positioning and drive pipeline without fluff.",
         "Lead PR and thought leadership; coach the team into consistent shipping.",
     ], "Own narrative and growth across channels; launch Business Momentum System positioning; drive pipeline."),
 ]
@@ -92,7 +92,7 @@ def careers(icon, email, site):
   <div class="phero__copy">
     <span class="tag t-violet">Careers · Built for the Remarkable</span>
     <h1 class="display display--md">Build with Taliferro Tech</h1>
-    <p class="lede">If you move with intent, you belong here. Part-time roles, flexible hours, real impact. Help build TODD, the Business Momentum System for teams that want progress, not paperwork.</p>
+    <p class="lede">If you move with intent, you belong here. Part-time roles, flexible hours, real impact. Help build 16Ahead, the Business Momentum System for teams that want progress, not paperwork.</p>
     <p class="lede">Not there yet? We train you. If you want to be remarkable, you can belong here.</p>
     <div class="actions"><a class="btn btn--primary" href="#open-roles">See open roles</a><a class="btn btn--surface" href="#apply">How to apply</a></div>
   </div>
@@ -155,8 +155,8 @@ def careers(icon, email, site):
 # those go one-to-one, by email, after a conversation.
 
 BUILT = [
-    ("Sixteen live products", "Ask TODD, Maya, Network, Moves, Outreach, Pulse, Docs and more, all running on one intelligence layer and one sign-in."),
-    ("Software that acts", "TODD drafts outreach, follow-ups and proposals, validates contact data and keeps tasks moving, instead of waiting for someone to type."),
+    ("Sixteen spaces, one login", "General Assistant, Marketing Assistant, Network, Moves, Outreach, Pulse, Docs and more, all in 16Ahead on one sign-in."),
+    ("Software that acts", "16Ahead drafts outreach, follow-ups and proposals, validates contact data and keeps tasks moving, instead of waiting for someone to type."),
     ("An approval gate on every send", "Nothing irreversible goes out without a person's yes. That's what makes autonomous work safe for customers to adopt."),
 ]
 
@@ -193,8 +193,8 @@ def investors(icon, email, site):
   <div class="phero__copy">
     <span class="tag t-blue">Investors</span>
     <h1 class="display display--md">Software that does the work, not just stores it</h1>
-    <p class="lede">Taliferro Tech builds TODD, a Business Momentum System. It keeps outreach, proposals, follow-ups and tasks moving in the background, and stops for approval before anything irreversible happens. We're talking with investors and partners who want in early.</p>
-    <div class="actions"><a class="btn btn--primary" href="{talk}">{icon("mail")}Start a conversation</a><a class="btn btn--surface" href="/products">See the products{icon("arrow", 16)}</a></div>
+    <p class="lede">Taliferro Tech builds 16Ahead (formerly TODD), a Business Momentum System. It keeps outreach, proposals, follow-ups and tasks moving in the background, and stops for approval before anything irreversible happens. We're talking with investors and partners who want in early.</p>
+    <div class="actions"><a class="btn btn--primary" href="{talk}">{icon("mail")}Start a conversation</a><a class="btn btn--surface" href="/products">See 16Ahead{icon("arrow", 16)}</a></div>
   </div>
 </section>
 <section class="section section--narrow">
@@ -215,7 +215,7 @@ def investors(icon, email, site):
 <section class="section section--narrow">
   <span class="kicker">Leadership</span>
   <h2 class="h2 h2--sm">Operators who lived the problem</h2>
-  <p class="lede">Twenty-five years of building toward this, from webwareLive in 2000 to TODD today.</p>
+  <p class="lede">Twenty-five years of building toward this, from webwareLive in 2000 to 16Ahead today.</p>
   <div class="feats">{people}</div>
 </section>
 <section class="panel panel--row">
@@ -223,7 +223,7 @@ def investors(icon, email, site):
   <a class="btn btn--primary btn--lg" href="{talk}">{icon("mail")}Start a conversation</a>
 </section>'''
     return ("/investors", "investors.html", "Investors | Taliferro Tech",
-            "Taliferro Tech builds TODD, a Business Momentum System: software that does the work, with an approval gate on every send. We're talking with investors and partners.",
+            "Taliferro Tech builds 16Ahead (formerly TODD), a Business Momentum System: software that does the work, with an approval gate on every send. We're talking with investors and partners.",
             body, [])
 
 

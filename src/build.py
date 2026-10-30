@@ -36,8 +36,8 @@ PHONE_DISPLAY = "+1 401.646.2662"
 PHONE_TEL = "+14016462662"
 ADDRESS = "1424 11th Ave Ste 400, Seattle, WA 98122"
 GROUP_URL = "https://taliferro.com"
-TODD_URL = "https://todd.taliferro.tech"
-SIGN_IN_URL = "https://todd.taliferro.tech/login"
+SIXTEEN_URL = "https://16ahead.com"  # the product (formerly TODD)
+SIGN_IN_URL = "https://app.16ahead.com/login"
 PRIVACY_URL = "/privacy"
 TERMS_URL = "/terms"
 FOUNDER_PROFILE = "https://taliferro.com/team/tyrone-showers/"
@@ -55,33 +55,32 @@ CONSULT_BODY = (
 )
 CONSULT_MAILTO = f"mailto:{EMAIL}?subject=Consultation&body={quote(CONSULT_BODY)}"
 
-# (name, tint, glyph file, url or None, one line). Order = universal menu order.
+# 16Ahead's spaces: (name, tint, glyph file, url or None, one line). Order = universal
+# menu order (taliferro-ui MENU_PRODUCTS). 16Ahead itself is the sixteenth (Ty, 2026-10-29).
 # url None = no confirmed address yet; the card renders without a link.
 PRODUCTS = [
-    ("Ask TODD", "green", "ask-todd.png", "https://ask.taliferro.tech", "Ask a business question and get the answer with the next move."),
-    ("Find", "blue", "find.svg", "https://find.taliferro.tech", "Search that starts with what you remember and ends with an answer."),
-    ("Maya", "green", "maya.png", "https://maya.taliferro.tech", "Your on-call AI Marketing Director for message, campaigns and audience."),
-    ("Network", "violet", "network.png", "https://network.taliferro.tech", "See which relationships deserve your attention this week."),
-    ("Moves", "blue", "moves.png", "https://moves.taliferro.tech", "The next best actions across your business, in priority order."),
-    ("Outreach", "blue", "outreach.png", "https://outreach.taliferro.tech", "Personal outreach emails, drafted and ready for your approval."),
-    ("Pulse", "pink", "pulse.png", "https://pulse.taliferro.tech", "A live read on how your business is doing."),
-    ("Lead Vault", "yellow", "lead-vault.png", "https://lead-vault.taliferro.tech", "Validated business leads you can preview, unlock and contact."),
-    ("Social", "cyan", "social.png", "https://social.taliferro.tech", "Social posts drafted for your channels."),
-    ("SayIt", "pink", "sayit.png", "https://sayit.taliferro.tech", "A new type of social media."),
-    ("Market", "green", "market.svg", "https://market.taliferro.tech", "Independent stores that send each other customers."),
-    ("Docs", "blue", "docs.png", "https://docs.taliferro.tech", "Business documents drafted from what TODD already knows."),
-    ("Email Creator", "yellow", "email-creator.svg", "https://emails.taliferro.tech", "Describe an email and get finished HTML."),
-    ("Email Signature", "violet", "email-signature.png", "https://signature.taliferro.tech", "A professional signature that pastes into any mail app."),
-    ("Image Creator", "cyan", "image-creator.svg", "https://images.taliferro.tech", "Describe an image and download it as a PNG."),
-    ("Music", "pink", "music.png", "https://music.taliferro.com", "Taliferro Music: jazz, R&B and downtempo, streaming live."),
+    ("General Assistant", "green", "ask-todd.png", "https://assistant.16ahead.com", "Ask a business question and get the answer with the next move."),
+    ("Marketing Assistant", "green", "maya.png", "https://marketing.16ahead.com", "Your on-call AI Marketing Director for message, campaigns and audience."),
+    ("Find", "blue", "find.svg", "https://find.16ahead.com", "Search that starts with what you remember and ends with an answer."),
+    ("Network", "violet", "network.png", "https://network.16ahead.com", "See which relationships deserve your attention this week."),
+    ("Moves", "blue", "moves.png", "https://moves.16ahead.com", "The next best actions across your business, in priority order."),
+    ("Outreach", "blue", "outreach.png", "https://outreach.16ahead.com", "Personal outreach emails, drafted and ready for your approval."),
+    ("Pulse", "pink", "pulse.png", "https://pulse.16ahead.com", "A live read on how your business is doing."),
+    ("Lead Vault", "yellow", "lead-vault.png", "https://lead-vault.16ahead.com", "Validated business leads you can preview, unlock and contact."),
+    ("Social", "cyan", "social.png", "https://social.16ahead.com", "Social posts drafted for your channels."),
+    ("SayIt", "pink", "sayit.png", "https://sayit.16ahead.com", "A new type of social media."),
+    ("Docs", "blue", "docs.png", "https://docs.16ahead.com", "Business documents drafted from what 16Ahead already knows."),
+    ("Email Creator", "yellow", "email-creator.svg", "https://emails.16ahead.com", "Describe an email and get finished HTML."),
+    ("Email Signature", "violet", "email-signature.png", "https://signature.16ahead.com", "A professional signature that pastes into any mail app."),
+    ("Image Creator", "cyan", "image-creator.svg", "https://images.16ahead.com", "Describe an image and download it as a PNG."),
+    ("Store", "green", "market.svg", "https://16ahead.store", "Independent stores that send each other customers."),
 ]
 P = {p[0]: p for p in PRODUCTS}
 
 GROUPS = [
-    ("Intelligence", "Ask, plan and decide", ["Ask TODD", "Find", "Maya", "Moves", "Pulse"]),
-    ("Grow", "Relationships, leads and outreach", ["Network", "Lead Vault", "Outreach", "Social", "SayIt", "Market"]),
+    ("Intelligence", "Ask, plan and decide", ["General Assistant", "Marketing Assistant", "Find", "Moves", "Pulse"]),
+    ("Grow", "Relationships, leads and outreach", ["Network", "Lead Vault", "Outreach", "Social", "SayIt", "Store"]),
     ("Create", "Documents, email and images", ["Docs", "Email Creator", "Email Signature", "Image Creator"]),
-    ("Listen", "From Taliferro Music", ["Music"]),
 ]
 
 # Lucide paths, stroke 2.5, currentColor.
@@ -123,10 +122,27 @@ def chip(name, size):
             f'<span class="glyph" style="--g:url(/img/products/{glyph}?v={asset_version(f"img/products/{glyph}")})"></span></span>')
 
 
-def todd_chip(size):
-    """TODD itself (the intelligence layer): the circuit mark, not Ask TODD's chat bubble."""
-    return (f'<span class="chip t-green" style="--sz:{size}px" aria-hidden="true">'
-            f'<span class="glyph" style="--g:url(/img/products/todd.png?v={asset_version("img/products/todd.png")})"></span></span>')
+DIAL = ["Store", "16Ahead", "General Assistant", "Marketing Assistant", "Network", "Outreach", "Moves", "Docs",
+        "Pulse", "Social", "Lead Vault", "Find", "SayIt", "Email Creator", "Image Creator", "Email Signature"]
+
+
+def dial_svg(cls, lit=1, number=True):
+    """The 16Ahead dial (taliferro-ui brand/products/svg/light/01-16ahead.svg): sixteen ticks, one lit."""
+    ticks = "".join(
+        f'<g transform="rotate({i * 22.5} 50 50)"><line class="dial16__tick" x1="50" y1="7" x2="50" y2="16"/>'
+        f'<line class="dial16__lit{" is-on" if i == lit else ""}" x1="50" y1="3" x2="50" y2="19"/></g>' for i in range(16))
+    text = ('<text x="50" y="62" text-anchor="middle" font-weight="800" font-size="31" letter-spacing="-1.5">16</text>'
+            if number else "")
+    return f'<svg class="{cls}" viewBox="0 0 100 100" aria-hidden="true" focusable="false">{ticks}{text}</svg>'
+
+
+def sixteen_chip(size):
+    """16Ahead itself, the sixteenth space: the dial on a blue chip."""
+    return f'<span class="chip chip--dial t-blue" style="--sz:{size}px" aria-hidden="true">{dial_svg("dial16-mini")}</span>'
+
+
+def sixteen_link(cls, inner):
+    return f'<a class="{cls}" href="{SIXTEEN_URL}" data-search="16ahead home">{inner}</a>'
 
 
 def color_logo(name):
@@ -164,7 +180,7 @@ def product_link(name, cls, inner):
 AC = ' aria-current="page"'
 NEWTAB = ' target="_blank" rel="noopener"'
 
-NAV = [("Products", "/products"), ("About", "/about"), ("Contact", "/contact")]
+NAV = [("16Ahead", "/products"), ("About", "/about"), ("Contact", "/contact")]
 
 
 def header(current):
@@ -189,17 +205,18 @@ def footer():
 
 
 def menu(current):
-    site = [("Home", "/", "home"), ("Products", "/products", "grid"), ("About", "/about", "info"), ("Contact", "/contact", "mail")]
+    site = [("Home", "/", "home"), ("16Ahead", "/products", "grid"), ("About", "/about", "info"), ("Contact", "/contact", "mail")]
     rows = "".join(
         f'<a class="mrow" href="{h}" data-search="{l.lower()} page"{AC if l == current else ""}>{icon(k)}<span>{l}</span></a>'
         for l, h, k in site)
     out = (f'<a class="mrow" href="{GROUP_URL}" target="_blank" rel="noopener" data-search="taliferro group consulting">{icon("brief")}<span>Taliferro Group</span>{icon("ext", 12, "i mrow__ext")}</a>'
-           f'<a class="mrow" href="{TODD_URL}" data-search="todd intelligence layer">{icon("layers")}<span>TODD</span>{icon("ext", 12, "i mrow__ext")}</a>')
-    tiles = "".join(product_link(n, "mtile", f'{chip(n, 56)}<span>{n}</span>') for n, *_ in PRODUCTS)
+           f'<a class="mrow" href="{SIXTEEN_URL}" data-search="16ahead home sixteen spaces">{icon("layers")}<span>16ahead.com</span>{icon("ext", 12, "i mrow__ext")}</a>')
+    tiles = sixteen_link("mtile", f'{sixteen_chip(56)}<span>16Ahead</span>') + "".join(
+        product_link(n, "mtile", f'{chip(n, 56)}<span>{n}</span>') for n, *_ in PRODUCTS)
     return f'''<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
   <div class="menu__bar">
     <a class="brand" href="/"><img src="/img/general/apple-touch-icon.png" alt="" width="32" height="32"><span>Taliferro Tech</span></a>
-    <label class="menu__search">{icon("search")}<input type="search" placeholder="Search products and pages" aria-label="Search products and pages" autocomplete="off"><kbd>⌘K</kbd></label>
+    <label class="menu__search">{icon("search")}<input type="search" placeholder="Search spaces and pages" aria-label="Search spaces and pages" autocomplete="off"><kbd>⌘K</kbd></label>
     <button class="pill pill--primary menu-close" type="button">{icon("x")}Close</button>
   </div>
   <div class="menu__body">
@@ -210,15 +227,15 @@ def menu(current):
       {out}
     </div>
     <div class="menu__products">
-      <div class="menu__head"><span class="kicker">Products</span><span class="menu__note">Opens in this tab</span></div>
+      <div class="menu__head"><span class="kicker">Spaces</span><span class="menu__note">Opens in this tab</span></div>
       <div class="mgrid">{tiles}</div>
       <p class="menu__empty" hidden>Nothing matches that search.</p>
     </div>
     <div class="menu__start">
       <span class="kicker">Get started</span>
       <div class="menu__card">
-        <p>One TODD account signs you in to every product.</p>
-        <a class="btn btn--primary btn--sm" href="{SIGN_IN_URL}">Sign in with TODD</a>
+        <p>One 16Ahead account signs you in to every space.</p>
+        <a class="btn btn--primary btn--sm" href="{SIGN_IN_URL}">Log in to 16Ahead</a>
         <a class="btn btn--bg btn--sm" href="{CONSULT_MAILTO}">{icon("mail")}Book a consultation</a>
       </div>
     </div>
@@ -237,7 +254,7 @@ ORG = {
     "alternateName": ["Taliferro Tech", "Taliferro Group"],
     "url": f"{SITE}/",
     "logo": f"{SITE}/img/general/apple-touch-icon.png",
-    "description": "Taliferro Tech builds AI software products that draft, nudge, validate and route the work for you. Every product runs on TODD, the Taliferro intelligence layer.",
+    "description": "Taliferro Tech builds 16Ahead: sixteen AI spaces, one login, that draft, nudge, validate and route the work for you.",
     "foundingDate": "2022",
     "founder": [{"@type": "Person", "name": "Vikki Owens"},
                 {"@type": "Person", "name": "Tyrone Showers", "url": FOUNDER_PROFILE, "sameAs": [FOUNDER_LINKEDIN]}],
@@ -322,49 +339,53 @@ def contact_rows():
 
 
 def home():
-    ring = [n for n, *_ in PRODUCTS if n != "Ask TODD"]
-    orbit = ""
-    for k, n in enumerate(ring):
-        a = k / len(ring) * math.pi * 2 - math.pi / 2
-        r = 158 if k % 2 else 200
-        x, y = 260 + r * math.cos(a) - 30, 260 + r * math.sin(a) - 30
-        orbit += f'<span class="orbit__tile" style="left:{x:.1f}px;top:{y:.1f}px">{chip(n, 60)}</span>'
-    tiles = "".join(detail_link(n, "ptile", f'{chip(n, 56)}<span>{n}</span>') for n, *_ in PRODUCTS)
-    pillars = [("It does the work", "Our products don't stop at an answer. They draft the email, stage the follow-up and check the data, then wait for your go-ahead.", "check"),
-               ("One intelligence layer", "TODD sits under every product, so what one app learns, the others can use.", "layers"),
+    spaces = ""
+    for k, n in enumerate(DIAL):
+        if n == "16Ahead":
+            spaces += sixteen_link("dial16__space", f'{sixteen_chip(60)}<span class="dial16__name">16Ahead</span>').replace(
+                'class="dial16__space"', f'class="dial16__space" style="--a:{k * 22.5}deg;--i:{k}" aria-label="16Ahead home"', 1)
+        else:
+            spaces += product_link(n, "dial16__space", f'{chip(n, 60)}<span class="dial16__name">{n}</span>').replace(
+                'class="dial16__space"', f'class="dial16__space" style="--a:{k * 22.5}deg;--i:{k}" aria-label="{n}"', 1)
+    tiles = sixteen_link("ptile", f'{sixteen_chip(56)}<span>16Ahead</span>') + "".join(
+        detail_link(n, "ptile", f'{chip(n, 56)}<span>{n}</span>') for n, *_ in PRODUCTS)
+    pillars = [("It does the work", "16Ahead doesn't stop at an answer. It drafts the email, stages the follow-up and checks the data, then waits for your go-ahead.", "check"),
+               ("One login", "Sixteen spaces share one account, so what one space learns, the others can use.", "layers"),
                ("Built in Seattle", "Designed, engineered and supported by Taliferro Tech, LLC on Capitol Hill.", "pin")]
     pill = "".join(f'<div class="pillar"><span class="pillar__icon">{icon(i, 22)}</span><div><h3>{t}</h3><p>{d}</p></div></div>' for t, d, i in pillars)
     body = f'''<section class="hero">
   <div class="hero__copy">
     <span class="tag t-cyan">Software products · Seattle, WA</span>
     <h1 class="display">Software that does the work</h1>
-    <p class="lede">Taliferro Tech builds AI products that draft, nudge, validate and route the work for you, so your business keeps moving. Every product runs on TODD, our intelligence layer.</p>
-    <div class="actions">{cta_consult()}<a class="btn btn--surface" href="/products">Explore products{icon("arrow", 16)}</a></div>
+    <p class="lede">Taliferro Tech builds 16Ahead: sixteen AI spaces that draft, nudge, validate and route the work for you, so your business keeps moving. One login opens all of them.</p>
+    <div class="actions">{cta_consult()}<a class="btn btn--surface" href="/products">Explore 16Ahead{icon("arrow", 16)}</a></div>
     <p class="hero__contact"><a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
   </div>
-  <div class="orbit" aria-label="TODD at the centre of fifteen Taliferro Tech products" role="img">
-    <span class="orbit__disc"></span>{orbit}
-    <div class="orbit__core">{todd_chip(112)}<b>TODD</b><span>Intelligence layer</span></div>
+  <div class="orbit dial16" data-dial16>
+    <span class="orbit__disc"></span>
+    <nav class="dial16__spaces" id="dial16-spaces" aria-label="16Ahead's sixteen spaces">{spaces}</nav>
+    <button class="dial16__core" type="button" aria-expanded="false" aria-controls="dial16-spaces" aria-label="Open 16Ahead: show its sixteen spaces">{dial_svg("dial16__dial")}</button>
+    <p class="dial16__hint" aria-hidden="true"><span class="dial16__hint-closed">Tap the dial to open 16Ahead</span><span class="dial16__hint-open">Sixteen spaces, one login</span></p>
   </div>
 </section>
-<section class="band t-green">
-  {todd_chip(52)}
-  <div class="band__copy"><h2>Every product runs on TODD.</h2><p>TODD turns scattered information into clear next moves, then works across the apps to get them done.</p></div>
-  <a class="btn btn--bg btn--sm" href="{TODD_URL}">todd.taliferro.tech{icon("ext", 14)}</a>
+<section class="band t-blue">
+  {sixteen_chip(52)}
+  <div class="band__copy"><h2>Sixteen spaces, one login.</h2><p>16Ahead turns scattered information into clear next moves, then works across its spaces to get them done.</p></div>
+  <a class="btn btn--bg btn--sm" href="{SIXTEEN_URL}">16ahead.com{icon("ext", 14)}</a>
 </section>
 <section class="section">
-  <div class="section__head"><div><span class="kicker">Products</span><h2 class="h2">Sixteen products, one account.</h2></div><a class="btn btn--surface btn--sm" href="/products">All products{icon("arrow", 16)}</a></div>
+  <div class="section__head"><div><span class="kicker">16Ahead</span><h2 class="h2">Sixteen spaces, one account.</h2></div><a class="btn btn--surface btn--sm" href="/products">All spaces{icon("arrow", 16)}</a></div>
   <div class="pgrid">{tiles}</div>
 </section>
 <section class="section pillars">{pill}</section>
 <section class="panel">
-  <div class="panel__copy"><h2>Have work that should run itself?</h2><p>Tell us what slows your team down. We'll show you what TODD can take on and which products fit.</p>{cta_consult()}</div>
+  <div class="panel__copy"><h2>Have work that should run itself?</h2><p>Tell us what slows your team down. We'll show you what 16Ahead can take on and which spaces fit.</p>{cta_consult()}</div>
   <div class="panel__rows">{contact_rows()}</div>
 </section>'''
     website = {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "Taliferro Tech",
                "publisher": {"@id": f"{SITE}/#organization"}}
-    return page("/", "Taliferro Tech | AI software that does the work",
-                "Taliferro Tech builds AI software products that draft, nudge, validate and route the work for you. Sixteen products, one TODD account. Based in Seattle, WA.",
+    return page("/", "Taliferro Tech | 16Ahead, AI software that does the work",
+                "Taliferro Tech builds 16Ahead: sixteen AI spaces, one login, that draft, nudge, validate and route the work for you. Based in Seattle, WA.",
                 "", body, [website])
 
 
@@ -377,7 +398,7 @@ def products():
                                     f'{icon("chev", 16, "i pcard__chev")}') for n in names)
         sections += f'<section class="pgroup"><h2><span>{title}</span><small>{desc}</small></h2><div class="pcards">{cards}</div></section>'
     body = f'''<section class="pagehead">
-  <div><h1 class="display display--md">Products</h1><p class="lede">Sixteen products, one intelligence layer. Sign in once with your TODD account and use any of them.</p></div>
+  <div><h1 class="display display--md">16Ahead</h1><p class="lede">Sixteen spaces, one login: the <a class="link" href="{SIXTEEN_URL}">16Ahead home</a> and the fifteen spaces below. Sign in once with your 16Ahead account and use any of them.</p></div>
   {cta_consult("Not sure where to start? Book a consultation", "btn btn--primary btn--sm pagehead__cta")}
 </section>
 <div class="pgroups">{sections}</div>'''
@@ -385,9 +406,9 @@ def products():
               "item": {"@type": "SoftwareApplication", "name": n, "description": d, "applicationCategory": "BusinessApplication",
                        "operatingSystem": "Web", **({"url": u} if u else {}), "publisher": {"@id": f"{SITE}/#organization"}}}
              for i, (n, _, _, u, d) in enumerate(PRODUCTS)]
-    return page("/products", "Products | Taliferro Tech",
-                "All sixteen Taliferro Tech products: Ask TODD, Find, Maya, Network, Moves, Outreach, Pulse, Lead Vault, Social, SayIt, Market, Docs, Email Creator, Email Signature, Image Creator and Music.",
-                "Products", body, [{"@type": "ItemList", "name": "Taliferro Tech products", "itemListElement": items}])
+    return page("/products", "16Ahead: sixteen spaces, one login | Taliferro Tech",
+                "16Ahead's spaces: General Assistant, Marketing Assistant, Find, Network, Moves, Outreach, Pulse, Lead Vault, Social, SayIt, Docs, Email Creator, Email Signature, Image Creator and Store, on one login.",
+                "16Ahead", body, [{"@type": "ItemList", "name": "16Ahead spaces", "itemListElement": items}])
 
 
 def about():
@@ -406,7 +427,7 @@ def about():
 <section class="section section--narrow">
   <h2 class="h2 h2--sm">One company, two names</h2>
   <div class="brands">
-    <div class="brandcard t-cyan"><span class="brandcard__head"><img src="/img/general/apple-touch-icon.png" alt="" width="40" height="40"><b>Taliferro Tech</b></span><span class="kicker kicker--tint">Software products · taliferro.tech</span><p>The products on this site, from Ask TODD to Music, all running on the TODD intelligence layer.</p></div>
+    <div class="brandcard t-cyan"><span class="brandcard__head"><img src="/img/general/apple-touch-icon.png" alt="" width="40" height="40"><b>Taliferro Tech</b></span><span class="kicker kicker--tint">Software products · taliferro.tech</span><p>16Ahead and its sixteen spaces, from General Assistant to Store, all on one login.</p></div>
     <div class="brandcard brandcard--surface"><span class="brandcard__head"><span class="brandcard__icon">{icon("brief", 20)}</span><b>Taliferro Group</b></span><span class="kicker">Consulting · taliferro.com</span><p>Consulting and engineering engagements for businesses that want hands-on help.</p><a class="brandcard__link" href="{GROUP_URL}" target="_blank" rel="noopener">Visit taliferro.com{icon("ext", 14)}</a></div>
   </div>
   <p class="note">Both are trade names of Taliferro Tech, LLC.</p>
@@ -454,8 +475,8 @@ def not_found():
   <div class="nf__copy">
     <span class="kicker">Error 404</span>
     <h1 class="display display--md">This page moved or never existed</h1>
-    <p class="lede">Try the products page or head home.</p>
-    <div class="actions"><a class="btn btn--primary" href="/">Go home</a><a class="btn btn--surface" href="/products">See products{icon("arrow", 16)}</a></div>
+    <p class="lede">Try 16Ahead or head home.</p>
+    <div class="actions"><a class="btn btn--primary" href="/">Go home</a><a class="btn btn--surface" href="/products">See 16Ahead{icon("arrow", 16)}</a></div>
   </div>
   <span class="nf__disc t-cyan" aria-hidden="true">404</span>
 </section>'''
@@ -483,7 +504,7 @@ def product_page(name):
                                         f'{icon("chev", 16, "i pcard__chev pcard__chev--on")}') for n in fits)
         fit_html = f'<section class="section section--narrow"><h2 class="h2 h2--sm">Works well with</h2><div class="pcards">{fit_cards}</div></section>'
     faq = "".join(f'<details class="qa"><summary>{q}{icon("chev", 16, "i qa__chev")}</summary><p>{a}</p></details>' for q, a in d["faq"])
-    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="/products">Products</a>{icon("chev", 14)}<span aria-current="page">{name}</span></nav>
+    body = f'''<nav class="crumbs" aria-label="Breadcrumb"><a href="/products">16Ahead</a>{icon("chev", 14)}<span aria-current="page">{name}</span></nav>
 <section class="phero">
   <div class="phero__copy">
     <span class="phero__name">{brand_mark(name, 72)}<span><span class="kicker">{group[0]} · {platforms}</span><b>{name}</b></span></span>
@@ -497,10 +518,10 @@ def product_page(name):
   <div class="feats">{features}</div>
 </section>
 {steps}
-<section class="band t-green band--page">
-  {todd_chip(52)}
-  <div class="band__copy"><h2>{"This is TODD." if name == "Ask TODD" else f"{name} runs on TODD."}</h2><p>TODD, the Taliferro Tech intelligence layer, sits under every product, so what {name} learns, the others can use. One TODD account signs you in to all of them.</p></div>
-  <a class="btn btn--bg btn--sm" href="{TODD_URL}">todd.taliferro.tech{icon("ext", 14)}</a>
+<section class="band t-blue band--page">
+  {sixteen_chip(52)}
+  <div class="band__copy"><h2>{name} is one of 16Ahead's sixteen spaces.</h2><p>Every space shares one 16Ahead account, so what {name} learns, the others can use. One login opens all of them.</p></div>
+  <a class="btn btn--bg btn--sm" href="{SIXTEEN_URL}">16ahead.com{icon("ext", 14)}</a>
 </section>
 {fit_html}
 <section class="section section--narrow">
@@ -508,7 +529,7 @@ def product_page(name):
   <div class="faq">{faq}</div>
 </section>
 <section class="panel panel--row">
-  <div class="panel__copy"><h2 class="h2 h2--sm">Not sure {name} is the right fit?</h2><p>Tell us what slows your team down and we'll tell you which products fit.</p></div>
+  <div class="panel__copy"><h2 class="h2 h2--sm">Not sure {name} is the right fit?</h2><p>Tell us what slows your team down and we'll tell you which spaces fit.</p></div>
   {cta_consult()}
 </section>'''
     path = page_url(name)
@@ -518,11 +539,11 @@ def product_page(name):
     if url:
         app["url"] = url
     crumbs = {"@type": "BreadcrumbList", "itemListElement": [
-        {"@type": "ListItem", "position": 1, "name": "Products", "item": f"{SITE}/products"},
+        {"@type": "ListItem", "position": 1, "name": "16Ahead", "item": f"{SITE}/products"},
         {"@type": "ListItem", "position": 2, "name": name, "item": f"{SITE}{path}"}]}
     faq_ld = {"@type": "FAQPage", "mainEntity": [
         {"@type": "Question", "name": q, "acceptedAnswer": {"@type": "Answer", "text": a}} for q, a in d["faq"]]}
-    return page(path, f"{d['title']} | Taliferro Tech", d["lede"][:300], "Products", body, [app, crumbs, faq_ld])
+    return page(path, f"{d['title']} | Taliferro Tech", d["lede"][:300], "16Ahead", body, [app, crumbs, faq_ld])
 
 
 def sitemap(paths):
@@ -534,7 +555,7 @@ def main():
     pages = {"index.html": home(), "products/index.html": products(), "about.html": about(), "contact.html": contact(), "404.html": not_found()}
     for n, *_ in PRODUCTS:
         pages[f"products/{PAGES[n]['slug']}.html"] = product_page(n)
-    aff = affiliate_pages(icon, TODD_URL, PHONE_DISPLAY, PHONE_TEL)
+    aff = affiliate_pages(icon, SIXTEEN_URL, PHONE_DISPLAY, PHONE_TEL)
     for path, out, title, desc, body in aff:
         pages[out] = page(path, title, desc, "", body)
     c_path, c_out, c_title, c_desc, c_body, c_ld = careers(icon, EMAIL, SITE)

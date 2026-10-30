@@ -159,3 +159,37 @@
     document.querySelector( '.rights__done' ).hidden = false;
   } );
 } )();
+
+/* Home hero: the 16Ahead dial. Its highlight hops between the sixteen ticks (one per
+   space) while it's closed; tapping it breaks the dial apart into those spaces. */
+( function () {
+  var dial = document.querySelector( '[data-dial16]' );
+  if ( !dial ) return;
+  var core = dial.querySelector( '.dial16__core' );
+  var lit = core.querySelectorAll( '.dial16__lit' );
+  var still = window.matchMedia && window.matchMedia( '(prefers-reduced-motion: reduce)' ).matches;
+  var on = 1;
+
+  function setOpen ( open ) {
+    dial.classList.toggle( 'is-open', open );
+    core.setAttribute( 'aria-expanded', open ? 'true' : 'false' );
+    core.setAttribute( 'aria-label', open ? 'Close 16Ahead' : 'Open 16Ahead: show its sixteen spaces' );
+  }
+  core.addEventListener( 'click', function () { setOpen( !dial.classList.contains( 'is-open' ) ); } );
+  document.addEventListener( 'keydown', function ( e ) {
+    if ( e.key === 'Escape' && dial.classList.contains( 'is-open' ) ) { setOpen( false ); core.focus(); }
+  } );
+
+  if ( still ) return;
+  function hop () {
+    if ( !dial.classList.contains( 'is-open' ) ) {
+      var next = Math.floor( Math.random() * ( lit.length - 1 ) );
+      if ( next >= on ) next++;
+      lit[on].classList.remove( 'is-on' );
+      lit[next].classList.add( 'is-on' );
+      on = next;
+    }
+    setTimeout( hop, 550 + Math.random() * 450 );
+  }
+  setTimeout( hop, 900 );
+} )();

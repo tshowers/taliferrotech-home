@@ -197,6 +197,52 @@ button { font: inherit; color: inherit; border: 0; background: none; cursor: poi
 .orbit__core b { font-size: 20px; letter-spacing: -0.02em; }
 .orbit__core span:last-child { white-space: nowrap; font-size: 12px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--t-cyan-fg); }
 
+/* The 16Ahead dial (home hero). Each of its sixteen ticks is one space, as in the
+   16Ahead logo set; tapping the dial breaks it apart into those spaces (js/site.js). */
+.dial16 { --dial-accent: #2f6bff; }
+:root[data-theme="dark"] .dial16 { --dial-accent: #6b9bff; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .dial16 { --dial-accent: #6b9bff; } }
+.dial16__core {
+  position: absolute; left: 110px; top: 110px; width: 300px; height: 300px; padding: 0;
+  border: 0; border-radius: 50%; background: none; color: var(--text); cursor: pointer;
+}
+.dial16__core:focus-visible { outline: 3px solid var(--dial-accent); outline-offset: 6px; }
+.dial16__dial { display: block; width: 100%; height: 100%; overflow: visible; }
+.dial16__dial text, .dial16-mini text { fill: currentColor; }
+.dial16__tick { stroke: currentColor; stroke-width: 6; stroke-linecap: round; transition: opacity .3s ease; }
+.dial16__lit { stroke: var(--dial-accent); stroke-width: 9; stroke-linecap: round; opacity: 0; transition: opacity .35s ease; }
+.dial16__lit.is-on { opacity: 1; }
+.dial16.is-open .dial16__core .dial16__tick, .dial16.is-open .dial16__core .dial16__lit { opacity: 0; }
+
+.dial16__space {
+  --r: 115px; --s: .25;
+  position: absolute; left: 230px; top: 230px; width: 60px; height: 60px; border-radius: 19px; box-shadow: var(--tile-shadow);
+  transform: rotate(var(--a)) translateY(calc(var(--r) * -1)) rotate(calc(var(--a) * -1)) scale(var(--s));
+  opacity: 0; visibility: hidden;
+  transition: transform .55s cubic-bezier(.2, .8, .2, 1) calc(var(--i) * 18ms), opacity .3s ease calc(var(--i) * 18ms), visibility 0s linear .6s;
+}
+.dial16.is-open .dial16__space {
+  --r: 205px; --s: 1; opacity: 1; visibility: visible;
+  transition: transform .55s cubic-bezier(.2, .8, .2, 1) calc(var(--i) * 18ms), opacity .3s ease calc(var(--i) * 18ms), visibility 0s;
+}
+.dial16__space:focus-visible { outline: 3px solid var(--dial-accent); outline-offset: 3px; }
+.dial16__name {
+  position: absolute; left: 50%; top: 66px; transform: translateX(-50%); padding: 3px 9px; border-radius: 999px;
+  background: var(--text); color: var(--bg); font-size: 12px; font-weight: 700; white-space: nowrap;
+  opacity: 0; pointer-events: none; transition: opacity .15s ease;
+}
+.dial16__space:hover .dial16__name, .dial16__space:focus-visible .dial16__name { opacity: 1; z-index: 2; }
+.dial16__space:hover, .dial16__space:focus-visible { z-index: 2; }
+.dial16__hint { position: absolute; left: 0; right: 0; bottom: -6px; text-align: center; font-size: 13px; font-weight: 600; color: var(--muted); }
+.dial16__hint-open, .dial16.is-open .dial16__hint-closed { display: none; }
+.dial16.is-open .dial16__hint-open { display: inline; }
+
+/* 16Ahead's own chip: the dial in place of a glyph. */
+.chip--dial { --dial-accent: #2f6bff; color: var(--text); }
+.dial16-mini { width: calc(var(--sz) * .7); height: calc(var(--sz) * .7); }
+.dial16-mini .dial16__tick { stroke-width: 7; }
+.dial16-mini .dial16__lit { stroke-width: 10; }
+
 .band {
   display: flex; align-items: center; gap: 20px;
   margin: 0 40px; padding: 24px 28px; border-radius: 28px;
@@ -468,7 +514,7 @@ a.mtile:hover { background: var(--surface); }
   .hero { padding: 20px 20px 0; gap: 18px; }
   .hero__copy { gap: 18px; }
   .hero__contact { display: none; }
-  .orbit { display: none; }
+  .orbit { transform: scale(.66); margin: -88px auto -80px; }
 
   .band { flex-direction: column; align-items: flex-start; gap: 12px; margin: 28px 16px 0; padding: 20px; }
   .band .chip { --sz: 52px !important; }
@@ -577,6 +623,7 @@ a.mtile:hover { background: var(--surface); }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
+  .dial16__space, .dial16.is-open .dial16__space, .dial16__tick, .dial16__lit { transition: none; }
 }
 
 /* Affiliate program: /affiliates, /affiliates/how-earnings-work, /affiliates/terms
@@ -775,3 +822,6 @@ a.mtile:hover { background: var(--surface); }
   .room__gate .btn { width: 100%; }
   .room__video video { border-radius: 18px; }
 }
+
+/* Inline link in a lede (/products: "the 16Ahead home"). */
+.lede .link { color: var(--text); font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }

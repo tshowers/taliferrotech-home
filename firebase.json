@@ -1,121 +1,234 @@
 {
-  "hosting": {
-    "public": "public",
-    "site": "taliferro-tech",
-    "cleanUrls": true,
-    "trailingSlash": false,
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**",
-      "health/health.json",
-      "video/**"
-    ],
-    "redirects": [
-      {
-        "source": "/index-work.html",
-        "destination": "/",
-        "type": 301
-      },
-      {
-        "source": "/home",
-        "destination": "/",
-        "type": 301
-      },
-      {
-        "source": "/products.html",
-        "destination": "/products",
-        "type": 301
-      },
-      {
-        "source": "/privacy-policy",
-        "destination": "/privacy",
-        "type": 301
-      },
-      {
-        "source": "/terms-and-conditions",
-        "destination": "/terms",
-        "type": 301
-      }
-    ],
-    "headers": [
-      {
-        "source": "**/*.@(css|js)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=604800"
-          }
-        ]
-      },
-      {
-        "source": "**/*.@(png|jpg|webp|svg|ico|woff2)",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=2592000"
-          }
-        ]
-      },
-      {
-        "source": "**/*.html",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "public, max-age=300, must-revalidate"
-          }
-        ]
-      },
-      {
-        "source": "**",
-        "headers": [
-          {
-            "key": "X-Content-Type-Options",
-            "value": "nosniff"
-          },
-          {
-            "key": "Referrer-Policy",
-            "value": "strict-origin-when-cross-origin"
-          }
-        ]
-      },
-      {
-        "source": "/health{,/**}",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-store"
-          },
-          {
-            "key": "X-Robots-Tag",
-            "value": "noindex, nofollow"
-          }
-        ]
-      },
-      {
-        "source": "/investor-room{,.html}",
-        "headers": [
-          {
-            "key": "Cache-Control",
-            "value": "no-store"
-          },
-          {
-            "key": "X-Robots-Tag",
-            "value": "noindex, nofollow"
-          }
-        ]
-      }
-    ],
-    "rewrites": [
-      {
-        "source": "/api/investor-room",
-        "function": {
-          "functionId": "investorRoom",
-          "region": "us-central1"
+  "hosting": [
+    {
+      "public": "public",
+      "site": "taliferro-tech",
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**",
+        "health/health.json",
+        "video/**"
+      ],
+      "redirects": [
+        {
+          "source": "/index-work.html",
+          "destination": "/",
+          "type": 301
+        },
+        {
+          "source": "/home",
+          "destination": "/",
+          "type": 301
+        },
+        {
+          "source": "/products.html",
+          "destination": "/products",
+          "type": 301
+        },
+        {
+          "source": "/products/music",
+          "destination": "https://music.taliferro.com",
+          "type": 301
+        },
+        {
+          "source": "/privacy-policy",
+          "destination": "/privacy",
+          "type": 301
+        },
+        {
+          "source": "/terms-and-conditions",
+          "destination": "/terms",
+          "type": 301
         }
-      }
-    ]
-  },
+      ],
+      "headers": [
+        {
+          "source": "**/*.@(css|js)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(png|jpg|webp|svg|ico|woff2)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=2592000"
+            }
+          ]
+        },
+        {
+          "source": "**/*.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=300, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            }
+          ]
+        },
+        {
+          "source": "/health{,/**}",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            },
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
+          ]
+        },
+        {
+          "source": "/investor-room{,.html}",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "no-store"
+            },
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            }
+          ]
+        }
+      ],
+      "rewrites": [
+        {
+          "source": "/api/investor-room",
+          "function": {
+            "functionId": "investorRoom",
+            "region": "us-central1"
+          }
+        }
+      ]
+    },
+    {
+      "public": "public-16ahead",
+      "site": "16ahead",
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "headers": [
+        {
+          "source": "**/*.@(css|js)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(png|jpg|webp|svg|ico|woff2|mp4)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=2592000"
+            }
+          ]
+        },
+        {
+          "source": "**/*.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=300, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "public": "public-16ahead-io",
+      "site": "16ahead-io",
+      "cleanUrls": true,
+      "trailingSlash": false,
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "headers": [
+        {
+          "source": "**/*.@(css|js)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=604800"
+            }
+          ]
+        },
+        {
+          "source": "**/*.@(png|jpg|webp|svg|ico|woff2|mp4)",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=2592000"
+            }
+          ]
+        },
+        {
+          "source": "**/*.html",
+          "headers": [
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=300, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "**",
+          "headers": [
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            }
+          ]
+        }
+      ]
+    }
+  ],
   "functions": [
     {
       "source": "functions",

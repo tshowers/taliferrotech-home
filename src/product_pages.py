@@ -1,6 +1,7 @@
 """Copy for the /products/<slug> pages. Edit here, then run src/build.py.
 
-Sourced from each product's README, landing page and the TODD codebase.
+Sourced from each product's README, landing page and the 16Ahead codebase.
+The product is 16Ahead (formerly TODD); each entry here is one of its spaces.
 Keep it factual: no prices, and no claims the product does not make itself.
 
 title    -> <title> and search result headline
@@ -14,40 +15,40 @@ ios      -> True when the product has a live iPhone app
 """
 
 PAGES = {
-    "Ask TODD": {
+    "General Assistant": {
         "slug": "ask-todd",
-        "title": "Ask TODD: AI business advisor that answers with the next move",
+        "title": "General Assistant: AI business advisor that answers with the next move",
         "tagline": "Ask a business question. Get the next move.",
-        "lede": "Ask TODD is where you talk to TODD, the intelligence layer behind every Taliferro Tech product. Tell it what is stuck in your business and it comes back with a clear next move, the right place to start, or the fastest way forward.",
+        "lede": "General Assistant is where you talk to 16Ahead. Tell it what is stuck in your business and it comes back with a clear next move, the right place to start, or the fastest way forward.",
         "features": [
             ("Plain-language questions", "Describe the problem the way you would to a colleague. No setup, filters or report builders."),
-            ("Answers with a next move", "TODD doesn't stop at an answer. It tells you what to do next and why."),
-            ("Points to the right product", "When the work belongs in Outreach, Moves, Network or another product, TODD sends you there."),
-            ("Reads what you already have", "TODD works from the information already in your Taliferro Tech products, so its suggestions fit your business."),
+            ("Answers with a next move", "16Ahead doesn't stop at an answer. It tells you what to do next and why."),
+            ("Points to the right space", "When the work belongs in Outreach, Moves, Network or another space, 16Ahead sends you there."),
+            ("Reads what you already have", "It works from the information already in your other spaces, so its suggestions fit your business."),
         ],
         "steps": [
-            ("Ask", "Tell TODD what is stuck or what you are trying to get done."),
-            ("Decide", "TODD sorts what matters and suggests the next move."),
-            ("Act", "Open the product that does the work, already pointed at the right task."),
+            ("Ask", "Tell 16Ahead what is stuck or what you are trying to get done."),
+            ("Decide", "16Ahead sorts what matters and suggests the next move."),
+            ("Act", "Open the space that does the work, already pointed at the right task."),
         ],
         "fits": ["Moves", "Network", "Outreach"],
         "faq": [
-            ("What is TODD?", "TODD is the AI intelligence layer behind every Taliferro Tech product. It turns scattered information into clear next moves, and works across the products to draft, nudge, validate and route the work."),
-            ("How is Ask TODD different from a chatbot?", "A chatbot answers the question. Ask TODD answers with the next move and points you to the product that can do the work."),
+            ("What is 16Ahead?", "16Ahead is one login to sixteen AI spaces that work together. It turns scattered information into clear next moves, and works across the spaces to draft, nudge, validate and route the work."),
+            ("How is General Assistant different from a chatbot?", "A chatbot answers the question. General Assistant answers with the next move and points you to the space that can do the work."),
         ],
     },
     "Find": {
         "slug": "find",
         "title": "Find: AI search engine that puts the answer first",
         "tagline": "Start with what you remember. End with the answer.",
-        "lede": "Find is TODD's visual search. It puts the best-weighted answer first instead of ten blue links, drawing on authoritative answers, curated Taliferro knowledge and the web. Free, with no account required, on the web and on iPhone.",
+        "lede": "Find is 16Ahead's visual search. It puts the best-weighted answer first instead of ten blue links, drawing on authoritative answers, curated Taliferro knowledge and the web. Free, with no account required, on the web and on iPhone.",
         "features": [
             ("The answer first", "Find leads with the best-weighted answer, not a page of links to sort through."),
             ("Start from what you remember", "Describe the person, film, story or place you half remember and Find helps you get to what you mean."),
             ("Sources you can trust", "Answers draw on authoritative sources, curated Taliferro knowledge and the web."),
             ("Web and iPhone", "Search in your browser or with the Taliferro Find app."),
         ],
-        "fits": ["Ask TODD"],
+        "fits": ["General Assistant"],
         "ios": True,
         "app_store": "https://apps.apple.com/us/app/taliferro-find/id6806954591",
         "faq": [
@@ -55,38 +56,38 @@ PAGES = {
             ("Is there an iPhone app?", "Yes. Taliferro Find is on the App Store."),
         ],
     },
-    "Maya": {
+    "Marketing Assistant": {
         "slug": "maya",
-        "title": "Maya: AI marketing assistant and on-call Marketing Director",
+        "title": "Marketing Assistant: your on-call AI Marketing Director",
         "tagline": "Your on-call Marketing Director.",
-        "lede": "Maya is your on-call AI Marketing Director. Get candid advice on message clarity, campaigns and audience focus, learn what to fix first, then let Maya carry out the plan.",
+        "lede": "Marketing Assistant is your on-call AI Marketing Director. Get candid advice on message clarity, campaigns and audience focus, learn what to fix first, then let it carry out the plan.",
         "features": [
-            ("Message clarity", "Maya tells you plainly where your message is unclear and how to tighten it."),
+            ("Message clarity", "It tells you plainly where your message is unclear and how to tighten it."),
             ("Campaigns", "Plan campaigns around what you are actually trying to achieve, not a template."),
             ("Audience focus", "Work out who you are talking to and what they need to hear."),
             ("What to fix first", "A prioritised view of the marketing changes that matter most right now."),
-            ("A plan Maya carries out", "Turn the advice into a marketing plan, then have Maya execute it."),
+            ("A plan it carries out", "Turn the advice into a marketing plan, then have Marketing Assistant execute it."),
         ],
         "fits": ["Social", "Outreach", "Email Creator"],
         "faq": [
-            ("Is Maya a person?", "No. Maya is an AI marketing director built by Taliferro Tech on the TODD intelligence layer."),
-            ("What kind of advice does Maya give?", "Candid, practical marketing advice: message clarity, campaigns, audience focus and what to fix first."),
+            ("Is Marketing Assistant a person?", "No. It is an AI marketing director, one of the sixteen spaces in 16Ahead, built by Taliferro Tech."),
+            ("What kind of advice does Marketing Assistant give?", "Candid, practical marketing advice: message clarity, campaigns, audience focus and what to fix first."),
         ],
     },
     "Network": {
         "slug": "network",
         "title": "Network: relationship CRM that shows who needs your attention",
         "tagline": "Know which relationships need you this week.",
-        "lede": "Network is TODD's relationship graph. Every contact, company, deal and interaction is read continuously by TODD to surface who needs attention, which relationships are gaining momentum and which are at risk of going cold.",
+        "lede": "Network is 16Ahead's relationship graph. Every contact, company, deal and interaction is read continuously by 16Ahead to surface who needs attention, which relationships are gaining momentum and which are at risk of going cold.",
         "features": [
             ("One relationship graph", "Contacts, companies, deals and interactions in one place instead of scattered notes."),
-            ("Who needs attention", "TODD surfaces the people you should reach out to before the relationship cools."),
+            ("Who needs attention", "16Ahead surfaces the people you should reach out to before the relationship cools."),
             ("Momentum and risk", "See which relationships are gaining momentum and which are going quiet."),
             ("Context behind the work", "Keep the people and firms behind each project connected to the work itself."),
         ],
         "fits": ["Outreach", "Lead Vault", "Moves"],
         "faq": [
-            ("Is Network a CRM?", "Network holds the contacts, companies and interactions a CRM would, but it is built around TODD reading them for you and telling you who needs attention."),
+            ("Is Network a CRM?", "Network holds the contacts, companies and interactions a CRM would, but it is built around 16Ahead reading them for you and telling you who needs attention."),
         ],
     },
     "Moves": {
@@ -116,33 +117,33 @@ PAGES = {
         "slug": "outreach",
         "title": "Outreach: AI email campaigns and automated follow-up",
         "tagline": "Turn attention into a real next step.",
-        "lede": "Outreach is TODD's email campaign and follow-up workspace. Plan thoughtful outreach, see how people engage, and choose the right next move for each conversation instead of letting threads go dead.",
+        "lede": "Outreach is 16Ahead's email campaign and follow-up workspace. Plan thoughtful outreach, see how people engage, and choose the right next move for each conversation instead of letting threads go dead.",
         "features": [
             ("Campaigns and email", "Create campaigns and compose emails in one workspace."),
-            ("Engagement signals", "TODD watches opens, clicks and replies so you know who is interested."),
+            ("Engagement signals", "16Ahead watches opens, clicks and replies so you know who is interested."),
             ("The next move per conversation", "Each conversation gets a suggested next step instead of a generic sequence."),
             ("Follow-up that keeps moving", "Keep follow-up going so attention turns into a meeting, not a dead thread."),
         ],
         "fits": ["Network", "Lead Vault", "Email Creator"],
         "faq": [
-            ("Does Outreach send mass email blasts?", "Outreach is built for thoughtful, personal outreach and follow-up, with TODD reading engagement to pick the next move for each conversation."),
+            ("Does Outreach send mass email blasts?", "Outreach is built for thoughtful, personal outreach and follow-up, with 16Ahead reading engagement to pick the next move for each conversation."),
         ],
     },
     "Pulse": {
         "slug": "pulse",
         "title": "Pulse: AI survey maker for customer feedback",
         "tagline": "Every response is a signal.",
-        "lede": "Pulse is a survey and feedback tool. Create a short survey with TODD, publish it to collect real responses, and watch a results dashboard tally the answers as they arrive, instead of a spreadsheet nobody opens.",
+        "lede": "Pulse is a survey and feedback tool. Create a short survey with 16Ahead, publish it to collect real responses, and watch a results dashboard tally the answers as they arrive, instead of a spreadsheet nobody opens.",
         "features": [
-            ("Build with TODD", "Create short customer surveys with TODD's help, so you ask questions worth asking."),
+            ("Build with 16Ahead", "Create short customer surveys with 16Ahead's help, so you ask questions worth asking."),
             ("Publish and share", "Publish your pulse and share the link to start collecting responses."),
             ("Live results", "The dashboard updates itself as responses come in, so the read on the room is always ready."),
-            ("Signal, not noise", "TODD reads the responses and turns them into clear direction for your business."),
+            ("Signal, not noise", "16Ahead reads the responses and turns them into clear direction for your business."),
         ],
         "steps": [
-            ("Build", "Create your pulse with TODD."),
+            ("Build", "Create your pulse with 16Ahead."),
             ("Share", "Publish it and send the link."),
-            ("Read", "TODD tallies answers from the first response on."),
+            ("Read", "16Ahead tallies answers from the first response on."),
         ],
         "fits": ["Network", "Outreach", "Moves"],
         "faq": [
@@ -159,14 +160,14 @@ PAGES = {
             ("Validate an email", "Check whether an email address is valid and how confident that result is."),
             ("Unlock the record", "Preview a lead, then open the full contact and company details when you want them."),
             ("Recommendations", "Get a lead-specific recommendation for your outreach goal."),
-            ("Lead sets from TODD", "Open lead sets TODD has already prepared for you."),
+            ("Lead sets from 16Ahead", "Open lead sets 16Ahead has already prepared for you."),
         ],
         "steps": [
             ("Search", "Describe the companies or buyers you are looking for, or validate one address."),
             ("Preview", "Review matches and their company context."),
             ("Unlock", "Open the full record for the leads you want to contact."),
         ],
-        "fits": ["Network", "Outreach", "Maya"],
+        "fits": ["Network", "Outreach", "Marketing Assistant"],
         "faq": [
             ("Is Lead Vault a CRM?", "No. Lead Vault focuses on lead discovery and contact access. Use Network to manage relationships and Outreach to contact people."),
             ("Can I check a single email address?", "Yes. Switch to Validate Email to check an address and see how confident the result is."),
@@ -176,19 +177,19 @@ PAGES = {
         "slug": "social",
         "title": "Social: AI social media post generator for LinkedIn and Threads",
         "tagline": "Keep your visibility active.",
-        "lede": "Social keeps your social presence moving. Capture the signal, let TODD draft the post, review and approve it, and keep the queue going, tied to the rest of your business instead of a separate content silo.",
+        "lede": "Social keeps your social presence moving. Capture the signal, let 16Ahead draft the post, review and approve it, and keep the queue going, tied to the rest of your business instead of a separate content silo.",
         "features": [
             ("Capture ideas", "Save source material for future posts as you come across it."),
-            ("Drafts per platform", "TODD writes platform-specific drafts for LinkedIn and Threads."),
+            ("Drafts per platform", "16Ahead writes platform-specific drafts for LinkedIn and Threads."),
             ("Strategy, calendar and queue", "Plan what goes out and when, and keep the queue moving."),
             ("Connected accounts", "Manage the social accounts you post to in one place."),
         ],
         "steps": [
             ("Capture", "Save the idea, link or moment worth posting about."),
-            ("Draft", "TODD drafts the post for each platform."),
+            ("Draft", "16Ahead drafts the post for each platform."),
             ("Approve", "Review, edit and approve before anything goes out."),
         ],
-        "fits": ["Maya", "SayIt", "Image Creator"],
+        "fits": ["Marketing Assistant", "SayIt", "Image Creator"],
         "faq": [
             ("Which platforms does Social support?", "Social drafts posts for LinkedIn and Threads."),
             ("Does Social post without my approval?", "Social is built around reviewing and approving drafts before they go out."),
@@ -210,11 +211,11 @@ PAGES = {
             ("How is SayIt different from other social networks?", "SayIt is built for organizations: you post what you need, see who is interested, and start the right conversations."),
         ],
     },
-    "Market": {
+    "Store": {
         "slug": "market",
-        "title": "TODD Market: independent stores that send each other customers",
+        "title": "16Ahead Store: independent stores that send each other customers",
         "tagline": "Independent stores that send each other customers.",
-        "lede": "Bring your catalog and TODD Market builds your store. Shoppers say what they need in plain words. When you don't carry it, Market sends them to a store in the network that does, and you earn part of that sale.",
+        "lede": "Bring your catalog and 16Ahead Store builds your store. Shoppers say what they need in plain words. When you don't carry it, Store sends them to a store in the network that does, and you earn part of that sale.",
         "features": [
             ("Shoppers describe it", "Shoppers say what they need in plain words. The store narrows it down, puts outfits and bundles together, and explains the trade-offs."),
             ("Every search goes somewhere", "If you don't carry it, a trusted store in the network does. The handoff reads like a recommendation, not an ad."),
@@ -230,7 +231,7 @@ PAGES = {
         "faq": [
             ("How do referrals work?", "When a shopper asks for something you don't carry, you can send them to another store in the network. If they buy, you earn that store's commission. Every referral is labeled, and you choose which stores you send shoppers to and the minimum commission you accept."),
             ("Where can I import my catalog from?", "Shopify, Salesforce Commerce, a CSV file, or your own photos and price sheets. You approve the store before it goes live."),
-            ("Do I need an account?", "Shoppers can browse without one. Merchants sign in with their TODD account, using Apple, Google or an email link."),
+            ("Do I need an account?", "Shoppers can browse without one. Merchants sign in with their 16Ahead account, using Apple, Google or an email link."),
         ],
     },
     "Docs": {
@@ -244,7 +245,7 @@ PAGES = {
             ("Document editor", "Create and edit drafts, work with .docx files and export the result."),
             ("RFPs and proposals", "Upload RFPs and review the proposals generated from them."),
         ],
-        "fits": ["Moves", "Outreach", "Ask TODD"],
+        "fits": ["Moves", "Outreach", "General Assistant"],
         "faq": [
             ("What file types can I add?", "PDFs, Word documents, images, video, audio and other reference files."),
         ],
@@ -253,22 +254,22 @@ PAGES = {
         "slug": "email-creator",
         "title": "Email Creator: AI email generator that outputs designed HTML",
         "tagline": "Describe an email. Get finished HTML.",
-        "lede": "Email Creator is a workspace where you chat with TODD about an email, whether it is a marketing campaign, a newsletter, an invite or a plain business email, attach images like your logo or product photos, and get a designed, email-safe HTML email to preview and download.",
+        "lede": "Email Creator is a workspace where you chat with 16Ahead about an email, whether it is a marketing campaign, a newsletter, an invite or a plain business email, attach images like your logo or product photos, and get a designed, email-safe HTML email to preview and download.",
         "features": [
-            ("Chat it through", "Describe the email you need and TODD asks the right questions."),
+            ("Chat it through", "Describe the email you need and 16Ahead asks the right questions."),
             ("Add your images", "Attach a logo or product photos to use in the design."),
             ("Email-safe HTML", "Get a designed email built to display properly in email clients."),
             ("Preview and download", "Preview the result, then download it or copy the HTML."),
         ],
         "steps": [
-            ("Describe", "Tell TODD what the email is for."),
+            ("Describe", "Tell 16Ahead what the email is for."),
             ("Attach", "Add your logo or photos, if you want them."),
             ("Download", "Preview the designed email and download the HTML."),
         ],
         "fits": ["Outreach", "Email Signature", "Image Creator"],
         "faq": [
             ("What kinds of emails can it make?", "Marketing campaigns, newsletters, invites and plain business emails."),
-            ("Do I need an account?", "Yes. Sign in with your TODD account."),
+            ("Do I need an account?", "Yes. Sign in with your 16Ahead account."),
         ],
     },
     "Email Signature": {
@@ -297,36 +298,18 @@ PAGES = {
         "slug": "image-creator",
         "title": "Image Creator: AI image and logo generator, download a PNG",
         "tagline": "Describe an image. Download a PNG.",
-        "lede": "Image Creator is a browser-based image workspace. Chat with TODD to create logos, icons, illustrations and other images, add your logo or example images as references, and download the result as a PNG.",
+        "lede": "Image Creator is a browser-based image workspace. Chat with 16Ahead to create logos, icons, illustrations and other images, add your logo or example images as references, and download the result as a PNG.",
         "features": [
-            ("Conversational", "TODD asks what you need and clarifies the request before creating the image."),
+            ("Conversational", "16Ahead asks what you need and clarifies the request before creating the image."),
             ("Use references", "Attach your logo or example images to guide the result."),
             ("PNG downloads", "Download finished images straight from your browser."),
             ("Stays in your browser", "Uploads, images and the conversation stay in your browser tab. Image Creator doesn't store your images."),
         ],
-        "fits": ["Social", "Email Creator", "Maya"],
+        "fits": ["Social", "Email Creator", "Marketing Assistant"],
         "faq": [
             ("What can I create?", "Logos, icons, illustrations and other images."),
             ("Are my images stored?", "No. Uploads, generated images and the conversation stay in your browser tab."),
-            ("Do I need an account?", "Yes. Sign in with your TODD account."),
-        ],
-    },
-    "Music": {
-        "slug": "music",
-        "title": "Taliferro Music: jazz, R&B and downtempo radio",
-        "tagline": "Music without the noise.",
-        "lede": "Taliferro Music streams jazz, R&B and downtempo live. A simple listening experience with no algorithm feed, on the web and on iPhone.",
-        "features": [
-            ("Live streaming", "Jazz, R&B and downtempo, streaming live."),
-            ("No algorithm feed", "Just music, not a feed deciding what you should hear next."),
-            ("Web and iPhone", "Listen in your browser or with the Taliferro Music Radio app."),
-        ],
-        "fits": [],
-        "ios": True,
-        "app_store": "https://apps.apple.com/us/app/taliferro-music-radio/id6806499542",
-        "faq": [
-            ("Do I need an account?", "No. Open Taliferro Music and start listening."),
-            ("Is there an iPhone app?", "Yes. Taliferro Music Radio is on the App Store."),
+            ("Do I need an account?", "Yes. Sign in with your 16Ahead account."),
         ],
     },
 }

@@ -154,21 +154,35 @@ def careers(icon, email, site):
 # pricing, round size, terms, named pending contracts or promised returns -
 # those go one-to-one, by email, after a conversation.
 
+# The story from the Oct 2026 investor work (Kelsey's feedback): one job, one buyer,
+# customer-funded build, the policy shock and the pivot. Figures stay off this page.
+PROBLEM = [
+    ("Leads go cold", "The owner is also the salesperson, the project manager and the bookkeeper. The prospect from three weeks ago never hears back."),
+    ("Outreach doesn't happen", "There's no one to find new prospects and write to them, so new business depends on referrals and luck."),
+    ("Opportunities slip", "Proposals wait for someone with time to write them, and bids, renewals and check-ins depend on someone remembering."),
+]
+
+ORIGIN = [
+    ("Built to order", "From 2023, customers paid us to build specific tools. Instead of handing each one off, we folded them into one codebase until it was a product. Every feature exists because a customer asked for it."),
+    ("Tested by a hard year", "Our first customers were concentrated in supplier-diversity consulting. When federal policy changed, much of that market closed, and so did most of those customers."),
+    ("Focused on what stayed", "The customers who stayed all used it for the same job: prospecting and follow-ups. 16Ahead is rebuilt around that job, which no single policy or industry controls."),
+]
+
 BUILT = [
-    ("Sixteen spaces, one login", "General Assistant, Marketing Assistant, Network, Moves, Outreach, Pulse, Docs and more, all in 16Ahead on one sign-in."),
-    ("Software that acts", "16Ahead drafts outreach, follow-ups and proposals, validates contact data and keeps tasks moving, instead of waiting for someone to type."),
-    ("An approval gate on every send", "Nothing irreversible goes out without a person's yes. That's what makes autonomous work safe for customers to adopt."),
+    ("It does the follow-up, not just tracks it", "CRMs and outreach tools organize the work and wait for a person to do it. 16Ahead does it overnight and has it ready by morning."),
+    ("An approval gate on every send", "Nothing goes out without the owner's yes. That's what makes autonomous outreach safe for a small firm to adopt."),
+    ("Room to grow", "Prospecting and follow-up come first. Documents, social posts, email and a store are already built for when customers want more."),
 ]
 
 WHY_NOW = [
     ("AI can finally act", "Models are now reliable enough to draft, send and update real systems, not just answer questions."),
-    ("Operators are tired of tools", "Teams pay for ten apps that each hold one slice of the work, and people carry it between them."),
-    ("The category is open", "Assistants are crowded. A system that keeps the business moving is not, and we're naming it: the Business Momentum System."),
+    ("Small firms can't hire", "Business-development help is expensive and hard to find, so it's the first role a small firm goes without."),
+    ("The spend already exists", "Small firms already pay for this work through hires, agencies and software. 16Ahead does it for a subscription."),
 ]
 
 LOOKING_FOR = [
-    ("Investors", "People who want early exposure to a new category and can help us grow, not just fund us."),
-    ("Strategic partners", "Organizations in public-sector and commercial markets where follow-through is the bottleneck."),
+    ("Investors", "People who back focused, capital-efficient teams and can help us reach small service firms, not just fund us."),
+    ("Strategic partners", "Organizations that serve small service firms and want to offer them follow-through, not another tool."),
     ("Introductions", "To customers, channel partners and advisors who make the next step faster."),
 ]
 
@@ -192,19 +206,29 @@ def investors(icon, email, site):
     body = f'''<section class="phero">
   <div class="phero__copy">
     <span class="tag t-blue">Investors</span>
-    <h1 class="display display--md">Software that does the work, not just stores it</h1>
-    <p class="lede">Taliferro Tech builds 16Ahead (formerly TODD), a Business Momentum System. It keeps outreach, proposals, follow-ups and tasks moving in the background, and stops for approval before anything irreversible happens. We're talking with investors and partners who want in early.</p>
-    <div class="actions"><a class="btn btn--primary" href="{talk}">{icon("mail")}Start a conversation</a><a class="btn btn--surface" href="/products">See 16Ahead{icon("arrow", 16)}</a></div>
+    <h1 class="display display--md">We do the follow-up small firms can't hire for</h1>
+    <p class="lede">16Ahead (formerly TODD) does the prospecting and follow-up for small service firms that can't afford a business-development hire. Tell it what you want. Overnight it finds the right people, drafts the outreach, follow-ups and proposals, and lines them up for approval in the morning. Nothing sends without a yes.</p>
+    <div class="actions"><a class="btn btn--primary" href="{talk}">{icon("mail")}Start a conversation</a><a class="btn btn--surface" href="https://16ahead.com/#overnight">See it work{icon("ext", 14)}</a></div>
   </div>
 </section>
 <section class="section section--narrow">
-  <span class="kicker">What's already built</span>
-  <h2 class="h2 h2--sm">Not a slide. A working platform you can use today.</h2>
+  <span class="kicker">The problem</span>
+  <h2 class="h2 h2--sm">Small firms win on follow-up. Nobody has time for it.</h2>
+  <div class="feats">{cards(PROBLEM)}</div>
+</section>
+<section class="section section--narrow">
+  <span class="kicker">How we got here</span>
+  <h2 class="h2 h2--sm">Customers paid us to build it</h2>
+  <div class="feats">{cards(ORIGIN)}</div>
+</section>
+<section class="section section--narrow">
+  <span class="kicker">What's different</span>
+  <h2 class="h2 h2--sm">Not a slide. A working product customers use today.</h2>
   <div class="feats">{cards(BUILT)}</div>
 </section>
 <section class="section section--narrow">
   <span class="kicker">Why now</span>
-  <h2 class="h2 h2--sm">The moment for software that acts</h2>
+  <h2 class="h2 h2--sm">The moment for software that does the follow-up</h2>
   <div class="feats">{cards(WHY_NOW)}</div>
 </section>
 <section class="section section--narrow">
@@ -219,11 +243,11 @@ def investors(icon, email, site):
   <div class="feats">{people}</div>
 </section>
 <section class="panel panel--row">
-  <div class="panel__copy"><h2 class="h2 h2--sm">Let's talk.</h2><p>Tell us who you are and what you're looking for. We'll follow up with the full deck and a time to meet.</p></div>
+  <div class="panel__copy"><h2 class="h2 h2--sm">Let's talk.</h2><p>Tell us who you are and what you're looking for. We'll follow up with the full story, customer references and a time to meet.</p></div>
   <a class="btn btn--primary btn--lg" href="{talk}">{icon("mail")}Start a conversation</a>
 </section>'''
     return ("/investors", "investors.html", "Investors | Taliferro Tech",
-            "Taliferro Tech builds 16Ahead (formerly TODD), a Business Momentum System: software that does the work, with an approval gate on every send. We're talking with investors and partners.",
+            "16Ahead does the prospecting and follow-up for small service firms that can't afford a business-development hire, with an approval gate on every send. Taliferro Tech is talking with investors and partners.",
             body, [])
 
 

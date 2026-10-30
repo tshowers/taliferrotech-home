@@ -55,13 +55,13 @@ KDD = [
     ("Does it", "with your approval", ["outreach", "social", "moves", "pulse", "ec", "ic", "sig", "sayit", "store"]),
 ]
 SIGNALS = [
-    ("More than one product is involved", '"Prepare a proposal" needs Find, Network and Docs'),
+    ("More than one space is involved", '"Prepare a proposal" needs Find, Network and Docs'),
     ("One step's output is the next step's input", "Research → who to contact → what to say"),
     ("A person has to do or approve part of it", "Approve a send, price a proposal, attend the meeting"),
     ("It waits on the world", "A reply, registrations, a signature, a date"),
     ("Success is an outcome, not an artifact", '"Get a meeting," "build next quarter\'s pipeline"'),
     ("Facts have to be gathered before deciding", '"What should I address this week?"'),
-    ("No product can do part of it", "Analysing invoices: a person step plus a capability gap"),
+    ("No space can do part of it", "Analysing invoices: a person step plus a capability gap"),
 ]
 DIRECTS = ["Make an image of a lighthouse", "What's this contact's email?", "Open my outbox"]
 KINDS = [
@@ -178,7 +178,7 @@ def menu_config(on_home):
         {"label": "The system", "icon": "grid", "url": f"{here}#system", "keywords": "inputs engine outputs"},
         {"label": "The gate", "icon": "target", "url": f"{here}#gate", "keywords": "orchestrate direct signals"},
         {"label": "The plan", "icon": "list", "url": f"{here}#plan", "keywords": "steps kinds owner"},
-        {"label": "Capability catalog", "icon": "bolt", "url": f"{here}#catalog", "keywords": "tools products"},
+        {"label": "Capability catalog", "icon": "bolt", "url": f"{here}#catalog", "keywords": "tools spaces products"},
         {"label": "Worked example", "icon": "mail", "url": f"{here}#example", "keywords": "regina email"},
         {"label": "Watchdog", "icon": "activity", "url": f"{here}#watchdog", "keywords": "stuck remind escalate"},
         {"label": "Approval gate", "icon": "shield", "url": f"{here}#approval", "keywords": "approve send"},
@@ -322,8 +322,8 @@ def home():
   <div class="wrap band__in">
     <div class="head">
       <span class="eyebrow eyebrow--dark">01 · The system</span>
-      <h2 class="h2">Inputs, one engine, sixteen products.</h2>
-      <p>16Ahead reads what is already happening in your business, decides what should happen next, and does it through the products, with your approval.</p>
+      <h2 class="h2">Inputs, one engine, sixteen spaces.</h2>
+      <p>16Ahead reads what is already happening in your business, decides what should happen next, and does it through its spaces, with your approval.</p>
     </div>
     <div class="grid grid--300 system">
       <div class="card card--dark"><span class="cap">Inputs</span><div class="chips">{inputs}</div></div>
@@ -376,8 +376,8 @@ def home():
   <div class="grid grid--420 grid--start">
     <div class="head">
       <span class="eyebrow">04 · The capability catalog</span>
-      <h2 class="h2">Plans are built from every product's tools.</h2>
-      <p>Every tool in every product declares what it does, its typed inputs and outputs, its effect and its access level. A Move created in Moves can use Network, Find, Docs and Pulse in one plan. Adding a tool to any product makes it available to every Mission at once.</p>
+      <h2 class="h2">Plans are built from every space's tools.</h2>
+      <p>Every tool in every space declares what it does, its typed inputs and outputs, its effect and its access level. A Move created in Moves can use Network, Find, Docs and Pulse in one plan. Adding a tool to any space makes it available to every Mission at once.</p>
       <p>The planner is given the two or three closest past plans as references and adapts them. When a Mission finishes well and nobody had to rework the plan much, it is saved as a new example for that business.</p>
     </div>
     <pre class="code" aria-label="The shape of a tool">{e(TOOL_CODE)}</pre>
@@ -419,7 +419,7 @@ def home():
   <div class="list">{watch}</div>
   <div class="note note--wide">
     <b>Waiting on a person is a state, not stuck.</b>
-    <span>Signing a contract, attending a meeting or logging into a bid portal belongs to a person. That's fine as long as a named person has it, knows why, and the watchdog is tracking it. Work is stuck only when its current step has no owner, no next action, or is past due with nobody told. Every step is either a tool from one of the products or a named person with a reason. There is no third option.</span>
+    <span>Signing a contract, attending a meeting or logging into a bid portal belongs to a person. That's fine as long as a named person has it, knows why, and the watchdog is tracking it. Work is stuck only when its current step has no owner, no next action, or is past due with nobody told. Every step is either a tool from one of the spaces or a named person with a reason. There is no third option.</span>
   </div>
 </section>
 <section id="approval" class="approval-wrap">

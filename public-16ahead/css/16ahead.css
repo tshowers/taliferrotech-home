@@ -184,6 +184,12 @@ h1, h2, p { margin: 0; }
 .ladder div:nth-child(3) { background: var(--blue); color: #fff; }
 .ladder b { min-width: 56px; font-size: 34px; font-weight: 800; letter-spacing: -0.04em; }
 .ladder span { font-size: 17px; font-weight: 600; line-height: 1.35; }
+.sixteens { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 20px; }
+.sixteens h3 { font-size: 24px; font-weight: 800; letter-spacing: -0.03em; }
+.sixteens ul { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 12px; margin: 0; padding: 0; list-style: none; }
+.sixteens li { display: flex; flex-direction: column; gap: 8px; padding: 22px 24px; border-radius: 22px; background: var(--surface); }
+.sixteens b { font-size: 26px; font-weight: 800; letter-spacing: -0.04em; color: var(--blue); }
+.sixteens span { font-size: 16px; line-height: 1.45; color: var(--body); text-wrap: pretty; }
 
 /* 5 · Who it's for */
 .who { background: var(--surface); }

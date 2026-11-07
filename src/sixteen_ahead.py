@@ -60,6 +60,15 @@ OVERNIGHT = [
 ]
 MOVES = ["Follow up with Regina. It has been 41 days.", "Send the proposal that is due Friday.", "Post this week's update."]
 LADDER = [("1", "Most people plan the next move."), ("3", "Good players plan a few more."), ("16", "You see the whole board.")]
+# Where sixteen shows up (Ty, 2026-11-06). Keep each one true: a byte is 8 bits, so 16 bits is two.
+SIXTEENS = [
+    ("16 pieces", "Every chess player starts with sixteen, and every move changes what's possible. See the board. Know your next move."),
+    ("16 compass points", "Opportunities don't always come from the direction you're watching. 16Ahead watches the rest."),
+    ("16th notes", "Four to a beat: music's measure of precise timing. In business, timing is everything. Stay on beat."),
+    ("16 hours", "About how long you're awake each day. 16Ahead keeps working through the other eight."),
+    ("16 bits", "65,536 possible values. The 16-bit chip put the personal computer on every desk."),
+    ("4 × 4", "A perfect square, and the sixteen Spaces one 16Ahead account opens."),
+]
 PEOPLE = [
     ("Founders", "Follow up with the investor who went quiet."),
     ("Project managers", "Nudge the client before the deadline slips."),
@@ -89,7 +98,7 @@ def menu_config(on_home):
     items = [
         {"label": "Overnight", "icon": "bolt", "url": f"{here}#overnight", "keywords": "examples use cases business launch campaign"},
         {"label": "Your morning", "icon": "sun", "url": f"{here}#morning", "keywords": "how it works day approve"},
-        {"label": "Why sixteen", "icon": "grid", "url": f"{here}#why", "keywords": "chess name"},
+        {"label": "Why sixteen", "icon": "grid", "url": f"{here}#why", "keywords": "chess name pieces compass notes music hours bits"},
         {"label": "Who it's for", "icon": "users", "url": f"{here}#who", "keywords": "founders managers business development retail"},
         {"label": "What's your mission?", "icon": "target", "url": f"{here}#mission", "keywords": "start sign up"},
     ]
@@ -219,6 +228,7 @@ def home():
         f'<div class="run__done"><span class="label">By morning</span><span>{escape(done)}</span></div></div>{clip(slug, name)}</article>'
         for n, (slug, name, ask, done) in enumerate(OVERNIGHT, 1))
     ladder = "".join(f'<div><b>{n}</b><span>{escape(x)}</span></div>' for n, x in LADDER)
+    sixteens = "".join(f'<li><b>{escape(n)}</b><span>{escape(x)}</span></li>' for n, x in SIXTEENS)
     people = "".join(
         f'<div class="person"><b>{escape(who)}</b><div><span class="label">Your next move</span><span>{escape(move)}</span></div></div>'
         for who, move in PEOPLE)
@@ -278,6 +288,10 @@ def home():
     <p>In chess, the player who sees further wins. Your competition is busy reacting to today. You'll already know what comes after it.</p>
   </div>
   <div class="ladder">{ladder}</div>
+  <div class="sixteens">
+    <h3>Sixteen, everywhere</h3>
+    <ul>{sixteens}</ul>
+  </div>
 </section>
 <section class="who" id="who">
   <div class="wrap who__in">

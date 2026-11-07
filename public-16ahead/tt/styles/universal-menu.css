@@ -275,6 +275,15 @@ body.dark .um-logo[data-app="todd"] { --um-logo: url("../menu-logos/todd-logo-da
   grid-template-columns: minmax(0, 1fr) 300px;
 }
 
+/* No Account card (config.noSignIn, signed out). */
+.um-body--no-account {
+  grid-template-columns: 260px minmax(0, 1fr);
+}
+
+.um-body--no-app.um-body--no-account {
+  grid-template-columns: minmax(0, 1fr);
+}
+
 .um-eyebrow {
   display: block;
   margin: 0 0 12px;
@@ -369,7 +378,7 @@ body.dark .um-logo[data-app="todd"] { --um-logo: url("../menu-logos/todd-logo-da
 /* 2 · Products */
 .um-tiles {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 22px 12px;
 }
 
@@ -385,6 +394,10 @@ body.dark .um-logo[data-app="todd"] { --um-logo: url("../menu-logos/todd-logo-da
   font-weight: 600;
   line-height: 1.2;
   text-align: center;
+}
+
+.um-tile[aria-current="page"] .um-chip {
+  box-shadow: 0 0 0 2px var(--um-bg), 0 0 0 4px currentColor;
 }
 
 .um-tile:hover .um-chip {
@@ -434,6 +447,7 @@ body.dark .um-logo[data-app="todd"] { --um-logo: url("../menu-logos/todd-logo-da
 .um-glyph[data-key="image-creator"] { --um-glyph: url("../menu-icons/image-creator.svg"); }
 .um-glyph[data-key="music"] { --um-glyph: url("../menu-icons/music.png"); }
 .um-glyph[data-key="market"] { --um-glyph: url("../menu-icons/market.png"); }
+.um-glyph[data-key="todd"] { --um-glyph: url("../menu-icons/todd.png"); }
 
 /* 3 · Account */
 .um-card {

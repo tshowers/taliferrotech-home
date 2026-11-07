@@ -170,6 +170,10 @@ def sync_menu():
     shutil.copy(UI / "styles/universal-menu.css", tt / "styles")
     shutil.copytree(UI / "menu-logos", tt / "menu-logos", ignore=shutil.ignore_patterns(".*"))
     shutil.copytree(UI / "menu-icons", tt / "menu-icons", ignore=shutil.ignore_patterns(".*"))
+    # Product dial icons come straight from taliferro-ui so they can't drift from the brand files.
+    # (An earlier hand copy had lost the embedded center mark, leaving empty rings.)
+    for svg in sorted((UI / "brand/products/svg/light").glob("*.svg")):
+        shutil.copy(svg, OUT / "img/products" / svg.name)
 
 
 def menu_config(on_home):
@@ -265,7 +269,8 @@ def shell(path, title, description, body, extra_ld=None, robots="index,follow"):
 
 def icon(key):
     f, name = ICONS[key]
-    return f'<img src="/img/products/{f}.svg" alt="{e(name)}" title="{e(name)}" width="28" height="28" loading="lazy">'
+    # ?v= is a content hash: /img is cached for 30 days, so a changed icon needs a new URL.
+    return f'<img src="/img/products/{f}.svg?v={asset_version(f"img/products/{f}.svg")}" alt="{e(name)}" title="{e(name)}" width="28" height="28" loading="lazy">'
 
 
 def tile(key):

@@ -59,40 +59,65 @@ PBKDF2_ITER = 210000  # must match public/health/index.html
 
 TECH, GROUP = "440375536", "170189229"  # GA4 properties: taliferrotech, Taliferro
 
-# One cockpit row per property. stream = GA4 stream id; host = the site's own
-# hostname (other hostnames on a stream, localhost included, are test runs or
-# stray copies of the tag and are ignored). events = the success events that
-# matter for that row.
+# One cockpit row per product. sources = the (GA4 stream id, hostname) pairs
+# that count for it; any other hostname on a stream (localhost included) is a
+# test run or a stray copy of the tag and is ignored. Since the 16Ahead move
+# (late Oct 2026) each product counts its old taliferro.tech host and its new
+# 16ahead.com host together, so week-over-week stays comparable across the
+# move. host/url = where the product lives now. events = the success events
+# that matter for that row.
+def both(stream, old, new):
+    return [(stream, old), (stream, new)]
+
+
 PROPERTIES = [
-    # name, group, property, stream, host, url, events, app store id
-    ("Taliferro Tech", "Company", TECH, "16044446676", "taliferro.tech", "https://taliferro.tech",
+    # name, group, property, sources, host, url, events, app store id
+    ("Taliferro Tech", "Company", TECH, [("16044446676", "taliferro.tech")], "taliferro.tech", "https://taliferro.tech",
      ["get_started", "contact", "app_store_click"], None),
-    ("Taliferro Group", "Company", GROUP, "13266253031", "taliferro.com", "https://taliferro.com", [], None),
-    ("Find", "Intelligence", TECH, "15742921959", "find.taliferro.tech", "https://find.taliferro.tech", [], "6806954591"),
-    ("TODD", "Intelligence", TECH, "8131343193", "todd.taliferro.tech", "https://todd.taliferro.tech", [], None),
-    ("Ask TODD", "Intelligence", TECH, "15742948079", "ask.taliferro.tech", "https://ask.taliferro.tech", [], None),
-    ("Maya", "Intelligence", TECH, "15743322007", "maya.taliferro.tech", "https://maya.taliferro.tech", [], None),
-    ("Moves", "Intelligence", TECH, "15743464048", "moves.taliferro.tech", "https://moves.taliferro.tech", [], None),
-    ("Pulse", "Intelligence", TECH, "15742937805", "pulse.taliferro.tech", "https://pulse.taliferro.tech", [], None),
-    ("Network", "Grow", TECH, "15742898390", "network.taliferro.tech", "https://network.taliferro.tech", [], None),
-    ("Lead Vault", "Grow", TECH, "15743478025", "lead-vault.taliferro.tech", "https://lead-vault.taliferro.tech", [], None),
-    ("Outreach", "Grow", TECH, "15742946776", "outreach.taliferro.tech", "https://outreach.taliferro.tech", [], None),
-    ("Social", "Grow", TECH, "15743464052", "social.taliferro.tech", "https://social.taliferro.tech", [], None),
-    ("SayIt", "Grow", TECH, "15742971797", "sayit.taliferro.tech", "https://sayit.taliferro.tech", [], None),
-    ("Market", "Grow", TECH, "16177478136", "market.taliferro.tech", "https://market.taliferro.tech", [], None),
-    ("Docs", "Create", TECH, "15743468020", "docs.taliferro.tech", "https://docs.taliferro.tech", [], None),
-    ("Email Creator", "Create", TECH, "16044468969", "emails.taliferro.tech", "https://emails.taliferro.tech",
-     ["email_created", "email_downloaded"], None),
-    ("Email Signature", "Create", TECH, "15742948824", "signature.taliferro.tech", "https://signature.taliferro.tech", [], None),
-    ("Image Creator", "Create", TECH, "16044494225", "images.taliferro.tech", "https://images.taliferro.tech",
-     ["image_created", "image_downloaded"], None),
-    ("Music", "Listen", GROUP, "16044461409", "music.taliferro.com", "https://music.taliferro.com",
+    ("Taliferro Group", "Company", GROUP, [("13266253031", "taliferro.com")], "taliferro.com", "https://taliferro.com", [], None),
+    ("16Ahead", "Company", TECH, [("16219030398", "16ahead.com"), ("16219030398", "16ahead.io")],
+     "16ahead.com", "https://16ahead.com", [], None),
+    # The app formerly known as TODD: old stream on todd.taliferro.tech, new stream on app.16ahead.com.
+    ("16Ahead App", "Intelligence", TECH, [("8131343193", "todd.taliferro.tech"), ("16219190181", "todd.taliferro.tech"),
+                                           ("16219190181", "app.16ahead.com")],
+     "app.16ahead.com", "https://app.16ahead.com", [], None),
+    ("Find", "Intelligence", TECH, both("15742921959", "find.taliferro.tech", "find.16ahead.com"),
+     "find.16ahead.com", "https://find.16ahead.com", [], "6806954591"),
+    ("General Assistant", "Intelligence", TECH, both("15742948079", "ask.taliferro.tech", "assistant.16ahead.com"),
+     "assistant.16ahead.com", "https://assistant.16ahead.com", [], None),
+    ("Marketing Assistant", "Intelligence", TECH, both("15743322007", "maya.taliferro.tech", "marketing.16ahead.com"),
+     "marketing.16ahead.com", "https://marketing.16ahead.com", [], None),
+    ("Moves", "Intelligence", TECH, both("15743464048", "moves.taliferro.tech", "moves.16ahead.com"),
+     "moves.16ahead.com", "https://moves.16ahead.com", [], None),
+    ("Pulse", "Intelligence", TECH, both("15742937805", "pulse.taliferro.tech", "pulse.16ahead.com"),
+     "pulse.16ahead.com", "https://pulse.16ahead.com", [], None),
+    ("Network", "Grow", TECH, both("15742898390", "network.taliferro.tech", "network.16ahead.com"),
+     "network.16ahead.com", "https://network.16ahead.com", [], None),
+    ("Lead Vault", "Grow", TECH, both("15743478025", "lead-vault.taliferro.tech", "lead-vault.16ahead.com"),
+     "lead-vault.16ahead.com", "https://lead-vault.16ahead.com", [], None),
+    ("Outreach", "Grow", TECH, both("15742946776", "outreach.taliferro.tech", "outreach.16ahead.com"),
+     "outreach.16ahead.com", "https://outreach.16ahead.com", [], None),
+    ("Social", "Grow", TECH, both("15743464052", "social.taliferro.tech", "social.16ahead.com"),
+     "social.16ahead.com", "https://social.16ahead.com", [], None),
+    ("SayIt", "Grow", TECH, both("15742971797", "sayit.taliferro.tech", "sayit.16ahead.com"),
+     "sayit.16ahead.com", "https://sayit.16ahead.com", [], None),
+    ("Store", "Grow", TECH, both("16177478136", "market.taliferro.tech", "16ahead.store"),
+     "16ahead.store", "https://16ahead.store", [], None),
+    ("Docs", "Create", TECH, both("15743468020", "docs.taliferro.tech", "docs.16ahead.com"),
+     "docs.16ahead.com", "https://docs.16ahead.com", [], None),
+    ("Email Creator", "Create", TECH, both("16044468969", "emails.taliferro.tech", "emails.16ahead.com"),
+     "emails.16ahead.com", "https://emails.16ahead.com", ["email_created", "email_downloaded"], None),
+    ("Email Signature", "Create", TECH, both("15742948824", "signature.taliferro.tech", "signature.16ahead.com"),
+     "signature.16ahead.com", "https://signature.16ahead.com", [], None),
+    ("Image Creator", "Create", TECH, both("16044494225", "images.taliferro.tech", "images.16ahead.com"),
+     "images.16ahead.com", "https://images.16ahead.com", ["image_created", "image_downloaded"], None),
+    ("Music", "Listen", GROUP, [("16044461409", "music.taliferro.com")], "music.taliferro.com", "https://music.taliferro.com",
      ["radio_play", "app_store_click"], "6806499542"),
 ]
 # Tag added (or fixed) on this date; earlier weeks have no data by design.
 TRACKING_SINCE = {"Taliferro Tech": "2026-10-05", "Music": "2026-10-05", "Email Creator": "2026-10-05",
-                  "Image Creator": "2026-10-05", "Ask TODD": "2026-10-05", "Docs": "2026-10-05",
-                  "Market": "2026-10-26"}
+                  "Image Creator": "2026-10-05", "General Assistant": "2026-10-05", "Docs": "2026-10-05",
+                  "Store": "2026-10-26", "16Ahead": "2026-10-26"}
 
 # Below this many engaged sessions in both weeks a % change is noise, so the
 # row is reported as "low" instead of green/yellow/red.
@@ -138,20 +163,24 @@ def run_report(token, prop, body):
 # ------------------------------------------------------------ GA4 pull
 
 def pull_ga(token, weeks):
-    """Returns {stream_id: {"web": {week: [engaged, users, sessions, views, engagement_sec]}, "events": {name: {week: n}}}}."""
+    """Returns {row name: {"web": {week: [engaged, users, sessions, views, engagement_sec]}, "events": {name: {week: n}}}},
+    summed over each row's (stream, host) sources."""
     ranges = [{"startDate": s, "endDate": e, "name": k} for k, (s, e) in weeks.items()]
     events = sorted({e for p in PROPERTIES for e in p[6]})
     data = {}
     for prop in sorted({p[2] for p in PROPERTIES}):
-        hosts = {p[3]: p[4] for p in PROPERTIES if p[2] == prop}
+        owner = {src: p[0] for p in PROPERTIES if p[2] == prop for src in p[3]}
         traffic = run_report(token, prop, {
             "dimensions": [{"name": "streamId"}, {"name": "hostName"}],
             "metrics": [{"name": "engagedSessions"}, {"name": "activeUsers"}, {"name": "sessions"},
                         {"name": "screenPageViews"}, {"name": "userEngagementDuration"}],
             "dateRanges": ranges, "limit": 1000})
         for (stream, host, week), vals in traffic:
-            if hosts.get(stream) == host:
-                data.setdefault(stream, {}).setdefault("web", {})[week] = vals
+            row = owner.get((stream, host))
+            if row:
+                web = data.setdefault(row, {}).setdefault("web", {})
+                # activeUsers is a distinct count, so summing hosts can overcount a user who visited both.
+                web[week] = [a + b for a, b in zip(web.get(week, [0] * len(vals)), vals)]
         if events:
             # Same host rule as traffic, so test runs on localhost don't count.
             counts = run_report(token, prop, {
@@ -159,9 +188,11 @@ def pull_ga(token, weeks):
                 "metrics": [{"name": "eventCount"}], "dateRanges": ranges,
                 "dimensionFilter": {"filter": {"fieldName": "eventName", "inListFilter": {"values": events}}}})
             for (stream, host, name, week), (n,) in counts:
-                if hosts.get(stream) != host:
+                row = owner.get((stream, host))
+                if not row:
                     continue
-                data.setdefault(stream, {}).setdefault("events", {}).setdefault(name, {})[week] = int(n)
+                ev = data.setdefault(row, {}).setdefault("events", {}).setdefault(name, {})
+                ev[week] = ev.get(week, 0) + int(n)
     return data
 
 
@@ -297,8 +328,8 @@ def build(end):
     ga = pull_ga(ga_token(), weeks)
     apps, apps_status = pull_app_store(weeks, [p[7] for p in PROPERTIES if p[7]])
     rows = []
-    for name, group, prop, stream, host, url, events, app_id in PROPERTIES:
-        d = ga.get(stream, {})
+    for name, group, prop, sources, host, url, events, app_id in PROPERTIES:
+        d = ga.get(name, {})
         web = summarise(d.get("web"))
         now, prev = web["engaged_sessions"]["this"], web["engaged_sessions"]["prev"]
         since = TRACKING_SINCE.get(name)

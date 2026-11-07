@@ -73,9 +73,14 @@
 
   var STATUS = { green: [ 'Growing', 'green' ], yellow: [ 'Slipping', 'yellow' ], red: [ 'Down', 'pink' ],
     low: [ 'Low traffic', 'grey' ], new: [ 'New', 'blue' ], none: [ 'No data', 'grey' ] };
-  var ICONS = { 'ask-todd': 'png', docs: 'png', 'email-creator': 'svg', 'email-signature': 'png', find: 'svg',
-    'image-creator': 'svg', 'lead-vault': 'png', maya: 'png', moves: 'png', music: 'png', network: 'png',
-    outreach: 'png', pulse: 'png', sayit: 'png', social: 'png' };
+  // 16Ahead products use the 16Ahead dial icons (copied from public-16ahead-io/img/products).
+  var DIALS = [ '16ahead', 'general-assistant', 'marketing-assistant', 'find', 'moves', 'pulse', 'network',
+    'lead-vault', 'outreach', 'social', 'sayit', 'store', 'docs', 'email-creator', 'email-signature', 'image-creator' ];
+  var ICONS = { '16ahead-app': '/img/products/16ahead/16ahead.svg', music: '/img/products/music.png',
+    'taliferro-tech': '/img/general/apple-touch-icon.png' };
+  // /img is cached for 30 days; bump v when the icon files change so browsers refetch them.
+  DIALS.forEach( function ( k ) { ICONS[ k ] = '/img/products/16ahead/' + k + '.svg?v=2'; } );
+  ICONS[ '16ahead-app' ] += '?v=2';
 
   function esc ( s ) {
     return String( s == null ? '' : s ).replace( /[&<>"']/g, function ( c ) {
@@ -97,9 +102,7 @@
   }
   function slug ( name ) { return name.toLowerCase().replace( /\s+/g, '-' ); }
   function imgFor ( name ) {
-    var s = slug( name );
-    if ( ICONS[ s ] ) return '/img/products/' + s + '.' + ICONS[ s ];
-    return name === 'Taliferro Tech' ? '/img/general/apple-touch-icon.png' : null;
+    return ICONS[ slug( name ) ] || null;
   }
   // Black line-art icons always sit on a white tile so they read in dark mode.
   function productIcon ( name, size ) {

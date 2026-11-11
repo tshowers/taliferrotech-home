@@ -156,7 +156,8 @@ def careers(icon, email, site):
 
 # The story (Nov 2026, founders): sixteen apps orchestrated into one result you
 # approve in the morning, plus "what's next" (16 steps ahead). Follow-up is the
-# proof that the engine works, not the headline. No "small": Enterprise exists.
+# proof that the engine works, not the headline. Never describe customers by size
+# ("small business" etc.): say who it's for instead (founders, Nov 2026).
 PROBLEM = [
     ("Work falls between tools", "Every app does one piece. A person still has to carry the work from one to the next, and that's where it stalls."),
     ("Nobody knows what's next", "The next move lives in someone's head. When they're busy, it waits."),
@@ -209,7 +210,7 @@ def investors(icon, email, site):
     <span class="tag t-blue">Investors</span>
     <h1 class="display display--md">Sixteen apps working as one</h1>
     <p class="lede">Tell 16Ahead (formerly TODD) what you want done. Overnight, its sixteen apps plan the work and hand it to each other, and in the morning the result is ready for your approval. Then it shows you what's next, so you stay sixteen steps ahead.</p>
-    <div class="actions"><a class="btn btn--primary" href="{talk}">{icon("mail")}Start a conversation</a><a class="btn btn--surface" href="https://16ahead.com/#work">See it work{icon("ext", 14)}</a></div>
+    <div class="actions"><a class="btn btn--primary" href="{talk}">{icon("mail")}Start a conversation</a></div>
   </div>
 </section>
 <section class="section section--narrow">

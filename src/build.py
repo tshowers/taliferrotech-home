@@ -196,6 +196,22 @@ def header(current):
 </header>'''
 
 
+def header_standalone():
+    """Header for pages that link nowhere else (/investors, Vikki 2026-11-11):
+    the brand (links home, the one way back) and the theme toggle. No nav, no Group link, no menu."""
+    return f'''<header class="hdr">
+  <a class="brand" href="/" aria-label="Taliferro Tech home"><img src="/img/general/apple-touch-icon.png" alt="" width="36" height="36"><span>Taliferro Tech</span></a>
+  <span class="ftr__sp"></span>
+  <button class="pill pill--surface theme-toggle" type="button" aria-label="Switch colour theme">{icon("moon", 16, "i i-moon")}{icon("sun", 16, "i i-sun")}<span class="theme-toggle__label"></span></button>
+</header>'''
+
+
+def footer_standalone():
+    return f'''<footer class="ftr">
+  <b>Taliferro Tech, LLC</b><span>{ADDRESS}</span><span class="ftr__sp"></span><span>© {YEAR} Taliferro Tech, LLC</span>
+</footer>'''
+
+
 def footer():
     links = [("Careers", "/careers"), ("Investors", "/investors"), ("Affiliates", "/affiliates"), ("Privacy", PRIVACY_URL), ("Terms", TERMS_URL)] + SOCIAL
     items = "".join(f'<a href="{u}"{NEWTAB if u.startswith("http") else ""}>{l}</a>' for l, u in links)
@@ -269,7 +285,7 @@ ORG = {
 }
 
 
-def page(path, title, description, current, body, extra_ld=None, robots="index,follow"):
+def page(path, title, description, current, body, extra_ld=None, robots="index,follow", standalone=False):
     url = f"{SITE}{path}"
     graph = [ORG, {"@type": "WebPage", "@id": f"{url}#webpage", "url": url, "name": title, "description": description,
                    "isPartOf": {"@id": f"{SITE}/#website"}, "publisher": {"@id": f"{SITE}/#organization"}}]
@@ -312,12 +328,12 @@ def page(path, title, description, current, body, extra_ld=None, robots="index,f
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-{header(current)}
+{header_standalone() if standalone else header(current)}
 <main id="main">
 {body}
 </main>
-{footer()}
-{menu(current or "Home")}
+{footer_standalone() if standalone else footer()}
+{"" if standalone else menu(current or "Home")}
 <script src="/js/site.js?v={asset_version("js/site.js")}" defer></script>
 </body>
 </html>
@@ -562,7 +578,7 @@ def main():
     c_path, c_out, c_title, c_desc, c_body, c_ld = careers(icon, EMAIL, SITE)
     pages[c_out] = page(c_path, c_title, c_desc, "", c_body, c_ld)
     i_path, i_out, i_title, i_desc, i_body, i_ld = investors(icon, EMAIL, SITE)
-    pages[i_out] = page(i_path, i_title, i_desc, "", i_body, i_ld)
+    pages[i_out] = page(i_path, i_title, i_desc, "", i_body, i_ld, standalone=True)
     r_path, r_out, r_title, r_desc, r_body = investor_room(icon, EMAIL)
     pages[r_out] = page(r_path, r_title, r_desc, "", r_body, robots="noindex,nofollow")
     legal = legal_pages(ADDRESS, PHONE_DISPLAY, PHONE_TEL)

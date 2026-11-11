@@ -75,7 +75,7 @@ WHAT = [
     ("What it is", "Sixteen AI apps on one login: an assistant, research, outreach, documents, social, design, a store and more, working as one system."),
     ("What it does", "It turns what you ask for into a plan, then hands the work from app to app until it's done: finding the right people, writing, designing, sending and following up."),
     ("Why it matters", "Work that used to take several people or several tools gets done for you. Nothing goes out without your yes, and you always know the next move."),
-    ("Who it's for", "Founders, owners and teams with more to do than people to do it, from a one-person business to a whole organization."),
+    ("Who it's for", "Founders, owners and teams with more to do than people to do it, who want the work done and the next move clear."),
 ]
 PEOPLE = [
     ("Founders", "Follow up with the investor who went quiet."),
@@ -256,12 +256,14 @@ def home():
   </div>
   <div class="hero__dial">{dial()}</div>
 </section>
-<section class="wrap what" id="what">
+<section class="what" id="what">
+  <div class="wrap what__in">
   <div class="what__head">
     <span class="eyebrow">What it is</span>
     <h2 class="h2">One request. Sixteen AI apps. A result you approve.</h2>
   </div>
   <div class="what__grid">{what}</div>
+  </div>
 </section>
 <section class="overnight" id="work">
   <span id="overnight" aria-hidden="true"></span>

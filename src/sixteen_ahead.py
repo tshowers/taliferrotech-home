@@ -37,24 +37,26 @@ PHONE_DISPLAY = "+1 401.646.2662"
 PHONE_TEL = "+14016462662"
 EMAIL = "info@16ahead.com"
 TAGLINE = "Stay sixteen moves ahead."
-DESCRIPTION = "Tell 16Ahead your mission. It keeps your business moving toward it and shows you what's next."
+DESCRIPTION = ("16Ahead is sixteen AI apps that work as one. Tell it what you want done: it plans the work, "
+               "has it ready for your approval and shows you what's next.")
+ENTERPRISE_URL = "https://app.16ahead.com/pricing"  # the Enterprise page and checkout, in the 16Ahead app
 
 MORNING = [
     ("6:00", "You wake up wondering what to do next.", "It's already working. It looks at everything in motion and plans the day's moves."),
     ("6:30", "You shower and get ready.", "It writes the follow-ups, posts and proposals that should go out today."),
     ("7:15", "You pour a coffee and log in.", "Your moves are lined up and waiting for a yes."),
 ]
-# (slug, title, ask, by morning). A row shows its Claude Design video once it
+# (slug, title, ask, result). A row shows its Claude Design video once it
 # is at media/overnight-<slug>.mp4 with media/overnight-<slug>-poster.jpg.
 OVERNIGHT = [
-    ("business", "A business, overnight", "Start a candle business called Ember & Oak.",
+    ("business", "Start a business", "Start a candle business called Ember & Oak.",
      "Store is live with products. Image Creator has made the product photos and logo. Docs has written the terms and "
      "return policy. Email Signature and branded emails are set up, Social has the first posts scheduled, and SayIt "
      "has made a short brand jingle."),
-    ("campaign", "A launch campaign, overnight", "Get our new product in front of 50 local boutiques.",
+    ("campaign", "A launch campaign", "Get our new product in front of 50 local boutiques.",
      "Find and Lead Vault have the 50 shops and their contacts. Email Creator and Image Creator have made a personal "
      "pitch and lookbook for each one. Outreach has sent them, and your morning report shows who opened and who replied."),
-    ("answer", "An answer, overnight", "Find out why customers stopped buying.",
+    ("answer", "An answer, with a plan", "Find out why customers stopped buying.",
      "Pulse has surveyed your past customers and Docs has a report with the top three reasons. Marketing Assistant has "
      "a win-back campaign drafted and waiting for one tap to approve."),
 ]
@@ -67,7 +69,13 @@ SIXTEENS = [
     ("16th notes", "Four to a beat: music's measure of precise timing. In business, timing is everything. Stay on beat."),
     ("16 hours", "About how long you're awake each day. 16Ahead keeps working through the other eight."),
     ("16 bits", "65,536 possible values. The 16-bit chip put the personal computer on every desk."),
-    ("4 × 4", "A perfect square, and the sixteen Spaces one 16Ahead account opens."),
+    ("4 × 4", "A perfect square, and the sixteen apps one 16Ahead account opens."),
+]
+WHAT = [
+    ("What it is", "Sixteen AI apps on one login: an assistant, research, outreach, documents, social, design, a store and more, working as one system."),
+    ("What it does", "It turns what you ask for into a plan, then hands the work from app to app until it's done: finding the right people, writing, designing, sending and following up."),
+    ("Why it matters", "Work that used to take several people or several tools gets done for you. Nothing goes out without your yes, and you always know the next move."),
+    ("Who it's for", "Founders, owners and teams with more to do than people to do it, from a one-person business to a whole organization."),
 ]
 PEOPLE = [
     ("Founders", "Follow up with the investor who went quiet."),
@@ -96,10 +104,12 @@ def sync_menu():
 def menu_config(on_home):
     here = "" if on_home else "/"
     items = [
-        {"label": "Overnight", "icon": "bolt", "url": f"{here}#overnight", "keywords": "examples use cases business launch campaign"},
+        {"label": "What it is", "icon": "info", "url": f"{here}#what", "keywords": "about ai apps value who"},
+        {"label": "See it work", "icon": "play", "url": f"{here}#work", "keywords": "examples use cases business launch campaign videos"},
         {"label": "Your morning", "icon": "sun", "url": f"{here}#morning", "keywords": "how it works day approve"},
         {"label": "Why sixteen", "icon": "grid", "url": f"{here}#why", "keywords": "chess name pieces compass notes music hours bits"},
         {"label": "Who it's for", "icon": "users", "url": f"{here}#who", "keywords": "founders managers business development retail"},
+        {"label": "Enterprise", "icon": "building", "url": f"{here}#enterprise", "keywords": "organization teams company pricing"},
         {"label": "What's your mission?", "icon": "target", "url": f"{here}#mission", "keywords": "start sign up"},
     ]
     secondary = [
@@ -182,7 +192,7 @@ def page(path, title, description, body, extra_ld=None, robots="index,follow"):
 <footer class="ftr">
   <div class="wrap ftr__in">
     <span class="ftr__brand"><img src="/img/16ahead-dial-128.png" alt="" width="28" height="28">16Ahead is a product of Taliferro Tech, LLC.</span>
-    <nav aria-label="Footer"><a href="{IO_URL}">How it's built</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="{GROUP_URL}">taliferro.com</a></nav>
+    <nav aria-label="Footer"><a href="{ENTERPRISE_URL}">Enterprise</a><a href="{IO_URL}">How it's built</a><a href="/terms">Terms</a><a href="/privacy">Privacy</a><a href="{GROUP_URL}">taliferro.com</a></nav>
   </div>
 </footer>
 <script>window.TT_MENU = {menu};</script>
@@ -225,8 +235,9 @@ def home():
     overnight = "".join(
         f'<article class="run"><div class="run__copy"><span class="run__n">{n}</span><h3>{escape(name)}</h3>'
         f'<div class="run__ask"><span class="label">Tell it</span><q>{escape(ask)}</q></div>'
-        f'<div class="run__done"><span class="label">By morning</span><span>{escape(done)}</span></div></div>{clip(slug, name)}</article>'
+        f'<div class="run__done"><span class="label">What you get</span><span>{escape(done)}</span></div></div>{clip(slug, name)}</article>'
         for n, (slug, name, ask, done) in enumerate(OVERNIGHT, 1))
+    what = "".join(f'<div class="what__card"><b>{escape(t)}</b><span>{escape(d)}</span></div>' for t, d in WHAT)
     ladder = "".join(f'<div><b>{n}</b><span>{escape(x)}</span></div>' for n, x in LADDER)
     sixteens = "".join(f'<li><b>{escape(n)}</b><span>{escape(x)}</span></li>' for n, x in SIXTEENS)
     people = "".join(
@@ -235,21 +246,30 @@ def home():
     poster = f"/media/16ahead-story-poster.jpg?v={asset_version('media/16ahead-story-poster.jpg')}"
     body = f'''<section class="wrap hero">
   <div class="hero__copy">
-    <span class="eyebrow">One login.</span>
-    <h1><span class="hero__big">Tell it what you want done.</span><span class="hero__sub"><em>Wake up to it done.</em></span></h1>
+    <span class="eyebrow">Sixteen AI apps. One login.</span>
+    <h1><span class="hero__big">Tell it what you want done.</span><span class="hero__sub"><em>Sixteen AI apps get it done.</em></span></h1>
+    <p class="hero__lede">16Ahead plans the work and passes it from app to app to find the right people, write, design and send. You approve the result, and it shows you what to do next.</p>
     <div class="hero__actions">
       <a class="pill pill--blue" href="#mission">What's your mission?</a>
-      <a class="pill pill--surface" href="#overnight">Watch it work</a>
+      <a class="pill pill--surface" href="#work">Watch it work</a>
     </div>
   </div>
   <div class="hero__dial">{dial()}</div>
 </section>
-<section class="overnight" id="overnight">
+<section class="wrap what" id="what">
+  <div class="what__head">
+    <span class="eyebrow">What it is</span>
+    <h2 class="h2">One request. Sixteen AI apps. A result you approve.</h2>
+  </div>
+  <div class="what__grid">{what}</div>
+</section>
+<section class="overnight" id="work">
+  <span id="overnight" aria-hidden="true"></span>
   <div class="wrap overnight__in">
   <div class="overnight__head">
-    <span class="eyebrow">Overnight</span>
-    <h2 class="h2">Three requests. Three mornings.</h2>
-    <p>Sixteen apps hand the work to each other while you sleep. Watch each one happen.</p>
+    <span class="eyebrow">See it work</span>
+    <h2 class="h2">Three requests. Three results.</h2>
+    <p>Ask in plain words. Its apps hand the work to each other and bring back a result for you to approve. Watch each one happen.</p>
   </div>
   {overnight}
   </div>
@@ -302,6 +322,19 @@ def home():
     <div class="people">{people}</div>
   </div>
 </section>
+<section class="wrap ent" id="enterprise">
+  <div class="ent__panel">
+    <div class="ent__copy">
+      <span class="eyebrow">16Ahead Enterprise</span>
+      <h2 class="h2">16Ahead for your whole organization.</h2>
+      <p>A dedicated 16Ahead environment for teams that work across departments, with roles, reports and your own data flows. Setup and custom work are agreed with you before they start.</p>
+    </div>
+    <div class="ent__actions">
+      <a class="pill pill--blue" href="{ENTERPRISE_URL}">See Enterprise</a>
+      <a class="pill pill--surface" href="mailto:{EMAIL}?subject=16Ahead%20Enterprise">Talk to us</a>
+    </div>
+  </div>
+</section>
 <section class="mission" id="mission">
   <div class="mission__panel">
     <h2>What's your mission?</h2>
@@ -318,7 +351,7 @@ def home():
     video = {"@type": "VideoObject", "name": "A morning with 16Ahead", "description": DESCRIPTION,
              "thumbnailUrl": f"{SITE}/media/16ahead-story-poster.jpg", "contentUrl": f"{SITE}/media/16ahead-story.mp4",
              "uploadDate": "2026-10-27", "duration": "PT1M"}
-    clips = [{"@type": "VideoObject", "name": name, "description": f"Tell it: “{ask}” By morning: {done}",
+    clips = [{"@type": "VideoObject", "name": name, "description": f"Tell it: “{ask}” What you get: {done}",
               "thumbnailUrl": f"{SITE}/media/overnight-{slug}-poster.jpg", "contentUrl": f"{SITE}/media/overnight-{slug}.mp4",
               "uploadDate": date.fromtimestamp((OUT / f"media/overnight-{slug}.mp4").stat().st_mtime).isoformat(),
               "duration": "PT1M"} for slug, name, ask, done in videos]

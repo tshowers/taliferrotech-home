@@ -154,35 +154,36 @@ def careers(icon, email, site):
 # pricing, round size, terms, named pending contracts or promised returns -
 # those go one-to-one, by email, after a conversation.
 
-# The story from the Oct 2026 investor work (Kelsey's feedback): one job, one buyer,
-# customer-funded build, the policy shock and the pivot. Figures stay off this page.
+# The story (Nov 2026, founders): sixteen apps orchestrated into one result you
+# approve in the morning, plus "what's next" (16 steps ahead). Follow-up is the
+# proof that the engine works, not the headline. No "small": Enterprise exists.
 PROBLEM = [
-    ("Leads go cold", "The owner is also the salesperson, the project manager and the bookkeeper. The prospect from three weeks ago never hears back."),
-    ("Outreach doesn't happen", "There's no one to find new prospects and write to them, so new business depends on referrals and luck."),
-    ("Opportunities slip", "Proposals wait for someone with time to write them, and bids, renewals and check-ins depend on someone remembering."),
-]
-
-ORIGIN = [
-    ("Built to order", "From 2023, customers paid us to build specific tools. Instead of handing each one off, we folded them into one codebase until it was a product. Every feature exists because a customer asked for it."),
-    ("Tested by a hard year", "Our first customers were concentrated in supplier-diversity consulting. When federal policy changed, much of that market closed, and so did most of those customers."),
-    ("Focused on what stayed", "The customers who stayed all used it for the same job: prospecting and follow-ups. 16Ahead is rebuilt around that job, which no single policy or industry controls."),
+    ("Work falls between tools", "Every app does one piece. A person still has to carry the work from one to the next, and that's where it stalls."),
+    ("Nobody knows what's next", "The next move lives in someone's head. When they're busy, it waits."),
+    ("Opportunities go cold", "The lead from three weeks ago never hears back. The quote nobody chased goes to someone else."),
 ]
 
 BUILT = [
-    ("It does the follow-up, not just tracks it", "CRMs and outreach tools organize the work and wait for a person to do it. 16Ahead does it overnight and has it ready by morning."),
-    ("An approval gate on every send", "Nothing goes out without the owner's yes. That's what makes autonomous outreach safe for a small firm to adopt."),
-    ("Room to grow", "Prospecting and follow-up come first. Documents, social posts, email and a store are already built for when customers want more."),
+    ("One request, sixteen apps", "Tell 16Ahead what you want done. It turns the request into a plan, and its apps hand the work to each other: what Find discovers, Outreach uses, and Docs turns into a proposal."),
+    ("Ready for your yes", "The work happens overnight. In the morning the result is waiting for approval, and nothing goes out without it."),
+    ("Always the next move", "16Ahead looks at everything in motion and lines up what should happen next, so you stay sixteen steps ahead instead of one."),
+]
+
+PROOF = [
+    ("Built to order", "From 2023, customers paid us to build specific tools. Instead of handing each one off, we folded them into one codebase until it was a product. Every app exists because a customer asked for it."),
+    ("Tested by a hard year", "Our first customers were concentrated in supplier-diversity consulting. When federal policy changed, much of that market closed, and so did most of those customers."),
+    ("Proven on follow-through", "The customers who stayed use it for the same result: no lead or quote goes cold. The same engine that keeps their follow-ups moving runs every request across all sixteen apps."),
 ]
 
 WHY_NOW = [
     ("AI can finally act", "Models are now reliable enough to draft, send and update real systems, not just answer questions."),
-    ("Small firms can't hire", "Business-development help is expensive and hard to find, so it's the first role a small firm goes without."),
-    ("The spend already exists", "Small firms already pay for this work through hires, agencies and software. 16Ahead does it for a subscription."),
+    ("Single-purpose AI is everywhere", "AI tools that each do one job are multiplying. Businesses don't need more tools. They need the work carried across them."),
+    ("The spend already exists", "Businesses already pay for this work through hires, agencies and software. 16Ahead does it for a subscription."),
 ]
 
 LOOKING_FOR = [
-    ("Investors", "People who back focused, capital-efficient teams and can help us reach small service firms, not just fund us."),
-    ("Strategic partners", "Organizations that serve small service firms and want to offer them follow-through, not another tool."),
+    ("Investors", "People who back focused, capital-efficient teams and can help us reach the businesses that need follow-through, not just fund us."),
+    ("Strategic partners", "Organizations that serve businesses and want to offer them results, not another tool."),
     ("Introductions", "To customers, channel partners and advisors who make the next step faster."),
 ]
 
@@ -190,7 +191,7 @@ LOOKING_FOR = [
 # 192px WebP copies used here: cwebp -q 85 -resize 192 192 <name>.png -o <name>-192.webp
 TEAM = [
     ("Tyrone Showers", "Co-founder and Chairman", "tyrone-showers"),
-    ("Vikki Owens", "Co-founder", "vikki-owens"),
+    ("Vikki Owens", "Co-founder and Strategic Advisor", "vikki-owens"),
     ("Ted Freeman", "President", "ted-freeman"),
     ("Booker Showers", "Chief Technical Advisor", "booker"),
 ]
@@ -206,29 +207,29 @@ def investors(icon, email, site):
     body = f'''<section class="phero">
   <div class="phero__copy">
     <span class="tag t-blue">Investors</span>
-    <h1 class="display display--md">We do the follow-up small firms can't hire for</h1>
-    <p class="lede">16Ahead (formerly TODD) does the prospecting and follow-up for small service firms that can't afford a business-development hire. Tell it what you want. Overnight it finds the right people, drafts the outreach, follow-ups and proposals, and lines them up for approval in the morning. Nothing sends without a yes.</p>
-    <div class="actions"><a class="btn btn--primary" href="{talk}">{icon("mail")}Start a conversation</a><a class="btn btn--surface" href="https://16ahead.com/#overnight">See it work{icon("ext", 14)}</a></div>
+    <h1 class="display display--md">Sixteen apps working as one</h1>
+    <p class="lede">Tell 16Ahead (formerly TODD) what you want done. Overnight, its sixteen apps plan the work and hand it to each other, and in the morning the result is ready for your approval. Then it shows you what's next, so you stay sixteen steps ahead.</p>
+    <div class="actions"><a class="btn btn--primary" href="{talk}">{icon("mail")}Start a conversation</a><a class="btn btn--surface" href="https://16ahead.com/#work">See it work{icon("ext", 14)}</a></div>
   </div>
 </section>
 <section class="section section--narrow">
   <span class="kicker">The problem</span>
-  <h2 class="h2 h2--sm">Small firms win on follow-up. Nobody has time for it.</h2>
+  <h2 class="h2 h2--sm">Businesses have more tools than ever. The work still waits on people.</h2>
   <div class="feats">{cards(PROBLEM)}</div>
 </section>
 <section class="section section--narrow">
-  <span class="kicker">How we got here</span>
-  <h2 class="h2 h2--sm">Customers paid us to build it</h2>
-  <div class="feats">{cards(ORIGIN)}</div>
-</section>
-<section class="section section--narrow">
   <span class="kicker">What's different</span>
-  <h2 class="h2 h2--sm">Not a slide. A working product customers use today.</h2>
+  <h2 class="h2 h2--sm">Every other AI tool does one job. 16Ahead runs sixteen as one.</h2>
   <div class="feats">{cards(BUILT)}</div>
 </section>
 <section class="section section--narrow">
+  <span class="kicker">Proof</span>
+  <h2 class="h2 h2--sm">Already producing results customers pay for</h2>
+  <div class="feats">{cards(PROOF)}</div>
+</section>
+<section class="section section--narrow">
   <span class="kicker">Why now</span>
-  <h2 class="h2 h2--sm">The moment for software that does the follow-up</h2>
+  <h2 class="h2 h2--sm">The moment for software that carries the work</h2>
   <div class="feats">{cards(WHY_NOW)}</div>
 </section>
 <section class="section section--narrow">
@@ -247,7 +248,7 @@ def investors(icon, email, site):
   <a class="btn btn--primary btn--lg" href="{talk}">{icon("mail")}Start a conversation</a>
 </section>'''
     return ("/investors", "investors.html", "Investors | Taliferro Tech",
-            "16Ahead does the prospecting and follow-up for small service firms that can't afford a business-development hire, with an approval gate on every send. Taliferro Tech is talking with investors and partners.",
+            "Sixteen apps working as one: tell 16Ahead what you want done, approve the result in the morning, and always know what's next. Taliferro Tech is talking with investors and partners.",
             body, [])
 
 

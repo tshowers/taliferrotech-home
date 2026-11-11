@@ -56,7 +56,7 @@ CONSULT_BODY = (
 )
 CONSULT_MAILTO = f"mailto:{EMAIL}?subject=Consultation&body={quote(CONSULT_BODY)}"
 
-# 16Ahead's spaces: (name, tint, glyph file, url or None, one line). Order = universal
+# 16Ahead's apps: (name, tint, glyph file, url or None, one line). Order = universal
 # menu order (taliferro-ui MENU_PRODUCTS). 16Ahead itself is the sixteenth (Ty, 2026-10-29).
 # url None = no confirmed address yet; the card renders without a link.
 PRODUCTS = [
@@ -138,7 +138,7 @@ def dial_svg(cls, lit=1, number=True):
 
 
 def sixteen_chip(size):
-    """16Ahead itself, the sixteenth space: the dial on a blue chip."""
+    """16Ahead itself, the sixteenth app: the dial on a blue chip."""
     return f'<span class="chip chip--dial t-blue" style="--sz:{size}px" aria-hidden="true">{dial_svg("dial16-mini")}</span>'
 
 
@@ -211,13 +211,13 @@ def menu(current):
         f'<a class="mrow" href="{h}" data-search="{l.lower()} page"{AC if l == current else ""}>{icon(k)}<span>{l}</span></a>'
         for l, h, k in site)
     out = (f'<a class="mrow" href="{GROUP_URL}" target="_blank" rel="noopener" data-search="taliferro group consulting">{icon("brief")}<span>Taliferro Group</span>{icon("ext", 12, "i mrow__ext")}</a>'
-           f'<a class="mrow" href="{SIXTEEN_URL}" data-search="16ahead home sixteen spaces">{icon("layers")}<span>16ahead.com</span>{icon("ext", 12, "i mrow__ext")}</a>')
+           f'<a class="mrow" href="{SIXTEEN_URL}" data-search="16ahead home sixteen apps">{icon("layers")}<span>16ahead.com</span>{icon("ext", 12, "i mrow__ext")}</a>')
     tiles = sixteen_link("mtile", f'{sixteen_chip(56)}<span>16Ahead</span>') + "".join(
         product_link(n, "mtile", f'{chip(n, 56)}<span>{n}</span>') for n, *_ in PRODUCTS)
     return f'''<div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" hidden>
   <div class="menu__bar">
     <a class="brand" href="/"><img src="/img/general/apple-touch-icon.png" alt="" width="32" height="32"><span>Taliferro Tech</span></a>
-    <label class="menu__search">{icon("search")}<input type="search" placeholder="Search spaces and pages" aria-label="Search spaces and pages" autocomplete="off"><kbd>⌘K</kbd></label>
+    <label class="menu__search">{icon("search")}<input type="search" placeholder="Search apps and pages" aria-label="Search apps and pages" autocomplete="off"><kbd>⌘K</kbd></label>
     <button class="pill pill--primary menu-close" type="button">{icon("x")}Close</button>
   </div>
   <div class="menu__body">
@@ -228,14 +228,14 @@ def menu(current):
       {out}
     </div>
     <div class="menu__products">
-      <div class="menu__head"><span class="kicker">Spaces</span><span class="menu__note">Opens in this tab</span></div>
+      <div class="menu__head"><span class="kicker">Apps</span><span class="menu__note">Opens in this tab</span></div>
       <div class="mgrid">{tiles}</div>
       <p class="menu__empty" hidden>Nothing matches that search.</p>
     </div>
     <div class="menu__start">
       <span class="kicker">Get started</span>
       <div class="menu__card">
-        <p>One 16Ahead account signs you in to every space.</p>
+        <p>One 16Ahead account signs you in to every app.</p>
         <a class="btn btn--primary btn--sm" href="{SIGN_IN_URL}">Log in to 16Ahead</a>
         <a class="btn btn--bg btn--sm" href="{CONSULT_MAILTO}">{icon("mail")}Book a consultation</a>
       </div>
@@ -255,7 +255,7 @@ ORG = {
     "alternateName": ["Taliferro Tech", "Taliferro Group"],
     "url": f"{SITE}/",
     "logo": f"{SITE}/img/general/apple-touch-icon.png",
-    "description": "Taliferro Tech builds 16Ahead: sixteen AI spaces, one login, that draft, nudge, validate and route the work for you.",
+    "description": "Taliferro Tech builds 16Ahead: sixteen AI apps, one login, that draft, nudge, validate and route the work for you.",
     "foundingDate": "2022",
     "founder": [{"@type": "Person", "name": "Vikki Owens"},
                 {"@type": "Person", "name": "Tyrone Showers", "url": FOUNDER_PROFILE, "sameAs": [FOUNDER_LINKEDIN]}],
@@ -351,42 +351,42 @@ def home():
     tiles = sixteen_link("ptile", f'{sixteen_chip(56)}<span>16Ahead</span>') + "".join(
         detail_link(n, "ptile", f'{chip(n, 56)}<span>{n}</span>') for n, *_ in PRODUCTS)
     pillars = [("It does the work", "16Ahead doesn't stop at an answer. It drafts the email, stages the follow-up and checks the data, then waits for your go-ahead.", "check"),
-               ("One login", "Sixteen spaces share one account, so what one space learns, the others can use.", "layers"),
+               ("One login", "Sixteen apps share one account, so what one app learns, the others can use.", "layers"),
                ("Built in Seattle", "Designed, engineered and supported by Taliferro Tech, LLC on Capitol Hill.", "pin")]
     pill = "".join(f'<div class="pillar"><span class="pillar__icon">{icon(i, 22)}</span><div><h3>{t}</h3><p>{d}</p></div></div>' for t, d, i in pillars)
     body = f'''<section class="hero">
   <div class="hero__copy">
     <span class="tag t-cyan">Software products · Seattle, WA</span>
     <h1 class="display">Software that does the work</h1>
-    <p class="lede">Taliferro Tech builds 16Ahead: sixteen AI spaces that draft, nudge, validate and route the work for you, so your business keeps moving. One login opens all of them.</p>
+    <p class="lede">Taliferro Tech builds 16Ahead: sixteen AI apps that draft, nudge, validate and route the work for you, so your business keeps moving. One login opens all of them.</p>
     <div class="actions">{cta_consult()}<a class="btn btn--surface" href="/products">Explore 16Ahead{icon("arrow", 16)}</a></div>
     <p class="hero__contact"><a href="mailto:{EMAIL}">{EMAIL}</a> · <a href="tel:{PHONE_TEL}">{PHONE_DISPLAY}</a></p>
   </div>
   <div class="orbit dial16" data-dial16>
     <span class="orbit__disc"></span>
-    <nav class="dial16__spaces" id="dial16-spaces" aria-label="16Ahead's sixteen spaces">{spaces}</nav>
-    <button class="dial16__core" type="button" aria-expanded="false" aria-controls="dial16-spaces" aria-label="Open 16Ahead: show its sixteen spaces">{dial_svg("dial16__dial")}</button>
-    <p class="dial16__hint" aria-hidden="true"><span class="dial16__hint-closed">Tap the dial to open 16Ahead</span><span class="dial16__hint-open">Sixteen spaces, one login</span></p>
+    <nav class="dial16__spaces" id="dial16-spaces" aria-label="16Ahead's sixteen apps">{spaces}</nav>
+    <button class="dial16__core" type="button" aria-expanded="false" aria-controls="dial16-spaces" aria-label="Open 16Ahead: show its sixteen apps">{dial_svg("dial16__dial")}</button>
+    <p class="dial16__hint" aria-hidden="true"><span class="dial16__hint-closed">Tap the dial to open 16Ahead</span><span class="dial16__hint-open">Sixteen apps, one login</span></p>
   </div>
 </section>
 <section class="band t-blue">
   {sixteen_chip(52)}
-  <div class="band__copy"><h2>Sixteen spaces, one login.</h2><p>16Ahead turns scattered information into clear next moves, then works across its spaces to get them done.</p></div>
+  <div class="band__copy"><h2>Sixteen apps, one login.</h2><p>16Ahead turns scattered information into clear next moves, then works across its apps to get them done.</p></div>
   <a class="btn btn--bg btn--sm" href="{SIXTEEN_URL}">16ahead.com{icon("ext", 14)}</a>
 </section>
 <section class="section">
-  <div class="section__head"><div><span class="kicker">16Ahead</span><h2 class="h2">Sixteen spaces, one account.</h2></div><a class="btn btn--surface btn--sm" href="/products">All spaces{icon("arrow", 16)}</a></div>
+  <div class="section__head"><div><span class="kicker">16Ahead</span><h2 class="h2">Sixteen apps, one account.</h2></div><a class="btn btn--surface btn--sm" href="/products">All apps{icon("arrow", 16)}</a></div>
   <div class="pgrid">{tiles}</div>
 </section>
 <section class="section pillars">{pill}</section>
 <section class="panel">
-  <div class="panel__copy"><h2>Have work that should run itself?</h2><p>Tell us what slows your team down. We'll show you what 16Ahead can take on and which spaces fit.</p>{cta_consult()}</div>
+  <div class="panel__copy"><h2>Have work that should run itself?</h2><p>Tell us what slows your team down. We'll show you what 16Ahead can take on and which apps fit.</p>{cta_consult()}</div>
   <div class="panel__rows">{contact_rows()}</div>
 </section>'''
     website = {"@type": "WebSite", "@id": f"{SITE}/#website", "url": f"{SITE}/", "name": "Taliferro Tech",
                "publisher": {"@id": f"{SITE}/#organization"}}
     return page("/", "Taliferro Tech | 16Ahead, AI software that does the work",
-                "Taliferro Tech builds 16Ahead: sixteen AI spaces, one login, that draft, nudge, validate and route the work for you. Based in Seattle, WA.",
+                "Taliferro Tech builds 16Ahead: sixteen AI apps, one login, that draft, nudge, validate and route the work for you. Based in Seattle, WA.",
                 "", body, [website])
 
 
@@ -399,7 +399,7 @@ def products():
                                     f'{icon("chev", 16, "i pcard__chev")}') for n in names)
         sections += f'<section class="pgroup"><h2><span>{title}</span><small>{desc}</small></h2><div class="pcards">{cards}</div></section>'
     body = f'''<section class="pagehead">
-  <div><h1 class="display display--md">16Ahead</h1><p class="lede">Sixteen spaces, one login: the <a class="link" href="{SIXTEEN_URL}">16Ahead home</a> and the fifteen spaces below. Sign in once with your 16Ahead account and use any of them.</p></div>
+  <div><h1 class="display display--md">16Ahead</h1><p class="lede">Sixteen apps, one login: the <a class="link" href="{SIXTEEN_URL}">16Ahead home</a> and the fifteen apps below. Sign in once with your 16Ahead account and use any of them.</p></div>
   {cta_consult("Not sure where to start? Book a consultation", "btn btn--primary btn--sm pagehead__cta")}
 </section>
 <div class="pgroups">{sections}</div>'''
@@ -407,9 +407,9 @@ def products():
               "item": {"@type": "SoftwareApplication", "name": n, "description": d, "applicationCategory": "BusinessApplication",
                        "operatingSystem": "Web", **({"url": u} if u else {}), "publisher": {"@id": f"{SITE}/#organization"}}}
              for i, (n, _, _, u, d) in enumerate(PRODUCTS)]
-    return page("/products", "16Ahead: sixteen spaces, one login | Taliferro Tech",
-                "16Ahead's spaces: General Assistant, Marketing Assistant, Find, Network, Moves, Outreach, Pulse, Lead Vault, Social, SayIt, Docs, Email Creator, Email Signature, Image Creator and Store, on one login.",
-                "16Ahead", body, [{"@type": "ItemList", "name": "16Ahead spaces", "itemListElement": items}])
+    return page("/products", "16Ahead: sixteen apps, one login | Taliferro Tech",
+                "16Ahead's apps: General Assistant, Marketing Assistant, Find, Network, Moves, Outreach, Pulse, Lead Vault, Social, SayIt, Docs, Email Creator, Email Signature, Image Creator and Store, on one login.",
+                "16Ahead", body, [{"@type": "ItemList", "name": "16Ahead apps", "itemListElement": items}])
 
 
 def about():
@@ -428,7 +428,7 @@ def about():
 <section class="section section--narrow">
   <h2 class="h2 h2--sm">One company, two names</h2>
   <div class="brands">
-    <div class="brandcard t-cyan"><span class="brandcard__head"><img src="/img/general/apple-touch-icon.png" alt="" width="40" height="40"><b>Taliferro Tech</b></span><span class="kicker kicker--tint">Software products · taliferro.tech</span><p>16Ahead and its sixteen spaces, from General Assistant to Store, all on one login.</p></div>
+    <div class="brandcard t-cyan"><span class="brandcard__head"><img src="/img/general/apple-touch-icon.png" alt="" width="40" height="40"><b>Taliferro Tech</b></span><span class="kicker kicker--tint">Software products · taliferro.tech</span><p>16Ahead and its sixteen apps, from General Assistant to Store, all on one login.</p></div>
     <div class="brandcard brandcard--surface"><span class="brandcard__head"><span class="brandcard__icon">{icon("brief", 20)}</span><b>Taliferro Group</b></span><span class="kicker">Consulting · taliferro.com</span><p>Consulting and engineering engagements for businesses that want hands-on help.</p><a class="brandcard__link" href="{GROUP_URL}" target="_blank" rel="noopener">Visit taliferro.com{icon("ext", 14)}</a></div>
   </div>
   <p class="note">Both are trade names of Taliferro Tech, LLC.</p>
@@ -521,7 +521,7 @@ def product_page(name):
 {steps}
 <section class="band t-blue band--page">
   {sixteen_chip(52)}
-  <div class="band__copy"><h2>{name} is one of 16Ahead's sixteen spaces.</h2><p>Every space shares one 16Ahead account, so what {name} learns, the others can use. One login opens all of them.</p></div>
+  <div class="band__copy"><h2>{name} is one of 16Ahead's sixteen apps.</h2><p>Every app shares one 16Ahead account, so what {name} learns, the others can use. One login opens all of them.</p></div>
   <a class="btn btn--bg btn--sm" href="{SIXTEEN_URL}">16ahead.com{icon("ext", 14)}</a>
 </section>
 {fit_html}
@@ -530,7 +530,7 @@ def product_page(name):
   <div class="faq">{faq}</div>
 </section>
 <section class="panel panel--row">
-  <div class="panel__copy"><h2 class="h2 h2--sm">Not sure {name} is the right fit?</h2><p>Tell us what slows your team down and we'll tell you which spaces fit.</p></div>
+  <div class="panel__copy"><h2 class="h2 h2--sm">Not sure {name} is the right fit?</h2><p>Tell us what slows your team down and we'll tell you which apps fit.</p></div>
   {cta_consult()}
 </section>'''
     path = page_url(name)

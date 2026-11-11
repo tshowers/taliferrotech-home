@@ -1,12 +1,12 @@
 {
- "generated_at": "2026-11-04T19:21:33+00:00",
+ "generated_at": "2026-11-09T08:10:16+00:00",
  "week": {
-  "start": "2026-10-26",
-  "end": "2026-11-01"
+  "start": "2026-11-02",
+  "end": "2026-11-08"
  },
  "prev_week": {
-  "start": "2026-10-19",
-  "end": "2026-10-25"
+  "start": "2026-10-26",
+  "end": "2026-11-01"
  },
  "thresholds": {
   "min_engaged_sessions": 10,
@@ -15,16 +15,16 @@
  },
  "totals": {
   "engaged_sessions": {
-   "this": 241,
-   "prev": 149,
-   "change": 0.617
+   "this": 397,
+   "prev": 241,
+   "change": 0.647
   },
   "by_status": {
-   "green": 6,
+   "green": 9,
    "yellow": 0,
-   "red": 1,
-   "low": 11,
-   "new": 2,
+   "red": 2,
+   "low": 9,
+   "new": 0,
    "none": 0
   }
  },
@@ -37,43 +37,43 @@
    "host": "taliferro.tech",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 13,
-    "prev": 12,
-    "change": 0.083
+    "this": 30,
+    "prev": 13,
+    "change": 1.308
    },
    "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 13,
-     "prev": 12,
-     "change": 0.083
+     "this": 30,
+     "prev": 13,
+     "change": 1.308
     },
     "users_incl_bots": {
-     "this": 43,
-     "prev": 15,
-     "change": 1.867
+     "this": 160,
+     "prev": 43,
+     "change": 2.721
     },
     "sessions": {
-     "this": 50,
-     "prev": 24,
-     "change": 1.083
+     "this": 168,
+     "prev": 50,
+     "change": 2.36
     },
     "views": {
-     "this": 66,
-     "prev": 46,
-     "change": 0.435
+     "this": 204,
+     "prev": 66,
+     "change": 2.091
     },
-    "engagement_rate": 0.26,
-    "engaged_sec_per_session": 29
+    "engagement_rate": 0.179,
+    "engaged_sec_per_session": 27
    },
    "events": {
     "get_started": {
      "this": 0,
-     "prev": 3
+     "prev": 0
     },
     "contact": {
-     "this": 1,
-     "prev": 24
+     "this": 3,
+     "prev": 1
     },
     "app_store_click": {
      "this": 0,
@@ -90,34 +90,34 @@
    "host": "taliferro.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 28,
-    "prev": 44,
-    "change": -0.364
+    "this": 30,
+    "prev": 28,
+    "change": 0.071
    },
-   "status": "red",
+   "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 28,
-     "prev": 44,
-     "change": -0.364
+     "this": 30,
+     "prev": 28,
+     "change": 0.071
     },
     "users_incl_bots": {
-     "this": 211,
-     "prev": 269,
-     "change": -0.216
+     "this": 193,
+     "prev": 211,
+     "change": -0.085
     },
     "sessions": {
-     "this": 219,
-     "prev": 281,
-     "change": -0.221
+     "this": 207,
+     "prev": 219,
+     "change": -0.055
     },
     "views": {
-     "this": 246,
-     "prev": 345,
-     "change": -0.287
+     "this": 248,
+     "prev": 246,
+     "change": 0.008
     },
-    "engagement_rate": 0.128,
-    "engaged_sec_per_session": 59
+    "engagement_rate": 0.145,
+    "engaged_sec_per_session": 54
    },
    "events": {},
    "app_store": null,
@@ -130,40 +130,38 @@
    "host": "16ahead.com",
    "tracking_since": "2026-10-26",
    "engaged_sessions": {
-    "this": 14,
-    "prev": 0,
-    "change": null
+    "this": 22,
+    "prev": 14,
+    "change": 0.571
    },
-   "status": "new",
+   "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 14,
-     "prev": 0,
-     "change": null
+     "this": 22,
+     "prev": 14,
+     "change": 0.571
     },
     "users_incl_bots": {
-     "this": 60,
-     "prev": 0,
-     "change": null
+     "this": 122,
+     "prev": 60,
+     "change": 1.033
     },
     "sessions": {
-     "this": 75,
-     "prev": 0,
-     "change": null
+     "this": 135,
+     "prev": 75,
+     "change": 0.8
     },
     "views": {
-     "this": 80,
-     "prev": 0,
-     "change": null
+     "this": 144,
+     "prev": 80,
+     "change": 0.8
     },
-    "engagement_rate": 0.187,
-    "engaged_sec_per_session": 84
+    "engagement_rate": 0.163,
+    "engaged_sec_per_session": 55
    },
    "events": {},
    "app_store": null,
-   "notes": [
-    "Tracking started 2026-10-26; no full week to compare yet."
-   ]
+   "notes": []
   },
   {
    "name": "16Ahead App",
@@ -172,34 +170,34 @@
    "host": "app.16ahead.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 29,
-    "prev": 16,
-    "change": 0.812
+    "this": 109,
+    "prev": 29,
+    "change": 2.759
    },
    "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 29,
-     "prev": 16,
-     "change": 0.812
+     "this": 109,
+     "prev": 29,
+     "change": 2.759
     },
     "users_incl_bots": {
-     "this": 77,
-     "prev": 63,
-     "change": 0.222
+     "this": 226,
+     "prev": 77,
+     "change": 1.935
     },
     "sessions": {
-     "this": 95,
-     "prev": 79,
-     "change": 0.203
+     "this": 243,
+     "prev": 95,
+     "change": 1.558
     },
     "views": {
-     "this": 103,
-     "prev": 63,
-     "change": 0.635
+     "this": 340,
+     "prev": 103,
+     "change": 2.301
     },
-    "engagement_rate": 0.305,
-    "engaged_sec_per_session": 45
+    "engagement_rate": 0.449,
+    "engaged_sec_per_session": 23
    },
    "events": {},
    "app_store": null,
@@ -212,53 +210,53 @@
    "host": "find.16ahead.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 48,
-    "prev": 36,
-    "change": 0.333
+    "this": 87,
+    "prev": 48,
+    "change": 0.812
    },
    "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 48,
-     "prev": 36,
-     "change": 0.333
+     "this": 87,
+     "prev": 48,
+     "change": 0.812
     },
     "users_incl_bots": {
-     "this": 43,
-     "prev": 35,
-     "change": 0.229
+     "this": 176,
+     "prev": 43,
+     "change": 3.093
     },
     "sessions": {
-     "this": 85,
-     "prev": 77,
-     "change": 0.104
+     "this": 241,
+     "prev": 85,
+     "change": 1.835
     },
     "views": {
-     "this": 266,
-     "prev": 136,
-     "change": 0.956
+     "this": 408,
+     "prev": 266,
+     "change": 0.534
     },
-    "engagement_rate": 0.565,
-    "engaged_sec_per_session": 96
+    "engagement_rate": 0.361,
+    "engaged_sec_per_session": 37
    },
    "events": {},
    "app_store": {
-    "name": "Taliferro Find",
-    "url": "https://apps.apple.com/us/app/taliferro-find/id6806954591",
-    "version": "1.4",
+    "name": "16Ahead Find",
+    "url": "https://apps.apple.com/us/app/16ahead-find/id6806954591",
+    "version": "1.5",
     "rating": 0,
     "rating_count": 0,
     "reviews": [],
     "downloads": {
      "this": {
+      "downloads": 0,
+      "redownloads": 0,
+      "updates": 0
+     },
+     "prev": {
       "downloads": 8,
       "redownloads": 0,
       "updates": 12
-     },
-     "prev": {
-      "downloads": 6,
-      "redownloads": 0,
-      "updates": 1
      }
     }
    },
@@ -271,34 +269,34 @@
    "host": "assistant.16ahead.com",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 7,
-    "prev": 3,
-    "change": 1.333
+    "this": 6,
+    "prev": 7,
+    "change": -0.143
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 7,
-     "prev": 3,
-     "change": 1.333
+     "this": 6,
+     "prev": 7,
+     "change": -0.143
     },
     "users_incl_bots": {
-     "this": 24,
-     "prev": 2,
-     "change": 11.0
+     "this": 12,
+     "prev": 24,
+     "change": -0.5
     },
     "sessions": {
-     "this": 26,
-     "prev": 5,
-     "change": 4.2
+     "this": 16,
+     "prev": 26,
+     "change": -0.385
     },
     "views": {
-     "this": 38,
-     "prev": 12,
-     "change": 2.167
+     "this": 20,
+     "prev": 38,
+     "change": -0.474
     },
-    "engagement_rate": 0.269,
-    "engaged_sec_per_session": 37
+    "engagement_rate": 0.375,
+    "engaged_sec_per_session": 47
    },
    "events": {},
    "app_store": null,
@@ -311,34 +309,34 @@
    "host": "marketing.16ahead.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 20,
-    "prev": 1,
-    "change": 19.0
+    "this": 11,
+    "prev": 20,
+    "change": -0.45
    },
-   "status": "green",
+   "status": "red",
    "web": {
     "engaged_sessions": {
-     "this": 20,
-     "prev": 1,
-     "change": 19.0
+     "this": 11,
+     "prev": 20,
+     "change": -0.45
     },
     "users_incl_bots": {
-     "this": 20,
-     "prev": 2,
-     "change": 9.0
+     "this": 15,
+     "prev": 20,
+     "change": -0.25
     },
     "sessions": {
-     "this": 39,
-     "prev": 2,
-     "change": 18.5
+     "this": 23,
+     "prev": 39,
+     "change": -0.41
     },
     "views": {
-     "this": 84,
-     "prev": 7,
-     "change": 11.0
+     "this": 35,
+     "prev": 84,
+     "change": -0.583
     },
-    "engagement_rate": 0.513,
-    "engaged_sec_per_session": 100
+    "engagement_rate": 0.478,
+    "engaged_sec_per_session": 156
    },
    "events": {},
    "app_store": null,
@@ -351,34 +349,34 @@
    "host": "moves.16ahead.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 8,
-    "prev": 0,
-    "change": null
+    "this": 16,
+    "prev": 8,
+    "change": 1.0
    },
-   "status": "low",
+   "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 8,
-     "prev": 0,
-     "change": null
+     "this": 16,
+     "prev": 8,
+     "change": 1.0
     },
     "users_incl_bots": {
      "this": 13,
-     "prev": 3,
-     "change": 3.333
+     "prev": 13,
+     "change": 0.0
     },
     "sessions": {
-     "this": 21,
-     "prev": 3,
-     "change": 6.0
+     "this": 26,
+     "prev": 21,
+     "change": 0.238
     },
     "views": {
-     "this": 110,
-     "prev": 3,
-     "change": 35.667
+     "this": 68,
+     "prev": 110,
+     "change": -0.382
     },
-    "engagement_rate": 0.381,
-    "engaged_sec_per_session": 161
+    "engagement_rate": 0.615,
+    "engaged_sec_per_session": 91
    },
    "events": {},
    "app_store": null,
@@ -391,34 +389,34 @@
    "host": "pulse.16ahead.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 13,
-    "prev": 2,
-    "change": 5.5
+    "this": 21,
+    "prev": 13,
+    "change": 0.615
    },
    "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 13,
-     "prev": 2,
-     "change": 5.5
+     "this": 21,
+     "prev": 13,
+     "change": 0.615
     },
     "users_incl_bots": {
-     "this": 26,
-     "prev": 3,
-     "change": 7.667
+     "this": 41,
+     "prev": 26,
+     "change": 0.577
     },
     "sessions": {
-     "this": 32,
-     "prev": 4,
-     "change": 7.0
+     "this": 50,
+     "prev": 32,
+     "change": 0.562
     },
     "views": {
-     "this": 79,
-     "prev": 9,
-     "change": 7.778
+     "this": 75,
+     "prev": 79,
+     "change": -0.051
     },
-    "engagement_rate": 0.406,
-    "engaged_sec_per_session": 168
+    "engagement_rate": 0.42,
+    "engaged_sec_per_session": 92
    },
    "events": {},
    "app_store": null,
@@ -431,34 +429,34 @@
    "host": "network.16ahead.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 1,
-    "prev": 5,
-    "change": -0.8
+    "this": 2,
+    "prev": 1,
+    "change": 1.0
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 1,
-     "prev": 5,
-     "change": -0.8
-    },
-    "users_incl_bots": {
-     "this": 12,
-     "prev": 6,
+     "this": 2,
+     "prev": 1,
      "change": 1.0
     },
+    "users_incl_bots": {
+     "this": 9,
+     "prev": 12,
+     "change": -0.25
+    },
     "sessions": {
-     "this": 12,
-     "prev": 10,
-     "change": 0.2
+     "this": 9,
+     "prev": 12,
+     "change": -0.25
     },
     "views": {
-     "this": 15,
-     "prev": 28,
-     "change": -0.464
+     "this": 11,
+     "prev": 15,
+     "change": -0.267
     },
-    "engagement_rate": 0.083,
-    "engaged_sec_per_session": 61
+    "engagement_rate": 0.222,
+    "engaged_sec_per_session": 23
    },
    "events": {},
    "app_store": null,
@@ -471,34 +469,34 @@
    "host": "lead-vault.16ahead.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 3,
-    "prev": 0,
-    "change": null
+    "this": 1,
+    "prev": 3,
+    "change": -0.667
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 3,
-     "prev": 0,
-     "change": null
+     "this": 1,
+     "prev": 3,
+     "change": -0.667
     },
     "users_incl_bots": {
-     "this": 26,
-     "prev": 1,
-     "change": 25.0
+     "this": 8,
+     "prev": 26,
+     "change": -0.692
     },
     "sessions": {
-     "this": 27,
-     "prev": 1,
-     "change": 26.0
+     "this": 8,
+     "prev": 27,
+     "change": -0.704
     },
     "views": {
-     "this": 38,
-     "prev": 1,
-     "change": 37.0
+     "this": 9,
+     "prev": 38,
+     "change": -0.763
     },
-    "engagement_rate": 0.111,
-    "engaged_sec_per_session": 94
+    "engagement_rate": 0.125,
+    "engaged_sec_per_session": 55
    },
    "events": {},
    "app_store": null,
@@ -511,34 +509,34 @@
    "host": "outreach.16ahead.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 17,
-    "prev": 12,
-    "change": 0.417
+    "this": 22,
+    "prev": 17,
+    "change": 0.294
    },
    "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 17,
-     "prev": 12,
-     "change": 0.417
+     "this": 22,
+     "prev": 17,
+     "change": 0.294
     },
     "users_incl_bots": {
-     "this": 43,
-     "prev": 4,
-     "change": 9.75
+     "this": 35,
+     "prev": 43,
+     "change": -0.186
     },
     "sessions": {
-     "this": 60,
-     "prev": 22,
-     "change": 1.727
+     "this": 56,
+     "prev": 60,
+     "change": -0.067
     },
     "views": {
-     "this": 147,
-     "prev": 97,
-     "change": 0.515
+     "this": 136,
+     "prev": 147,
+     "change": -0.075
     },
-    "engagement_rate": 0.283,
-    "engaged_sec_per_session": 188
+    "engagement_rate": 0.393,
+    "engaged_sec_per_session": 147
    },
    "events": {},
    "app_store": null,
@@ -551,34 +549,34 @@
    "host": "social.16ahead.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 3,
-    "prev": 1,
-    "change": 2.0
+    "this": 1,
+    "prev": 3,
+    "change": -0.667
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 3,
-     "prev": 1,
-     "change": 2.0
+     "this": 1,
+     "prev": 3,
+     "change": -0.667
     },
     "users_incl_bots": {
-     "this": 13,
-     "prev": 4,
-     "change": 2.25
+     "this": 2,
+     "prev": 13,
+     "change": -0.846
     },
     "sessions": {
-     "this": 17,
-     "prev": 7,
-     "change": 1.429
+     "this": 2,
+     "prev": 17,
+     "change": -0.882
     },
     "views": {
-     "this": 59,
-     "prev": 6,
-     "change": 8.833
+     "this": 3,
+     "prev": 59,
+     "change": -0.949
     },
-    "engagement_rate": 0.176,
-    "engaged_sec_per_session": 192
+    "engagement_rate": 0.5,
+    "engaged_sec_per_session": 45
    },
    "events": {},
    "app_store": null,
@@ -591,34 +589,34 @@
    "host": "sayit.16ahead.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 4,
-    "prev": 3,
-    "change": 0.333
+    "this": 0,
+    "prev": 4,
+    "change": -1.0
    },
-   "status": "low",
+   "status": "red",
    "web": {
     "engaged_sessions": {
-     "this": 4,
-     "prev": 3,
-     "change": 0.333
+     "this": 0,
+     "prev": 4,
+     "change": -1.0
     },
     "users_incl_bots": {
-     "this": 15,
-     "prev": 4,
-     "change": 2.75
+     "this": 9,
+     "prev": 15,
+     "change": -0.4
     },
     "sessions": {
-     "this": 16,
-     "prev": 8,
-     "change": 1.0
+     "this": 10,
+     "prev": 16,
+     "change": -0.375
     },
     "views": {
-     "this": 35,
-     "prev": 16,
-     "change": 1.188
+     "this": 9,
+     "prev": 35,
+     "change": -0.743
     },
-    "engagement_rate": 0.25,
-    "engaged_sec_per_session": 105
+    "engagement_rate": 0.0,
+    "engaged_sec_per_session": 0
    },
    "events": {},
    "app_store": null,
@@ -631,40 +629,38 @@
    "host": "16ahead.store",
    "tracking_since": "2026-10-26",
    "engaged_sessions": {
-    "this": 15,
-    "prev": 0,
-    "change": null
+    "this": 16,
+    "prev": 15,
+    "change": 0.067
    },
-   "status": "new",
+   "status": "green",
    "web": {
     "engaged_sessions": {
-     "this": 15,
-     "prev": 0,
-     "change": null
+     "this": 16,
+     "prev": 15,
+     "change": 0.067
     },
     "users_incl_bots": {
-     "this": 69,
-     "prev": 0,
-     "change": null
+     "this": 80,
+     "prev": 69,
+     "change": 0.159
     },
     "sessions": {
-     "this": 78,
-     "prev": 0,
-     "change": null
+     "this": 83,
+     "prev": 78,
+     "change": 0.064
     },
     "views": {
-     "this": 121,
-     "prev": 0,
-     "change": null
+     "this": 94,
+     "prev": 121,
+     "change": -0.223
     },
-    "engagement_rate": 0.192,
-    "engaged_sec_per_session": 125
+    "engagement_rate": 0.193,
+    "engaged_sec_per_session": 22
    },
    "events": {},
    "app_store": null,
-   "notes": [
-    "Tracking started 2026-10-26; no full week to compare yet."
-   ]
+   "notes": []
   },
   {
    "name": "Docs",
@@ -673,34 +669,34 @@
    "host": "docs.16ahead.com",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 8,
-    "prev": 9,
-    "change": -0.111
+    "this": 5,
+    "prev": 8,
+    "change": -0.375
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 8,
-     "prev": 9,
-     "change": -0.111
+     "this": 5,
+     "prev": 8,
+     "change": -0.375
     },
     "users_incl_bots": {
-     "this": 16,
-     "prev": 8,
-     "change": 1.0
+     "this": 14,
+     "prev": 16,
+     "change": -0.125
     },
     "sessions": {
-     "this": 19,
-     "prev": 14,
-     "change": 0.357
+     "this": 16,
+     "prev": 19,
+     "change": -0.158
     },
     "views": {
-     "this": 80,
-     "prev": 53,
-     "change": 0.509
+     "this": 17,
+     "prev": 80,
+     "change": -0.787
     },
-    "engagement_rate": 0.421,
-    "engaged_sec_per_session": 79
+    "engagement_rate": 0.312,
+    "engaged_sec_per_session": 20
    },
    "events": {},
    "app_store": null,
@@ -713,39 +709,39 @@
    "host": "emails.16ahead.com",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 1,
-    "prev": 2,
-    "change": -0.5
+    "this": 6,
+    "prev": 1,
+    "change": 5.0
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 1,
-     "prev": 2,
-     "change": -0.5
+     "this": 6,
+     "prev": 1,
+     "change": 5.0
     },
     "users_incl_bots": {
-     "this": 13,
-     "prev": 4,
-     "change": 2.25
+     "this": 4,
+     "prev": 13,
+     "change": -0.692
     },
     "sessions": {
-     "this": 14,
-     "prev": 6,
-     "change": 1.333
+     "this": 11,
+     "prev": 14,
+     "change": -0.214
     },
     "views": {
-     "this": 14,
-     "prev": 7,
-     "change": 1.0
+     "this": 18,
+     "prev": 14,
+     "change": 0.286
     },
-    "engagement_rate": 0.071,
-    "engaged_sec_per_session": 40
+    "engagement_rate": 0.545,
+    "engaged_sec_per_session": 161
    },
    "events": {
     "email_created": {
-     "this": 0,
-     "prev": 4
+     "this": 5,
+     "prev": 0
     },
     "email_downloaded": {
      "this": 0,
@@ -762,34 +758,34 @@
    "host": "signature.16ahead.com",
    "tracking_since": null,
    "engaged_sessions": {
-    "this": 2,
-    "prev": 0,
-    "change": null
+    "this": 5,
+    "prev": 2,
+    "change": 1.5
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 2,
-     "prev": 0,
-     "change": null
+     "this": 5,
+     "prev": 2,
+     "change": 1.5
     },
     "users_incl_bots": {
-     "this": 15,
-     "prev": 1,
-     "change": 14.0
+     "this": 12,
+     "prev": 15,
+     "change": -0.2
     },
     "sessions": {
-     "this": 16,
-     "prev": 1,
-     "change": 15.0
+     "this": 13,
+     "prev": 16,
+     "change": -0.188
     },
     "views": {
-     "this": 27,
-     "prev": 1,
-     "change": 26.0
+     "this": 13,
+     "prev": 27,
+     "change": -0.519
     },
-    "engagement_rate": 0.125,
-    "engaged_sec_per_session": 65
+    "engagement_rate": 0.385,
+    "engaged_sec_per_session": 12
    },
    "events": {},
    "app_store": null,
@@ -802,43 +798,43 @@
    "host": "images.16ahead.com",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 5,
-    "prev": 0,
-    "change": null
+    "this": 3,
+    "prev": 5,
+    "change": -0.4
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 5,
-     "prev": 0,
-     "change": null
+     "this": 3,
+     "prev": 5,
+     "change": -0.4
     },
     "users_incl_bots": {
-     "this": 20,
-     "prev": 1,
-     "change": 19.0
+     "this": 8,
+     "prev": 20,
+     "change": -0.6
     },
     "sessions": {
-     "this": 21,
-     "prev": 1,
-     "change": 20.0
+     "this": 9,
+     "prev": 21,
+     "change": -0.571
     },
     "views": {
-     "this": 30,
-     "prev": 1,
-     "change": 29.0
+     "this": 10,
+     "prev": 30,
+     "change": -0.667
     },
-    "engagement_rate": 0.238,
-    "engaged_sec_per_session": 47
+    "engagement_rate": 0.333,
+    "engaged_sec_per_session": 21
    },
    "events": {
     "image_created": {
-     "this": 1,
-     "prev": 0
+     "this": 0,
+     "prev": 1
     },
     "image_downloaded": {
-     "this": 1,
-     "prev": 0
+     "this": 0,
+     "prev": 1
     }
    },
    "app_store": null,
@@ -851,39 +847,39 @@
    "host": "music.taliferro.com",
    "tracking_since": "2026-10-05",
    "engaged_sessions": {
-    "this": 2,
-    "prev": 3,
-    "change": -0.333
+    "this": 4,
+    "prev": 2,
+    "change": 1.0
    },
    "status": "low",
    "web": {
     "engaged_sessions": {
-     "this": 2,
-     "prev": 3,
-     "change": -0.333
+     "this": 4,
+     "prev": 2,
+     "change": 1.0
     },
     "users_incl_bots": {
-     "this": 7,
-     "prev": 9,
-     "change": -0.222
+     "this": 22,
+     "prev": 7,
+     "change": 2.143
     },
     "sessions": {
-     "this": 9,
+     "this": 22,
      "prev": 9,
-     "change": 0.0
+     "change": 1.444
     },
     "views": {
-     "this": 9,
-     "prev": 11,
-     "change": -0.182
+     "this": 22,
+     "prev": 9,
+     "change": 1.444
     },
-    "engagement_rate": 0.222,
-    "engaged_sec_per_session": 12
+    "engagement_rate": 0.182,
+    "engaged_sec_per_session": 11
    },
    "events": {
     "radio_play": {
-     "this": 2,
-     "prev": 3
+     "this": 0,
+     "prev": 2
     },
     "app_store_click": {
      "this": 0,
@@ -901,12 +897,12 @@
      "this": {
       "downloads": 0,
       "redownloads": 0,
-      "updates": 1
+      "updates": 0
      },
      "prev": {
       "downloads": 0,
       "redownloads": 0,
-      "updates": 0
+      "updates": 1
      }
     }
    },

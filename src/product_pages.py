@@ -1,7 +1,7 @@
 """Copy for the /products/<slug> pages. Edit here, then run src/build.py.
 
 Sourced from each product's README, landing page and the 16Ahead codebase.
-The product is 16Ahead (formerly TODD); each entry here is one of its spaces.
+The product is 16Ahead (formerly TODD); each entry here is one of its apps.
 Keep it factual: no prices, and no claims the product does not make itself.
 
 title    -> <title> and search result headline
@@ -23,18 +23,18 @@ PAGES = {
         "features": [
             ("Plain-language questions", "Describe the problem the way you would to a colleague. No setup, filters or report builders."),
             ("Answers with a next move", "16Ahead doesn't stop at an answer. It tells you what to do next and why."),
-            ("Points to the right space", "When the work belongs in Outreach, Moves, Network or another space, 16Ahead sends you there."),
-            ("Reads what you already have", "It works from the information already in your other spaces, so its suggestions fit your business."),
+            ("Points to the right app", "When the work belongs in Outreach, Moves, Network or another app, 16Ahead sends you there."),
+            ("Reads what you already have", "It works from the information already in your other apps, so its suggestions fit your business."),
         ],
         "steps": [
             ("Ask", "Tell 16Ahead what is stuck or what you are trying to get done."),
             ("Decide", "16Ahead sorts what matters and suggests the next move."),
-            ("Act", "Open the space that does the work, already pointed at the right task."),
+            ("Act", "Open the app that does the work, already pointed at the right task."),
         ],
         "fits": ["Moves", "Network", "Outreach"],
         "faq": [
-            ("What is 16Ahead?", "16Ahead is one login to sixteen AI spaces that work together. It turns scattered information into clear next moves, and works across the spaces to draft, nudge, validate and route the work."),
-            ("How is General Assistant different from a chatbot?", "A chatbot answers the question. General Assistant answers with the next move and points you to the space that can do the work."),
+            ("What is 16Ahead?", "16Ahead is one login to sixteen AI apps that work together. It turns scattered information into clear next moves, and works across the apps to draft, nudge, validate and route the work."),
+            ("How is General Assistant different from a chatbot?", "A chatbot answers the question. General Assistant answers with the next move and points you to the app that can do the work."),
         ],
     },
     "Find": {
@@ -70,7 +70,7 @@ PAGES = {
         ],
         "fits": ["Social", "Outreach", "Email Creator"],
         "faq": [
-            ("Is Marketing Assistant a person?", "No. It is an AI marketing director, one of the sixteen spaces in 16Ahead, built by Taliferro Tech."),
+            ("Is Marketing Assistant a person?", "No. It is an AI marketing director, one of the sixteen apps in 16Ahead, built by Taliferro Tech."),
             ("What kind of advice does Marketing Assistant give?", "Candid, practical marketing advice: message clarity, campaigns, audience focus and what to fix first."),
         ],
     },

@@ -1,0 +1,95 @@
+<!doctype html><html><head><meta charset="utf-8"><style>/* Investor decks (src/decks.py). Slides are always light, like paper, and size
+   everything in cqw so a slide scales to any width: 1cqw = 16px at 1600px. */
+.dk-slide {
+  --ink: #0f1115; --muted: #5a6170; --s1: #f2f3f6; --s2: #e4e7ed; --blue: #2f6bff; --tint: #e3ecff; --tint-fg: #1d4fd6;
+  container-type: inline-size; position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden;
+  background: #fff; color: var(--ink); border-radius: 24px; box-shadow: 0 0 0 1px var(--s2);
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.dk-in { position: absolute; inset: 0 0 4.5cqw; padding: 5cqw 6cqw 0; display: flex; flex-direction: column; gap: 1.6cqw; }
+.dk-slide h1, .dk-slide h2, .dk-slide h3, .dk-slide p { margin: 0; }
+.dk-kicker { font-size: 1cqw; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--tint-fg); }
+.dk-title { font-size: 3.4cqw; font-weight: 700; letter-spacing: -0.035em; line-height: 1.08; max-width: 80cqw; text-wrap: balance; margin-bottom: 1cqw; }
+.dk-big { font-size: 5cqw; font-weight: 700; letter-spacing: -0.045em; line-height: 1.02; max-width: 82cqw; text-wrap: balance; }
+.dk-lede { font-size: 1.75cqw; line-height: 1.5; color: var(--muted); max-width: 70cqw; }
+.dk-note { margin-top: auto; font-size: 1cqw; line-height: 1.5; color: var(--muted); max-width: 86cqw; }
+.dk-meta { font-size: 1.3cqw; color: var(--muted); }
+.dk-foot { position: absolute; left: 6cqw; right: 6cqw; bottom: 2cqw; display: flex; justify-content: space-between; font-size: .9cqw; color: var(--muted); }
+
+/* cover / ask / close */
+.dk-cover .dk-in, .dk-ask .dk-in, .dk-close .dk-in { justify-content: center; }
+.dk-hero { font-size: 11cqw; font-weight: 700; letter-spacing: -0.06em; line-height: .95; }
+.dk-hero--ask { font-size: 8cqw; }
+.dk-sub { font-size: 2.6cqw; letter-spacing: -0.02em; color: var(--muted); }
+.dk-cta { align-self: flex-start; margin-top: 1cqw; padding: 1.2cqw 2.4cqw; border-radius: 999px; background: var(--blue); color: #fff; font-size: 1.6cqw; font-weight: 700; }
+.dk-tiles { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2cqw; margin-top: 2cqw; }
+.dk-tile { display: flex; flex-direction: column; gap: .8cqw; padding: 1.8cqw 2cqw; border-radius: 1.6cqw; background: var(--s1); }
+.dk-tile b { font-size: 2.6cqw; letter-spacing: -0.03em; }
+
+/* cards, stats, plans, team, lists */
+.dk-cards, .dk-stats { display: grid; gap: 1.2cqw; }
+.dk-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.dk-cols-3 { grid-template-columns: repeat(3, 1fr); }
+.dk-cols-4 { grid-template-columns: repeat(4, 1fr); }
+.dk-card { display: flex; flex-direction: column; gap: .9cqw; padding: 2cqw; border-radius: 1.6cqw; background: var(--s1); }
+.dk-card h3 { font-size: 1.7cqw; letter-spacing: -0.015em; }
+.dk-card p { font-size: 1.3cqw; line-height: 1.5; color: var(--muted); }
+.dk-card--line { background: none; box-shadow: inset 0 0 0 1px var(--s2); padding: 1.6cqw 1.8cqw; }
+.dk-price { font-size: 2.4cqw; letter-spacing: -0.03em; }
+.dk-role { font-size: 1.15cqw; font-weight: 600; color: var(--tint-fg); }
+.dk-stat { display: flex; flex-direction: column; gap: .7cqw; padding: 2cqw; border-radius: 1.6cqw; background: var(--s1); }
+.dk-stat b { font-size: 4.2cqw; letter-spacing: -0.04em; line-height: 1; color: var(--blue); }
+.dk-stat span { font-size: 1.4cqw; line-height: 1.4; font-weight: 600; }
+.dk-stat small { font-size: 1.1cqw; color: var(--muted); }
+.dk-points { margin: 1cqw 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: .9cqw; }
+.dk-points li { font-size: 1.5cqw; font-weight: 600; padding-left: 2cqw; position: relative; }
+.dk-points li::before { content: ""; position: absolute; left: 0; top: .55cqw; width: .8cqw; height: .8cqw; border-radius: 50%; background: var(--blue); }
+
+/* compare rows */
+.dk-rows { display: flex; flex-direction: column; gap: .8cqw; }
+.dk-row { display: grid; grid-template-columns: 22cqw 1fr; gap: 2cqw; align-items: baseline; padding: 1.3cqw 1.8cqw; border-radius: 1.4cqw; background: var(--s1); }
+.dk-row b { font-size: 1.5cqw; }
+.dk-row span { font-size: 1.35cqw; line-height: 1.45; color: var(--muted); }
+.dk-row.is-us { background: var(--tint); }
+.dk-row.is-us span, .dk-row.is-us b { color: var(--tint-fg); }
+
+/* where we are today */
+.dk-split { display: grid; grid-template-columns: 1fr 30cqw; gap: 1.6cqw; flex: 1; min-height: 0; }
+.dk-chart { padding: 2cqw; border-radius: 1.6cqw; background: var(--s1); display: flex; }
+.dk-bars { flex: 1; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.6cqw; align-items: end; }
+.dk-bar { height: 100%; display: flex; flex-direction: column; justify-content: flex-end; gap: .6cqw; text-align: center; }
+.dk-bar i { display: block; border-radius: 1cqw 1cqw .4cqw .4cqw; background: var(--blue); }
+.dk-bar i.is-zero { height: .3cqw !important; background: var(--s2); }
+.dk-barval { font-size: 1.3cqw; font-weight: 700; }
+.dk-bar b { font-size: 1.2cqw; }
+.dk-bar small { font-size: 1cqw; color: var(--muted); }
+.dk-side { display: flex; flex-direction: column; gap: 1cqw; }
+.dk-stat--row { flex: 1; justify-content: center; padding: 1.4cqw 1.8cqw; }
+.dk-stat--row b { font-size: 3cqw; }
+.dk-stat--row span { font-size: 1.15cqw; font-weight: 500; color: var(--muted); }
+
+/* timeline + table */
+.dk-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2cqw; }
+.dk-step { display: flex; flex-direction: column; gap: .8cqw; padding: 1.8cqw; border-radius: 1.6cqw; background: var(--s1); border-top: .35cqw solid var(--blue); }
+.dk-step b { font-size: 2.2cqw; letter-spacing: -0.03em; }
+.dk-step p { font-size: 1.25cqw; line-height: 1.5; color: var(--muted); }
+.dk-table { width: 100%; border-collapse: collapse; font-size: 1.6cqw; }
+.dk-table th { text-align: left; font-size: 1cqw; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); padding: 0 1.4cqw 1cqw; }
+.dk-table td { padding: 1.6cqw 1.4cqw; border-top: 1px solid var(--s2); }
+.dk-table td:last-child, .dk-table th:last-child { text-align: right; font-weight: 700; }
+
+/* the public /deck page around the slides */
+.deck-page { max-width: 1200px; margin: 0 auto; padding: 24px 40px 0; display: flex; flex-direction: column; gap: 28px; }
+.deck-page__head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; }
+.deck-page__head p { color: var(--muted); font-size: 15px; }
+.deck-page .dk-slide { box-shadow: var(--tile-shadow), 0 0 0 1px var(--surface2); }
+@media (max-width: 760px) {
+  .deck-page { padding: 12px 16px 0; gap: 16px; }
+  .deck-page .dk-slide { border-radius: 14px; }
+}
+@media print {
+  @page { size: 1600px 900px; margin: 0; }
+  body.deck-print { margin: 0; }
+  body.deck-print .dk-slide { width: 1600px; border-radius: 0; box-shadow: none; break-after: page; }
+}
+html,body{margin:0;background:#fff}.dk-slide{width:1600px;border-radius:0;box-shadow:none}</style></head><body class="deck-print"><section class="dk-slide dk-cover" aria-label="Slide 1: 16Ahead"><div class="dk-in"><span class="dk-kicker">Investor overview · November 2026</span><h1 class="dk-hero">16Ahead</h1><p class="dk-sub">Tell it what you want done. Sixteen AI apps get it done.</p><p class="dk-meta">Taliferro Tech, LLC · Seattle, WA</p></div><footer class="dk-foot"><span>16Ahead · Taliferro Tech</span><span>1 / 11</span></footer></section><section class="dk-slide dk-cards" aria-label="Slide 2: Businesses have more tools than ever. The work still waits on people."><div class="dk-in"><span class="dk-kicker">The problem</span><h2 class="dk-title">Businesses have more tools than ever. The work still waits on people.</h2><div class="dk-cards dk-cols-3"><div class="dk-card"><h3>Work falls between tools</h3><p>Every app does one piece. A person still carries the work from one to the next, and that&#x27;s where it stalls.</p></div><div class="dk-card"><h3>One result takes many hands</h3><p>A launch, a proposal or a real answer needs research, writing, design and sending: several people or several tools.</p></div><div class="dk-card"><h3>Nobody knows what&#x27;s next</h3><p>The next move lives in someone&#x27;s head. When they&#x27;re busy, it waits.</p></div></div></div><footer class="dk-foot"><span>16Ahead · Taliferro Tech</span><span>2 / 11</span></footer></section><section class="dk-slide dk-cards" aria-label="Slide 3: One request. Sixteen AI apps. A result you approve."><div class="dk-in"><span class="dk-kicker">What 16Ahead does</span><h2 class="dk-title">One request. Sixteen AI apps. A result you approve.</h2><div class="dk-cards dk-cols-4"><div class="dk-card"><h3>One request, one plan</h3><p>Ask in plain words. 16Ahead turns the request into a plan of steps across its apps.</p></div><div class="dk-card"><h3>Sixteen apps, working as one</h3><p>The apps hand the work to each other: what Find discovers, Outreach uses, and Docs turns into a proposal.</p></div><div class="dk-card"><h3>A complete result, for your yes</h3><p>The work happens overnight. In the morning the result is ready to approve, and nothing goes out without a yes.</p></div><div class="dk-card"><h3>Always the next move</h3><p>Then it looks at everything in motion and lines up what should happen next.</p></div></div></div><footer class="dk-foot"><span>16Ahead · Taliferro Tech</span><span>3 / 11</span></footer></section><section class="dk-slide dk-compare" aria-label="Slide 4: Three requests, three complete results"><div class="dk-in"><span class="dk-kicker">See it work</span><h2 class="dk-title">Three requests, three complete results</h2><div class="dk-rows"><div class="dk-row"><b>“Start a candle business called Ember &amp; Oak.”</b><span>Store live with products. Image Creator made the photos and logo, Docs wrote the terms, Social scheduled the first posts, SayIt made a brand jingle.</span></div><div class="dk-row"><b>“Get our new product in front of 50 local boutiques.”</b><span>Find and Lead Vault found the shops. Email Creator and Image Creator made a pitch and lookbook for each. Outreach sent them; the morning report shows who replied.</span></div><div class="dk-row"><b>“Find out why customers stopped buying.”</b><span>Pulse surveyed past customers, Docs wrote a report with the top three reasons, and Marketing Assistant drafted a win-back campaign for one-tap approval.</span></div></div><p class="dk-note">Each one is a single request in plain words. Watch them run on 16ahead.com.</p></div><footer class="dk-foot"><span>16Ahead · Taliferro Tech</span><span>4 / 11</span></footer></section><section class="dk-slide dk-stats" aria-label="Slide 5: The engine already does a job customers pay for"><div class="dk-in"><span class="dk-kicker">Proof</span><h2 class="dk-title">The engine already does a job customers pay for</h2><div class="dk-stats dk-cols-4"><div class="dk-stat"><b>+25%</b><span>revenue with no new hires</span><small>Seattle fireplace repair company</small></div><div class="dk-stat"><b>−70%</b><span>time spent on admin</span><small>Same company</small></div><div class="dk-stat"><b>+12%</b><span>more bids won</span><small>Commercial construction firm</small></div><div class="dk-stat"><b>+40%</b><span>vendor engagement from automated follow-ups</span><small>Supplier-diversity consultancy</small></div></div><p class="dk-note">Customers on the earlier version use it for prospecting and follow-ups: the same engine that now runs any request across sixteen apps. Every app exists because a paying customer asked for it.</p></div><footer class="dk-foot"><span>16Ahead · Taliferro Tech</span><span>5 / 11</span></footer></section><section class="dk-slide dk-statement" aria-label="Slide 6: A policy change nearly ended us. It showed us the engine is the product."><div class="dk-in"><span class="dk-kicker">What we learned the hard way</span><h2 class="dk-big">A policy change nearly ended us. It showed us the engine is the product.</h2><p class="dk-lede">Our early customers were concentrated in supplier-diversity consulting. When federal programs were rolled back, most of them closed. The ones who stayed kept the engine running for them every day, so we rebuilt it to take any request, not any one industry&#x27;s.</p></div><footer class="dk-foot"><span>16Ahead · Taliferro Tech</span><span>6 / 11</span></footer></section><section class="dk-slide dk-stats" aria-label="Slide 7: A $12.6B market, counted from the bottom up"><div class="dk-in"><span class="dk-kicker">Market</span><h2 class="dk-title">A $12.6B market, counted from the bottom up</h2><div class="dk-stats dk-cols-3"><div class="dk-stat"><b>$12.6B</b><span>a year: every eligible US employer firm at our list prices</span></div><div class="dk-stat"><b>1%</b><span>our target share, about $126M a year in revenue</span></div><div class="dk-stat"><b>6.4M</b><span>US firms with 1–999 employees (Census Bureau, 2022)</span></div></div><p class="dk-note">US employer firms from the Census Bureau&#x27;s Statistics of U.S. Businesses (2022) multiplied by our list prices. Not counted: businesses with no employees, firms with 1,000+ employees, and everything outside the US.</p></div><footer class="dk-foot"><span>16Ahead · Taliferro Tech</span><span>7 / 11</span></footer></section><section class="dk-slide dk-compare" aria-label="Slide 8: Every other AI tool does one job. 16Ahead runs sixteen as one."><div class="dk-in"><span class="dk-kicker">Competition</span><h2 class="dk-title">Every other AI tool does one job. 16Ahead runs sixteen as one.</h2><div class="dk-rows"><div class="dk-row"><b>Chat assistants</b><span>ChatGPT and others answer and draft. A person still carries the work into every other tool.</span></div><div class="dk-row"><b>Automation tools</b><span>Zapier, Make: connect apps, but someone has to design and maintain every workflow.</span></div><div class="dk-row"><b>AI sales reps</b><span>11x, Artisan, Regie.ai, AiSDR: one job, cold outreach for sales teams, from about $250 to $3,750+ a month.</span></div><div class="dk-row is-us"><b>16Ahead</b><span>You ask in plain words. It plans the work, runs it across sixteen apps and brings back a complete result to approve. $99 a month.</span></div></div></div><footer class="dk-foot"><span>16Ahead · Taliferro Tech</span><span>8 / 11</span></footer></section><section class="dk-slide dk-plans" aria-label="Slide 9: Subscriptions in three plans that grow with the customer"><div class="dk-in"><span class="dk-kicker">Business model</span><h2 class="dk-title">Subscriptions in three plans that grow with the customer</h2><div class="dk-cards dk-cols-3"><div class="dk-card"><span class="dk-kicker">Single app</span><b class="dk-price">$4.99–$19.99 a month</b><p>Anyone who wants one job done, such as outreach, social posts or documents. The low-cost way in.</p></div><div class="dk-card"><span class="dk-kicker">16Ahead suite</span><b class="dk-price">$99 a month</b><p>Founders, owners and teams who want the work carried across every app. Where our customers are today.</p></div><div class="dk-card"><span class="dk-kicker">Enterprise</span><b class="dk-price">$5,000 a month</b><p>A dedicated environment across departments, with roles, reports and its own data flows. Where we grow next.</p></div></div><p class="dk-note">Add-ons such as extra contacts. Affiliates earn 15% of Enterprise payments, a referral channel for Enterprise.</p></div><footer class="dk-foot"><span>16Ahead · Taliferro Tech</span><span>9 / 11</span></footer></section><section class="dk-slide dk-team" aria-label="Slide 10: Operators who lived the problem"><div class="dk-in"><span class="dk-kicker">Team</span><h2 class="dk-title">Operators who lived the problem</h2><div class="dk-cards dk-cols-4"><div class="dk-card"><h3>Tyrone Showers</h3><span class="dk-role">Co-founder and Chairman</span><p>Decades leading data and systems work for AT&amp;T, Accenture, Johnson &amp; Johnson and public agencies.</p></div><div class="dk-card"><h3>Vikki Owens</h3><span class="dk-role">Co-founder and Strategic Advisor</span><p>Certified Scrum Master and PMP who has delivered government and enterprise projects.</p></div><div class="dk-card"><h3>Ted Freeman</h3><span class="dk-role">President</span></div><div class="dk-card"><h3>Booker Showers</h3><span class="dk-role">Chief Technical Advisor</span></div></div></div><footer class="dk-foot"><span>16Ahead · Taliferro Tech</span><span>10 / 11</span></footer></section><section class="dk-slide dk-close" aria-label="Slide 11: The investor room"><div class="dk-in"><span class="dk-kicker">Next step</span><h2 class="dk-big">The investor room</h2><p class="dk-lede">The terms, financials from our filed returns, the independent valuation and the cap table, behind a personal access code.</p><p class="dk-cta">Ask for access: info@taliferro.tech</p><p class="dk-meta">Tyrone Showers, Co-founder and Chairman</p></div><footer class="dk-foot"><span>16Ahead · Taliferro Tech</span><span>11 / 11</span></footer></section></body></html>

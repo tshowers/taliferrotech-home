@@ -1,0 +1,365 @@
+{
+  "_readme": "Everything the investor room shows. Server-side only: this file ships with the investorRoom function, never with Hosting. null hides a tile, row or section. Edit, then redeploy: firebase deploy --only functions:investor-room --project taliferro-de66f. Sources: the October 23, 2026 bank financial package (numbers), the September 2026 valuation assessment (valuation, ownership, risks), the Stripe catalog (prices).",
+  "updatedAt": "2026-11-11",
+  "ndaVersion": "2026-11-11",
+  "mailFrom": "info@taliferro.tech",
+  "defaultContact": "tyrone",
+  "contacts": {
+    "tyrone": {
+      "name": "Tyrone Showers",
+      "title": "Co-founder and Chairman",
+      "email": "info@taliferro.tech",
+      "bookingUrl": ""
+    }
+  },
+  "terms": {
+    "raising": "$1.5M",
+    "instrument": "SAFE",
+    "valuationCap": "$30M",
+    "minimumCheck": "$25,000",
+    "targetClose": "Dec 30, 2026"
+  },
+  "videos": [
+    {
+      "id": "angel",
+      "title": "For angel investors",
+      "file": "todd-docs-angel.mp4",
+      "length": "1:49",
+      "presenter": "Tyrone Showers, Co-founder"
+    },
+    {
+      "id": "seed",
+      "title": "For seed investors",
+      "file": "todd-docs-investor.mp4",
+      "length": "2:04",
+      "presenter": "Tyrone Showers, Co-founder"
+    }
+  ],
+  "videoPoster": "/img/general/investor-poster.jpg",
+  "numbers": {
+    "revenueByYear": [
+      {
+        "label": "2023",
+        "value": 60600
+      },
+      {
+        "label": "2024",
+        "value": 81400
+      },
+      {
+        "label": "2025",
+        "value": 0,
+        "note": "Building the platform"
+      },
+      {
+        "label": "2026 YTD",
+        "value": 38000,
+        "note": "Invoiced to Sept 30"
+      }
+    ],
+    "revenueNote": "2023 and 2024 are gross receipts from filed Form 1065 returns. In 2025 we paused client work to build the platform. 2026 is revenue invoiced through September 30, from internal records and unaudited.",
+    "stats": [
+      {
+        "label": "Customers invoiced in 2026",
+        "value": "3"
+      },
+      {
+        "label": "Company debt",
+        "value": "$0"
+      },
+      {
+        "label": "Reinvested in R&D, 2023 and 2024",
+        "value": "$74,015"
+      }
+    ]
+  },
+  "portfolio": {
+    "lede": "16Ahead is many products on one platform. Each app is priced and sold on its own, and every app runs on the same engine, so a new product doesn't need a new backend. The independent assessment values the company on that basis: platform plus portfolio.",
+    "pricing": [
+      {
+        "label": "Single app",
+        "value": "$4.99–$19.99",
+        "unit": "per month"
+      },
+      {
+        "label": "16Ahead suite",
+        "value": "$99",
+        "unit": "per month"
+      },
+      {
+        "label": "Enterprise",
+        "value": "$5,000",
+        "unit": "per month"
+      }
+    ],
+    "apps": [
+      {
+        "name": "General Assistant",
+        "platforms": "Web",
+        "glyph": "ask-todd.png",
+        "tint": "green"
+      },
+      {
+        "name": "Marketing Assistant",
+        "platforms": "Web · iOS in development",
+        "glyph": "maya.png",
+        "tint": "green",
+        "price": "$4.99/mo"
+      },
+      {
+        "name": "Find",
+        "platforms": "Web · iOS",
+        "glyph": "find.svg",
+        "tint": "blue"
+      },
+      {
+        "name": "Network",
+        "platforms": "Web · iOS",
+        "glyph": "network.png",
+        "tint": "violet",
+        "price": "$9.99/mo"
+      },
+      {
+        "name": "Moves",
+        "platforms": "Web · iOS in development",
+        "glyph": "moves.png",
+        "tint": "blue",
+        "price": "$19.99/mo"
+      },
+      {
+        "name": "Outreach",
+        "platforms": "Web · iOS",
+        "glyph": "outreach.png",
+        "tint": "blue",
+        "price": "$19.99/mo"
+      },
+      {
+        "name": "Pulse",
+        "platforms": "Web · iOS",
+        "glyph": "pulse.png",
+        "tint": "pink",
+        "price": "$7.99/mo"
+      },
+      {
+        "name": "Docs",
+        "platforms": "Web · iOS",
+        "glyph": "docs.png",
+        "tint": "blue",
+        "price": "$19.99/mo"
+      },
+      {
+        "name": "Social",
+        "platforms": "Web · iOS planned",
+        "glyph": "social.png",
+        "tint": "cyan",
+        "price": "$4.99/mo"
+      },
+      {
+        "name": "SayIt",
+        "platforms": "Web in development · iOS planned",
+        "glyph": "sayit.png",
+        "tint": "pink"
+      },
+      {
+        "name": "Lead Vault",
+        "platforms": "Web",
+        "glyph": "lead-vault.png",
+        "tint": "yellow"
+      },
+      {
+        "name": "Email Creator",
+        "platforms": "Web",
+        "glyph": "email-creator.svg",
+        "tint": "yellow"
+      },
+      {
+        "name": "Email Signature",
+        "platforms": "Web",
+        "glyph": "email-signature.png",
+        "tint": "violet"
+      },
+      {
+        "name": "Image Creator",
+        "platforms": "Web",
+        "glyph": "image-creator.svg",
+        "tint": "cyan"
+      }
+    ]
+  },
+  "acquisition": {
+    "lede": "What a buyer or a later investor checks first.",
+    "items": [
+      {
+        "title": "No company debt",
+        "value": "$0",
+        "detail": "No loans, lines of credit, leases or company card balances as of September 30, 2026."
+      },
+      {
+        "title": "Simple ownership",
+        "value": "2 founders",
+        "detail": "Tyrone Showers and Vikki Owens hold 49.39% each. Twelve supporters hold 1.23% combined after converting at an $18M valuation. Conversion agreements are being signed."
+      },
+      {
+        "title": "Funded without loans",
+        "value": "$440,100",
+        "detail": "Contributed by the founders and 12 supporters, with no repayment terms."
+      },
+      {
+        "title": "One platform, company-owned",
+        "value": "1 codebase",
+        "detail": "Every app runs on the shared TODD platform. All products and code are owned by Taliferro Tech, LLC."
+      },
+      {
+        "title": "Independent valuation",
+        "value": "$18M–$30M",
+        "detail": "Indicative range on a platform-plus-portfolio basis, September 2026. Not an audited appraisal."
+      }
+    ]
+  },
+  "risks": [
+    {
+      "title": "Revenue is early",
+      "detail": "2026 revenue is $38,000 invoiced to three customers, and 74% of it comes from two of them."
+    },
+    {
+      "title": "Sales are founder-led",
+      "detail": "We haven't yet shown a repeatable way to win customers without the founders selling."
+    },
+    {
+      "title": "A new category",
+      "detail": "Customers understand a single app faster than a platform, so part of the job is education."
+    },
+    {
+      "title": "Focus",
+      "detail": "Many apps compete for a small team's time. The raise is meant to fund that focus."
+    },
+    {
+      "title": "Key people",
+      "detail": "The platform depends on its lead developer. A written succession plan names a successor and is being completed."
+    }
+  ],
+  "documents": [
+    {
+      "id": "deck",
+      "title": "Investor deck",
+      "detail": "13 slides · PDF stamped with your name",
+      "file": "docs/deck/investor-deck.pdf",
+      "action": "download",
+      "stamp": true,
+      "icon": "file"
+    },
+    {
+      "id": "valuation",
+      "title": "Independent valuation assessment",
+      "detail": "September 2026 · evaluator not named · stamped with your name",
+      "file": "docs/valuation-assessment-2026-09.pdf",
+      "action": "download",
+      "stamp": true,
+      "icon": "shield"
+    },
+    {
+      "id": "cap-table",
+      "title": "Cap table",
+      "detail": "Ownership after the supporter conversion at the $18M valuation · stamped",
+      "file": "docs/cap-table-2026-09.pdf",
+      "action": "download",
+      "stamp": true,
+      "icon": "pie"
+    },
+    {
+      "id": "financials",
+      "title": "Financial summary",
+      "detail": "Tax-return history, balance sheet at 9/30/2026 (preliminary), receivables and debt schedule · stamped",
+      "file": "docs/financial-summary-2026-09.pdf",
+      "action": "download",
+      "stamp": true,
+      "icon": "sheet"
+    },
+    {
+      "id": "seed-video",
+      "title": "Video for seed investors",
+      "detail": "2:04 · plays above",
+      "action": "watch",
+      "video": "seed",
+      "icon": "film"
+    },
+    {
+      "id": "tax-returns",
+      "title": "Business tax returns, 2023 and 2024",
+      "detail": "Filed Form 1065 returns",
+      "action": "request",
+      "icon": "file"
+    },
+    {
+      "id": "operating-agreement",
+      "title": "Operating agreement",
+      "detail": "Taliferro Tech, LLC",
+      "action": "request",
+      "icon": "file"
+    },
+    {
+      "id": "references",
+      "title": "Customer references",
+      "detail": "Introductions on request",
+      "action": "request",
+      "icon": "user"
+    }
+  ],
+  "deck": {
+    "pdf": "deck",
+    "slides": [
+      {
+        "img": "docs/deck/slides/01.jpg",
+        "title": "The ask"
+      },
+      {
+        "img": "docs/deck/slides/02.jpg",
+        "title": "What 16Ahead does"
+      },
+      {
+        "img": "docs/deck/slides/03.jpg",
+        "title": "See it work"
+      },
+      {
+        "img": "docs/deck/slides/04.jpg",
+        "title": "Where we are today"
+      },
+      {
+        "img": "docs/deck/slides/05.jpg",
+        "title": "Customer history"
+      },
+      {
+        "img": "docs/deck/slides/06.jpg",
+        "title": "Proof"
+      },
+      {
+        "img": "docs/deck/slides/07.jpg",
+        "title": "Pricing and business model"
+      },
+      {
+        "img": "docs/deck/slides/08.jpg",
+        "title": "Market"
+      },
+      {
+        "img": "docs/deck/slides/09.jpg",
+        "title": "Product and roadmap"
+      },
+      {
+        "img": "docs/deck/slides/10.jpg",
+        "title": "Competition"
+      },
+      {
+        "img": "docs/deck/slides/11.jpg",
+        "title": "Milestones"
+      },
+      {
+        "img": "docs/deck/slides/12.jpg",
+        "title": "Ownership and structure"
+      },
+      {
+        "img": "docs/deck/slides/13.jpg",
+        "title": "Risks"
+      }
+    ]
+  }
+}

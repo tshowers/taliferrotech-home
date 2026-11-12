@@ -803,24 +803,217 @@ a.mtile:hover { background: var(--surface); }
   .legal .display--md { font-size: 40px; }
 }
 
-/* Investor room (/investor-room) */
-.room__gate { display: flex; flex-wrap: wrap; gap: 12px; max-width: 520px; }
-.room__field {
-  flex: 1; min-width: 220px; height: 52px; padding: 0 18px;
-  display: flex; align-items: center; gap: 10px; border-radius: 999px; background: var(--surface); color: var(--muted);
+/* Investor room (/investor-room). R0 locked entry + R1 room, Claude Design
+   handoff Nov 2026. The room's blue CTA is the one accent the design adds. */
+.iroom { --accent: #2f6bff; --accent-hover: #1f55e0; --card: var(--bg); max-width: 1280px; margin: 0 auto; width: 100%; }
+.iroom[data-state="checking"] .iroom__lock { visibility: hidden; }
+.iroom[data-state="open"] .iroom__lock { display: none; }
+.iroom .iroom__kicker { display: block; font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+
+/* R0 */
+.iroom__lock { display: grid; grid-template-columns: 1fr 460px; gap: 64px; align-items: center; padding: 40px 64px 72px; }
+.iroom__lockcopy { display: flex; flex-direction: column; gap: 22px; }
+.iroom__checks { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-direction: column; gap: 14px; }
+.iroom__checks li { display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600; }
+.iroom__checks .i { color: var(--t-green-fg); }
+.iroom__card {
+  display: flex; flex-direction: column; gap: 14px; padding: 32px; border-radius: 28px;
+  background: var(--card); box-shadow: var(--shadow), 0 0 0 1px var(--surface2);
 }
-.room__field input { flex: 1; min-width: 0; height: 100%; border: 0; outline: 0; background: none; font: inherit; font-size: 16px; color: var(--text); }
-.room__field input::placeholder { color: var(--muted); }
-.room__field:focus-within { outline: 2px solid var(--text); outline-offset: 2px; }
-.room__gate[hidden] { display: none; }
-.room__gate .btn:disabled { opacity: .6; cursor: default; }
-.room__videos { gap: 48px; }
-.room__videos[hidden] { display: none; }
-.room__video { display: flex; flex-direction: column; gap: 16px; }
-.room__video video { width: 100%; aspect-ratio: 16 / 9; border-radius: 24px; background: #000; }
+.iroom__locktile { width: 52px; height: 52px; border-radius: 16px; display: inline-flex; align-items: center; justify-content: center; background: var(--text); color: var(--bg); margin-bottom: 4px; }
+.iroom__card h2 { font-size: 24px; letter-spacing: -0.02em; }
+.iroom__help { font-size: 15px; color: var(--muted); line-height: 1.5; }
+.iroom__code {
+  height: 56px; padding: 0 22px; border: 0; border-radius: 999px; background: var(--surface);
+  font: inherit; font-size: 17px; letter-spacing: .08em; color: var(--text); outline: none;
+}
+.iroom__code:focus { box-shadow: 0 0 0 2px var(--accent); }
+.iroom__error { font-size: 14px; color: var(--t-pink-fg); min-height: 0; }
+.iroom__error:empty { display: none; }
+.iroom__agree { display: flex; align-items: flex-start; gap: 10px; font-size: 15px; line-height: 1.4; cursor: pointer; }
+.iroom__agree input { width: 20px; height: 20px; margin: 0; accent-color: var(--accent); flex: none; }
+.iroom__enter {
+  height: 54px; border: 0; border-radius: 999px; background: var(--accent); color: #fff;
+  font: inherit; font-size: 17px; font-weight: 700; cursor: pointer;
+}
+.iroom__enter:hover:not(:disabled) { background: var(--accent-hover); }
+.iroom__enter:disabled { opacity: .45; cursor: default; }
+.iroom__noaccess { text-align: center; font-size: 15px; color: var(--muted); }
+.iroom__noaccess a { color: var(--accent); font-weight: 700; }
+
+/* R1 shared */
+#room-app { display: flex; flex-direction: column; gap: 56px; padding: 24px 64px 0; }
+#room-app[hidden] { display: none; }
+.iroom__sec { display: flex; flex-direction: column; gap: 12px; }
+.iroom__sec > .h2 { margin-bottom: 8px; }
+.iroom__lede { font-size: 17px; line-height: 1.55; color: var(--muted); max-width: 760px; margin-bottom: 8px; }
+.iroom__note { font-size: 13px; line-height: 1.5; color: var(--muted); }
+.iroom__small { font-size: 13px; line-height: 1.5; color: var(--muted); }
+.iroom__panel { padding: 24px; border-radius: 28px; background: var(--surface); }
+.iroom__btn {
+  height: 48px; padding: 0 22px; border: 0; border-radius: 999px; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: inherit; font-size: 15px; font-weight: 700; cursor: pointer;
+}
+.iroom__btn--accent { background: var(--accent); color: #fff; }
+.iroom__btn--accent:hover { background: var(--accent-hover); }
+.iroom__btn--dark { background: var(--text); color: var(--bg); }
+.iroom__btn:disabled { opacity: .6; cursor: default; }
+.iroom__pill {
+  flex: none; height: 36px; padding: 0 14px; border: 0; border-radius: 999px; display: inline-flex; align-items: center; gap: 6px;
+  background: var(--card); color: var(--text); font: inherit; font-size: 13px; font-weight: 700; cursor: pointer;
+}
+.iroom__pill:hover { box-shadow: 0 0 0 1px var(--surface2); }
+.iroom__link { padding: 0; border: 0; background: none; font: inherit; font-size: 13px; font-weight: 700; color: var(--text); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+
+/* Welcome */
+.iroom__welcome { display: grid; grid-template-columns: 1fr 360px; gap: 32px; align-items: start; }
+.iroom__hello { display: flex; flex-direction: column; gap: 16px; }
+.iroom__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; font-size: 13px; color: var(--muted); }
+.iroom__meta .tag { font-size: 11px; padding: 5px 12px; }
+.iroom__signout { margin-left: auto; padding: 0; border: 0; background: none; display: inline-flex; align-items: center; gap: 6px; font: inherit; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; }
+.iroom__signout:hover { color: var(--text); }
+.iroom__contact { display: flex; flex-direction: column; gap: 14px; padding: 22px; border-radius: 28px; background: var(--surface); }
+.iroom__person { display: flex; align-items: center; gap: 12px; }
+.iroom__person > span:last-child { display: flex; flex-direction: column; gap: 2px; }
+.iroom__person small { font-size: 13px; color: var(--muted); }
+.iroom__avatar { width: 44px; height: 44px; flex: none; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--text); color: var(--bg); font-size: 14px; font-weight: 800; }
+
+/* Key terms */
+.iroom__terms { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 10px; padding: 10px; border-radius: 28px; background: var(--surface); margin-top: -24px; }
+.iroom__term { display: flex; flex-direction: column; gap: 10px; padding: 20px 22px; border-radius: 22px; background: var(--card); }
+.iroom__term b { font-size: 30px; letter-spacing: -0.03em; line-height: 1; }
+
+/* Video */
+.iroom__videogrid { display: grid; grid-template-columns: 1fr 340px; gap: 16px; }
+.iroom__player { position: relative; aspect-ratio: 16 / 9; border-radius: 24px; overflow: hidden; background: #000; }
+.iroom__player video { width: 100%; height: 100%; display: block; object-fit: cover; background: #000; }
+.iroom__player.is-playing video { object-fit: contain; }
+.iroom__overlay {
+  position: absolute; inset: 0; display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; padding: 22px;
+  background: linear-gradient(to top, rgba(15, 17, 21, .7), rgba(15, 17, 21, 0) 45%);
+}
+.iroom__player.is-playing .iroom__overlay { display: none; }
+.iroom__presenter { color: #fff; font-size: 17px; font-weight: 700; }
+.iroom__play { width: 72px; height: 72px; flex: none; border: 0; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; background: var(--accent); color: #fff; cursor: pointer; box-shadow: 0 10px 30px rgba(47, 107, 255, .45); }
+.iroom__play:hover { background: var(--accent-hover); }
+.iroom__list { display: flex; flex-direction: column; gap: 6px; padding: 20px; border-radius: 28px; background: var(--surface); }
+.iroom__list .iroom__kicker { margin-bottom: 6px; }
+.iroom__chapter { display: flex; gap: 14px; align-items: baseline; padding: 12px; border: 0; border-radius: 16px; background: none; text-align: left; font: inherit; font-size: 16px; font-weight: 600; color: var(--text); cursor: pointer; }
+.iroom__chapter span { flex: none; min-width: 36px; font-size: 14px; font-weight: 700; color: var(--accent); }
+.iroom__chapter.is-on, .iroom__chapter:hover { background: var(--card); }
+.iroom__list .iroom__note { margin-top: auto; padding-top: 12px; }
+
+/* Deck */
+.iroom__sechead { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 12px; margin-bottom: 8px; }
+.iroom__sechead .iroom__kicker { margin-bottom: 12px; }
+.iroom__secactions { display: flex; gap: 8px; }
+.iroom__pill--surface { background: var(--surface); height: 40px; padding: 0 16px; }
+.iroom__decktray { display: flex; flex-direction: column; gap: 16px; padding: 24px; border-radius: 28px; background: var(--surface); }
+.iroom__stage { position: relative; display: flex; justify-content: center; outline: none; border-radius: 18px; }
+.iroom__stage:focus-visible { box-shadow: 0 0 0 2px var(--accent); }
+.iroom__slide { width: 100%; max-width: 960px; aspect-ratio: 16 / 9; border-radius: 16px; background: #fff; box-shadow: var(--tile-shadow); }
+.iroom__stage:fullscreen { align-items: center; background: #0c0e13; border-radius: 0; }
+.iroom__stage:fullscreen .iroom__slide { max-width: none; width: auto; height: auto; max-height: 100vh; max-width: 100vw; border-radius: 0; }
+.iroom__nav {
+  position: absolute; top: 50%; transform: translateY(-50%); z-index: 1; width: 44px; height: 44px; border: 0; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center; background: var(--card); color: var(--text); box-shadow: var(--tile-shadow); cursor: pointer;
+}
+.iroom__nav--prev { left: 4px; }
+.iroom__nav--next { right: 4px; }
+.iroom__thumbs { display: flex; gap: 12px; overflow-x: auto; padding: 4px 2px 6px; scroll-snap-type: x proximity; }
+.iroom__thumb { flex: none; width: 132px; padding: 0; border: 0; background: none; text-align: left; font: inherit; color: var(--text); cursor: pointer; scroll-snap-align: start; }
+.iroom__thumb img { display: block; width: 132px; aspect-ratio: 16 / 9; border-radius: 8px; background: #fff; box-shadow: 0 0 0 1px var(--surface2); }
+.iroom__thumb.is-on img { box-shadow: 0 0 0 2px var(--accent); }
+.iroom__thumb span { display: block; margin-top: 6px; font-size: 12px; font-weight: 600; line-height: 1.3; }
+.iroom__dots { font-size: 13px; color: var(--muted); text-align: center; }
+
+/* Numbers */
+.iroom__numgrid { display: grid; grid-template-columns: 1fr 340px; gap: 16px; }
+.iroom__panelhead { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; }
+.iroom__panelhead h3 { font-size: 19px; letter-spacing: -0.01em; }
+.iroom__bars { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 16px; height: 240px; align-items: end; margin-bottom: 16px; }
+.iroom__bar { height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: stretch; gap: 8px; text-align: center; }
+.iroom__barval { font-size: 14px; font-weight: 700; }
+.iroom__barfill { display: block; min-height: 0; border-radius: 14px 14px 6px 6px; background: var(--accent); }
+.iroom__barfill.is-zero { height: 3px !important; background: var(--surface2); }
+.iroom__barlab { font-size: 14px; font-weight: 600; }
+.iroom__bar small { margin-top: -6px; font-size: 12px; color: var(--muted); }
+.iroom__stats { display: flex; flex-direction: column; }
+.iroom__stat { display: flex; flex-direction: column; gap: 8px; padding: 18px 0; border-top: 1px solid var(--surface2); }
+.iroom__stat:first-child { border-top: 0; padding-top: 4px; }
+.iroom__stat b { font-size: 32px; letter-spacing: -0.03em; line-height: 1; }
+
+/* Portfolio */
+.iroom__prices { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; padding: 10px; border-radius: 28px; background: var(--surface); }
+.iroom__price { display: flex; flex-direction: column; gap: 6px; padding: 20px 22px; border-radius: 22px; background: var(--card); }
+.iroom__price b { font-size: 28px; letter-spacing: -0.03em; line-height: 1.05; }
+.iroom__price small { font-size: 13px; color: var(--muted); }
+.iroom__apps { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 10px; margin-top: 6px; }
+.iroom__app { display: flex; align-items: center; gap: 12px; padding: 14px; border-radius: 22px; background: var(--surface); }
+.iroom__app > span:last-child { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.iroom__app b { font-size: 15px; }
+.iroom__app small { font-size: 12px; color: var(--muted); }
+
+/* Acquisition + risks */
+.iroom__facts, .iroom__risks { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px; }
+.iroom__fact, .iroom__risk { display: flex; flex-direction: column; gap: 8px; padding: 22px; border-radius: 24px; background: var(--surface); }
+.iroom__fact b { font-size: 28px; letter-spacing: -0.03em; line-height: 1.05; }
+.iroom__fact h3, .iroom__risk h3 { font-size: 17px; letter-spacing: -0.01em; }
+.iroom__fact p, .iroom__risk p { font-size: 14px; line-height: 1.5; color: var(--muted); }
+.iroom__risk { background: none; box-shadow: inset 0 0 0 1px var(--surface2); }
+
+/* Documents, ask, interest */
+.iroom__docgrid { display: grid; grid-template-columns: 1fr 380px; gap: 16px; align-items: start; }
+.iroom__docgrid > div { display: flex; flex-direction: column; gap: 12px; }
+.iroom__docs { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
+.iroom__doc { display: flex; align-items: center; gap: 14px; padding: 14px 16px; border-radius: 22px; background: var(--surface); }
+.iroom__docicon { width: 44px; height: 44px; flex: none; border-radius: 14px; display: inline-flex; align-items: center; justify-content: center; background: var(--card); }
+.iroom__doctext { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+.iroom__doctext b { font-size: 16px; }
+.iroom__doctext small { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.iroom__side { display: flex; flex-direction: column; gap: 16px; }
+.iroom__ask, .iroom__interest { display: flex; flex-direction: column; gap: 12px; padding: 22px; border-radius: 28px; background: var(--surface); }
+.iroom__ask h3, .iroom__interest h3 { font-size: 19px; letter-spacing: -0.01em; }
+.iroom__ask textarea { padding: 14px 16px; border: 0; border-radius: 18px; background: var(--card); font: inherit; font-size: 15px; color: var(--text); resize: vertical; outline: none; }
+.iroom__ask textarea:focus, .iroom__amount:focus-within { box-shadow: 0 0 0 2px var(--accent); }
+.iroom__qs { margin: 8px 0 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.iroom__qs[hidden] { display: none; }
+.iroom__qs li { display: flex; flex-direction: column; gap: 6px; padding: 12px 14px; border-radius: 16px; background: var(--card); font-size: 14px; line-height: 1.45; }
+.iroom__interest { background: var(--t-green); }
+.iroom__interest p { font-size: 14px; line-height: 1.5; color: var(--t-green-fg); }
+.iroom__interest .iroom__small { color: var(--t-green-fg); }
+.iroom__amount { height: 52px; padding: 0 18px; border-radius: 999px; background: var(--card); display: flex; align-items: center; gap: 6px; font-size: 17px; font-weight: 700; }
+.iroom__amount input { flex: 1; min-width: 0; height: 100%; border: 0; background: none; outline: none; font: inherit; color: var(--text); }
+
+.iroom__foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; padding-top: 20px; border-top: 1px solid var(--surface2); font-size: 13px; color: var(--muted); }
+
+@media (max-width: 1080px) {
+  .iroom__lock { grid-template-columns: 1fr 400px; gap: 40px; padding: 24px 40px 56px; }
+  #room-app { padding: 24px 40px 0; }
+  .iroom__videogrid, .iroom__numgrid, .iroom__docgrid { grid-template-columns: 1fr; }
+}
 @media (max-width: 760px) {
-  .room__gate .btn { width: 100%; }
-  .room__video video { border-radius: 18px; }
+  .iroom__lock { grid-template-columns: 1fr; gap: 28px; padding: 12px 20px 48px; }
+  .iroom__lock .display { font-size: 48px; }
+  .iroom__card { padding: 24px; }
+  #room-app { gap: 44px; padding: 12px 20px 0; }
+  .iroom__welcome { grid-template-columns: 1fr; gap: 20px; }
+  .iroom__welcome .display--md { font-size: 44px; }
+  .iroom__terms { grid-template-columns: 1fr 1fr; margin-top: -16px; }
+  .iroom__term b { font-size: 24px; }
+  .iroom__player { border-radius: 18px; }
+  .iroom__play { width: 56px; height: 56px; }
+  .iroom__presenter { font-size: 14px; }
+  .iroom__bars { height: 200px; gap: 8px; grid-template-columns: repeat(4, 1fr); }
+  .iroom__barval { font-size: 12px; }
+  .iroom__doc { flex-wrap: wrap; }
+  .iroom__doc .iroom__pill { margin-left: 58px; }
+  .iroom__foot { flex-direction: column; }
+  .iroom__thumbs { display: none; }
+  .iroom__decktray { padding: 12px; }
+  .iroom__nav { width: 36px; height: 36px; }
+  .iroom__facts, .iroom__risks, .iroom__apps, .iroom__prices { grid-template-columns: minmax(0, 1fr); }
+  #room-app > *, .iroom__docgrid > * { min-width: 0; }
 }
 
 /* Inline link in a lede (/products: "the 16Ahead home"). */

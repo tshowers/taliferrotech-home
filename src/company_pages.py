@@ -3,6 +3,8 @@
 The roles are part-time and remote-friendly; applications go by email. Don't put
 product prices here - they change, and they have nothing to do with a job.
 """
+import hashlib
+from pathlib import Path
 from urllib.parse import quote
 
 VIDEO_ID = "EJ8Rrg8-wU8"
@@ -182,10 +184,12 @@ WHY_NOW = [
     ("The spend already exists", "Businesses already pay for this work through hires, agencies and software. 16Ahead does it for a subscription."),
 ]
 
-LOOKING_FOR = [
-    ("Investors", "People who back focused, capital-efficient teams and can help us reach the businesses that need follow-through, not just fund us."),
-    ("Strategic partners", "Organizations that serve businesses and want to offer them results, not another tool."),
-    ("Introductions", "To customers, channel partners and advisors who make the next step faster."),
+# Speaks to the investor directly (founders, Nov 2026). Keep each claim true and
+# figure-free on this public page; the numbers behind them live in the investor room.
+WHY_INVEST = [
+    ("A portfolio of bets", "16Ahead is sixteen products on one engine. Each app is priced and sold on its own, so one investment backs sixteen ways to win, and every app that grows makes the rest more valuable."),
+    ("Acquisition ready", "No debt, a simple ownership structure and one codebase. 16Ahead can be acquired whole, or its apps licensed or sold one at a time."),
+    ("Capital-efficient", "We reached a working product with paying customers on founder and supporter money, and no loans."),
 ]
 
 # (name, role, sketch in /img/team/). The 1024px originals sit beside the
@@ -198,6 +202,9 @@ TEAM = [
 ]
 
 
+# The closing panel is just "Let's talk." plus the button. The founders removed the
+# "Tell us who you are... full story, customer references and a time to meet" line
+# more than once (Nov 2026): don't add it, or any paragraph like it, back.
 def investors(icon, email, site):
     talk = f"mailto:{email}?subject={quote('Investor conversation')}&body={quote('Name:' + chr(10) + 'Firm / role:' + chr(10) + 'What you would like to talk about:' + chr(10))}"
     cards = lambda rows: "".join(f'<div class="feat"><h3>{t}</h3><p>{d}</p></div>' for t, d in rows)
@@ -234,9 +241,9 @@ def investors(icon, email, site):
   <div class="feats">{cards(WHY_NOW)}</div>
 </section>
 <section class="section section--narrow">
-  <span class="kicker">Who we want to talk to</span>
-  <h2 class="h2 h2--sm">Capital and connections that move us faster</h2>
-  <div class="feats">{cards(LOOKING_FOR)}</div>
+  <span class="kicker">Why invest</span>
+  <h2 class="h2 h2--sm">Sixteen ways to win, and a clean path to an exit</h2>
+  <div class="feats">{cards(WHY_INVEST)}</div>
 </section>
 <section class="section section--narrow">
   <span class="kicker">Leadership</span>
@@ -245,7 +252,7 @@ def investors(icon, email, site):
   <div class="feats">{people}</div>
 </section>
 <section class="panel panel--row">
-  <div class="panel__copy"><h2 class="h2 h2--sm">Let's talk.</h2><p>Tell us who you are and what you're looking for. We'll follow up with the full story, customer references and a time to meet.</p></div>
+  <div class="panel__copy"><h2 class="h2 h2--sm">Let's talk.</h2></div>
   <a class="btn btn--primary btn--lg" href="{talk}">{icon("mail")}Start a conversation</a>
 </section>'''
     return ("/investors", "investors.html", "Investors | Taliferro Tech",
@@ -254,27 +261,47 @@ def investors(icon, email, site):
 
 
 # ---------------------------------------------------------------- /investor-room
-# Password-gated videos for investors we've already talked to. The page holds no
-# video URLs: js/investor-room.js posts the password to /api/investor-room (the
-# investorRoom function in functions/), which returns two-hour signed links to
-# the private gs://taliferro-investor-room bucket. Noindex and out of the sitemap.
+# The private follow-up to /investors (Claude Design handoff, Nov 2026). This page
+# is only the locked entry (R0): nothing confidential is in the HTML or the JS.
+# js/investor-room.js signs in through /api/investor-room/* (the investorRoom
+# function in functions/), and only then fetches and renders the room (R1) from
+# functions/content/investor-room.json. Each investor has a personal code, made
+# with functions/admin.js. Noindex and out of the sitemap.
+
+ROOM_INCLUDES = [
+    "Key terms for the current raise",
+    "Financials from our filed returns and current balance sheet",
+    "The independent valuation and the cap table",
+    "A direct line to ask questions",
+]
+
 
 def investor_room(icon, email):
     ask = f"mailto:{email}?subject={quote('Investor room access')}"
-    body = f'''<section class="phero">
-  <div class="phero__copy">
+    js = Path(__file__).resolve().parent.parent / "public" / "js" / "investor-room.js"
+    ver = hashlib.sha256(js.read_bytes()).hexdigest()[:10] if js.exists() else "0"
+    includes = "".join(f'<li>{icon("check")}{t}</li>' for t in ROOM_INCLUDES)
+    body = f'''<div class="iroom" id="iroom" data-state="checking">
+<section class="iroom__lock" id="room-lock">
+  <div class="iroom__lockcopy">
     <span class="tag t-blue">Investors</span>
-    <h1 class="display display--md">Investor room</h1>
-    <p class="lede">Private videos for investors we're in conversation with. Enter the password from your invitation.</p>
-    <form class="room__gate" id="room-gate" autocomplete="off">
-      <label class="room__field">{icon("lock")}<input type="password" name="password" placeholder="Password" aria-label="Password" required autocomplete="current-password"></label>
-      <button class="btn btn--primary" type="submit">Open</button>
-    </form>
-    <p class="note" id="room-status" role="status"></p>
-    <p class="note">No password? <a href="{ask}">Ask us for access</a>.</p>
+    <h1 class="display">Investor room</h1>
+    <p class="lede">The terms, numbers and risks behind 16Ahead, for investors we're in conversation with.</p>
+    <ul class="iroom__checks">{includes}</ul>
   </div>
+  <form class="iroom__card" id="room-gate" autocomplete="off" novalidate>
+    <span class="iroom__locktile">{icon("lock", 22)}</span>
+    <h2>Enter your access code</h2>
+    <p class="iroom__help">It's in your invitation email. Each code is personal to you.</p>
+    <input class="iroom__code" type="password" name="code" placeholder="XXXX-XXXX-XXXX" aria-label="Access code" autocomplete="off" autocapitalize="characters" spellcheck="false" required>
+    <p class="iroom__error" id="room-status" role="alert"></p>
+    <label class="iroom__agree"><input type="checkbox" name="agree" required><span>I'll keep what's in this room confidential.</span></label>
+    <button class="iroom__enter" type="submit" disabled>Enter the room</button>
+    <p class="iroom__noaccess">No code? <a href="{ask}">Ask us for access</a></p>
+  </form>
 </section>
-<section class="section section--narrow room__videos" id="room-videos" hidden></section>
-<script src="/js/investor-room.js" defer></script>'''
+<div id="room-app" hidden></div>
+</div>
+<script src="/js/investor-room.js?v={ver}" defer></script>'''
     return ("/investor-room", "investor-room.html", "Investor room | Taliferro Tech",
-            "Private investor videos from Taliferro Tech.", body)
+            "Private investor room for Taliferro Tech.", body)

@@ -16,6 +16,7 @@ from urllib.parse import quote
 
 from affiliate_pages import pages as affiliate_pages
 from company_pages import careers, investor_room, investors
+from decks import teaser_page
 from legal_pages import pages as legal_pages
 from product_pages import PAGES
 
@@ -581,6 +582,8 @@ def main():
     pages[i_out] = page(i_path, i_title, i_desc, "", i_body, i_ld, standalone=True)
     r_path, r_out, r_title, r_desc, r_body = investor_room(icon, EMAIL)
     pages[r_out] = page(r_path, r_title, r_desc, "", r_body, robots="noindex,nofollow")
+    d_path, d_out, d_title, d_desc, d_body = teaser_page(icon, EMAIL, asset_version("css/deck.css"))
+    pages[d_out] = page(d_path, d_title, d_desc, "", d_body, robots="noindex,nofollow")  # unlisted: not in the sitemap
     legal = legal_pages(ADDRESS, PHONE_DISPLAY, PHONE_TEL)
     for path, out, title, desc, body in legal:
         pages[out] = page(path, title, desc, "", body)

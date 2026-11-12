@@ -105,10 +105,10 @@ def menu_config(on_home):
     here = "" if on_home else "/"
     items = [
         {"label": "What it is", "icon": "info", "url": f"{here}#what", "keywords": "about ai apps value who"},
+        {"label": "Who it's for", "icon": "users", "url": f"{here}#who", "keywords": "founders managers business development retail"},
         {"label": "See it work", "icon": "play", "url": f"{here}#work", "keywords": "examples use cases business launch campaign videos"},
         {"label": "Your morning", "icon": "sun", "url": f"{here}#morning", "keywords": "how it works day approve"},
-        {"label": "Why sixteen", "icon": "grid", "url": f"{here}#why", "keywords": "chess name pieces compass notes music hours bits"},
-        {"label": "Who it's for", "icon": "users", "url": f"{here}#who", "keywords": "founders managers business development retail"},
+        {"label": "Why 16?", "icon": "grid", "url": f"{here}#why", "keywords": "chess name pieces compass notes music hours bits"},
         {"label": "Enterprise", "icon": "building", "url": f"{here}#enterprise", "keywords": "organization teams company pricing"},
         {"label": "What's your mission?", "icon": "target", "url": f"{here}#mission", "keywords": "start sign up"},
     ]
@@ -265,6 +265,15 @@ def home():
   <div class="what__grid">{what}</div>
   </div>
 </section>
+<section class="who" id="who">
+  <div class="wrap who__in">
+    <div class="who__head">
+      <span class="eyebrow">Who it's for</span>
+      <h2 class="h2">For people who can't afford to miss the next move.</h2>
+    </div>
+    <div class="people">{people}</div>
+  </div>
+</section>
 <section class="overnight" id="work">
   <span id="overnight" aria-hidden="true"></span>
   <div class="wrap overnight__in">
@@ -305,23 +314,13 @@ def home():
 </section>
 <section class="wrap why" id="why">
   <div class="why__copy">
-    <span class="eyebrow">Why sixteen</span>
+    <span class="eyebrow">Why 16?</span>
     <h2 class="h2">Good players think a few moves ahead. 16Ahead thinks sixteen.</h2>
     <p>In chess, the player who sees further wins. Your competition is busy reacting to today. You'll already know what comes after it.</p>
   </div>
   <div class="ladder">{ladder}</div>
   <div class="sixteens">
-    <h3>Sixteen, everywhere</h3>
     <ul>{sixteens}</ul>
-  </div>
-</section>
-<section class="who" id="who">
-  <div class="wrap who__in">
-    <div class="who__head">
-      <span class="eyebrow">Who it's for</span>
-      <h2 class="h2">For people who can't afford to miss the next move.</h2>
-    </div>
-    <div class="people">{people}</div>
   </div>
 </section>
 <section class="wrap ent" id="enterprise">

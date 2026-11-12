@@ -110,11 +110,37 @@
               "value": "noindex, nofollow"
             }
           ]
+        },
+        {
+          "source": "/deck{,.html}",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=300, must-revalidate"
+            }
+          ]
+        },
+        {
+          "source": "/files/16ahead-investor-overview.pdf",
+          "headers": [
+            {
+              "key": "X-Robots-Tag",
+              "value": "noindex, nofollow"
+            },
+            {
+              "key": "Cache-Control",
+              "value": "public, max-age=300, must-revalidate"
+            }
+          ]
         }
       ],
       "rewrites": [
         {
-          "source": "/api/investor-room",
+          "source": "/api/investor-room{,/**}",
           "function": {
             "functionId": "investorRoom",
             "region": "us-central1"
@@ -236,8 +262,16 @@
       "ignore": [
         "node_modules",
         ".git",
-        "*.log"
+        "*.log",
+        ".secret.local",
+        "admin.js"
       ]
+    }
+  ],
+  "firestore": [
+    {
+      "database": "investor-room",
+      "rules": "firestore.investor-room.rules"
     }
   ]
 }
